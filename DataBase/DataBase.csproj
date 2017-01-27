@@ -57,6 +57,14 @@
     <Compile Include="Migrations\201701261332479_conactNameAdded.Designer.cs">
       <DependentUpon>201701261332479_conactNameAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701270749447_MetaContactIdAdded.cs" />
+    <Compile Include="Migrations\201701270749447_MetaContactIdAdded.Designer.cs">
+      <DependentUpon>201701270749447_MetaContactIdAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701270751085_MetaContactIdNullable.cs" />
+    <Compile Include="Migrations\201701270751085_MetaContactIdNullable.Designer.cs">
+      <DependentUpon>201701270751085_MetaContactIdNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -76,6 +84,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701261332479_conactNameAdded.resx">
       <DependentUpon>201701261332479_conactNameAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701270749447_MetaContactIdAdded.resx">
+      <DependentUpon>201701270749447_MetaContactIdAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701270751085_MetaContactIdNullable.resx">
+      <DependentUpon>201701270751085_MetaContactIdNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
