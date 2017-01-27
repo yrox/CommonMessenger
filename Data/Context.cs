@@ -11,5 +11,6 @@ namespace Data
         }
 
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<MetaContact> MetaContacts { get; set; }
     }
 }

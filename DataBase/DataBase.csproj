@@ -65,6 +65,10 @@
     <Compile Include="Migrations\201701270751085_MetaContactIdNullable.Designer.cs">
       <DependentUpon>201701270751085_MetaContactIdNullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701270903471_MetaContactEntityAdded.cs" />
+    <Compile Include="Migrations\201701270903471_MetaContactEntityAdded.Designer.cs">
+      <DependentUpon>201701270903471_MetaContactEntityAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -90,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701270751085_MetaContactIdNullable.resx">
       <DependentUpon>201701270751085_MetaContactIdNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701270903471_MetaContactEntityAdded.resx">
+      <DependentUpon>201701270903471_MetaContactEntityAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
