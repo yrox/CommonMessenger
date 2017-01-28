@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using Data.Entities;
 using Olga.Data.Interfaces;
 using WebApi.Hubs;
-using WebApi.Models;
 
 namespace WebApi.Controllers
 {
@@ -12,34 +12,38 @@ namespace WebApi.Controllers
 
         // GET: api/Contacts
         [HttpGet]
-        public IEnumerable<ContactModel> Get()//TODO GetAll
+        public IEnumerable<Contact> Get()//TODO: GetAll
         {
-            return new List<ContactModel>();
+            return new List<Contact>();
         }
 
         // GET: api/Contacts/5
         [HttpGet]
-        public ContactModel Get(int id)
+        public Contact Get(int id)
         {
-            return new ContactModel();
+            return UnitOfWork.Repository<Contact>().Find(id);
         }
 
         // POST: api/Contacts
         [HttpPost]
-        public void Insert([FromBody]string value)
+        public void Insert(Contact item)
         {
+            UnitOfWork.Repository<Contact>().Insert(item);
+            Hub.Clients.All.NewContactAdded(item);
         }
 
         // PUT: api/Contacts/5
         [HttpPut]
-        public void Update(int id, [FromBody]string value)
+        public void Update(Contact item)
         {
+            UnitOfWork.Repository<Contact>().Update(item);
         }
 
         // DELETE: api/Contacts/5
         [HttpDelete]
-        public void Delete(int id)
+        public void Delete(Contact item)
         {
+            UnitOfWork.Repository<Contact>().Delete(item);
         }
     }
 }

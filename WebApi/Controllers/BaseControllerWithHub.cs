@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.Http;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
 using Olga.Data.Interfaces;
