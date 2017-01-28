@@ -1,11 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.Owin;
+﻿using Microsoft.Owin;
 using Owin;
+using WebApi;
 
-[assembly: OwinStartup(typeof(WebApiAungularWithPushNoti.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 
-namespace WebApiAungularWithPushNoti
+namespace WebApi
 {
     public class Startup
     {
