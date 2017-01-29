@@ -4,9 +4,9 @@ using Olga.Data.Interfaces;
 
 namespace WebApi.Controllers
 {
-    public abstract class BaseEntityController<T> : BaseController where T : class, IEntity, new()
+    public class BaseEntityController<T> : BaseController where T : class, IEntity, new()
     {
-        protected BaseEntityController(IUnitOfWork unitOfWork) : base(unitOfWork) { }
+        public BaseEntityController(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
         // GET: api/Contacts
         [HttpGet]
