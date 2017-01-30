@@ -4,7 +4,7 @@ using NUnit.Framework;
 using Olga.Data;
 using WebApi.Controllers;
 
-namespace WebApi.Test.ControllersTests
+namespace WebApi.Tests.ControllersTests
 {
     [TestFixture]
     public class ContactsControllerWithHubTests

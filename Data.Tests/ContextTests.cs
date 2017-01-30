@@ -2,7 +2,7 @@
 using Data.Entities;
 using NUnit.Framework;
 
-namespace Data.Test
+namespace Data.Tests
 {
     [TestFixture]
     public class ContextTests

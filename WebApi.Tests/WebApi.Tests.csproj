@@ -96,7 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_StartTests\WebApiConfigTests.cs" />
-    <Compile Include="ControllersTests\BaseControllerTests.cs" />
+    <Compile Include="ControllersTests\BaseEntityControllerTests.cs" />
     <Compile Include="ControllersTests\ContactsControllerWithHubTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using NUnit.Framework;
 
-namespace WebApi.Test.App_StartTests
+namespace WebApi.Tests.App_StartTests
 {
     [TestFixture]
     public class WebApiConfigTests

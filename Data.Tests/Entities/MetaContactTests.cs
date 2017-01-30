@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Data.Entities;
 using NUnit.Framework;
 
-namespace Data.Test.Entities
+namespace Data.Tests.Entities
 {
     [TestFixture]
     public class MetaContactTests
