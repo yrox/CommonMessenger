@@ -6,6 +6,7 @@ using WebApi.Hubs;
 
 namespace WebApi.Controllers
 {
+    [RoutePrefix("api/Contacts")]
     public class ContactsControllerWithHub : BaseControllerWithHub<ContactsНub>
     {
         public ContactsControllerWithHub(IUnitOfWork unitOfWork) : base(unitOfWork) { }
