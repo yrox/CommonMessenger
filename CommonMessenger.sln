@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{98956285-7885-40E7-BA0E-C21171561F75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Test", "Data.Test\Data.Test.csproj", "{826B551D-4726-4552-AC1B-1358AC51D640}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Tests", "Data.Test\Data.Tests.csproj", "{826B551D-4726-4552-AC1B-1358AC51D640}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Test", "WebApi.Test\WebApi.Test.csproj", "{1C825FCB-DC3E-4711-B9D0-37E9A9ED2449}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Tests", "WebApi.Test\WebApi.Tests.csproj", "{1C825FCB-DC3E-4711-B9D0-37E9A9ED2449}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
