@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContextTests.cs" />
+    <Compile Include="Entities\ContactTests.cs" />
+    <Compile Include="Entities\MetaContactTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
