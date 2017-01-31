@@ -152,7 +152,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BaseControllerWithHub.cs" />
-    <Compile Include="Controllers\ContactsControllerWithHub.cs" />
+    <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\MetaContactController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -8,6 +8,7 @@ namespace WebApi.Controllers
     public abstract class BaseControllerWithHub<THub> : BaseController
         where THub : IHub
     {
+        protected BaseControllerWithHub() { }
         protected BaseControllerWithHub(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
         private Lazy<IHubContext> _hub = new Lazy<IHubContext>(

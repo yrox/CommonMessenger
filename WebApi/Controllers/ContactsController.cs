@@ -9,9 +9,10 @@ using WebApi.Hubs;
 namespace WebApi.Controllers
 {
     [RoutePrefix("api/contacts")]
-    public class ContactsControllerWithHub : BaseControllerWithHub<ContactsНub>
+    public class ContactsController : BaseControllerWithHub<ContactsНub>
     {
-        public ContactsControllerWithHub(IUnitOfWork unitOfWork) : base(unitOfWork) { }
+        public ContactsController() { }
+        public ContactsController(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
         [Route("")]
         [HttpGet]

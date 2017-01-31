@@ -10,6 +10,7 @@ namespace WebApi.Controllers
     [RoutePrefix("api/metacontacts")]
     public class MetaContactController : BaseController
     {
+        public MetaContactController() { }
         public MetaContactController(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
         [Route("")]

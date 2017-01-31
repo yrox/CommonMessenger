@@ -9,10 +9,10 @@ using WebApi.Controllers;
 namespace WebApi.Tests.ControllersTests
 {
     [TestFixture]
-    public class ContactsControllerWithHubTests
+    public class ContactsControllerTests
     {
         private Mock<UnitOfWork> _unitOfWorkMock;
-        private ContactsControllerWithHub _contactsController;
+        private ContactsController _contactsController;
 
         [SetUp]
         public void SetUp()
@@ -25,7 +25,7 @@ namespace WebApi.Tests.ControllersTests
             _unitOfWorkMock.Setup(x => x.Repository<Contact>().Insert(It.IsAny<Contact>())).Verifiable();
             _unitOfWorkMock.Setup(x => x.Repository<Contact>().Update(It.IsAny<Contact>())).Verifiable();
 
-            _contactsController = new ContactsControllerWithHub(_unitOfWorkMock.Object);
+            _contactsController = new ContactsController(_unitOfWorkMock.Object);
         }
 
         [Test]

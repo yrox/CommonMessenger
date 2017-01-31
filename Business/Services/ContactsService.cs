@@ -39,7 +39,7 @@ namespace Business.Services
 
         public void NewContactAdded(ContactDTO contact)
         {
-            _httpClient.PostAsJsonAsync("api/Contacts", contact);
+            _httpClient.PostAsJsonAsync("api/contacts", contact);
         }
 
     }
