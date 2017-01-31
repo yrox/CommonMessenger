@@ -96,7 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_StartTests\WebApiConfigTests.cs" />
-    <Compile Include="ControllersTests\BaseEntityControllerTests.cs" />
+    <Compile Include="ControllersTests\MetaContactControllerTests.cs" />
     <Compile Include="ControllersTests\ContactsControllerWithHubTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -111,6 +111,10 @@
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{9135745f-7fe2-4bb7-a547-b02d38dbbcb3}</Project>
       <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTOs\DTOs.csproj">
+      <Project>{f56599eb-3227-4240-98e0-7310ec249915}</Project>
+      <Name>DTOs</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebApi\WebApi.csproj">
       <Project>{98956285-7885-40e7-ba0e-c21171561f75}</Project>

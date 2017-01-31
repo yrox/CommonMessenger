@@ -1,4 +1,6 @@
-﻿using Data.Entities;
+﻿using System;
+using Data.Entities;
+using DTOs;
 using Moq;
 using NUnit.Framework;
 using Olga.Data;
@@ -32,13 +34,13 @@ namespace WebApi.Tests.ControllersTests
             var result = _contactsController.Get(1);
             _unitOfWorkMock.Verify(x => x.Repository<Contact>().Find(It.IsAny<int>()), Times.Once);
             Assert.NotNull(result);
-            Assert.IsInstanceOf<Contact>(result);
+            Assert.IsInstanceOf<ContactDTO>(result);
         }
 
         [Test]
         public void Insert_ShouldInsertEntity_Succeed()
         {
-            _contactsController.Insert(new Contact());
+            _contactsController.Insert(new ContactDTO());
             _unitOfWorkMock.Verify(x => x.Repository<Contact>(), Times.Once);
         }
 
@@ -46,14 +48,15 @@ namespace WebApi.Tests.ControllersTests
         [Test]
         public void Update_ShouldUpdatetEntity_Succeed()
         {
-            _contactsController.Update(new Contact());
+            var id = new Random().Next();
+            _contactsController.Update(id, new ContactDTO {Id = id});
             _unitOfWorkMock.Verify(x => x.Repository<Contact>().Update(It.IsAny<Contact>()), Times.Once);
         }
 
         [Test]
         public void Delete_ShouldDeleteEntity_Succeed()
         {
-            _contactsController.Delete(new Contact());
+            _contactsController.Delete(new ContactDTO());
             _unitOfWorkMock.Verify(x => x.Repository<Contact>().Delete(It.IsAny<Contact>()), Times.Once);
         }
     }

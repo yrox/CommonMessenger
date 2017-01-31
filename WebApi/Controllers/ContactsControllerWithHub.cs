@@ -29,24 +29,24 @@ namespace WebApi.Controllers
 
         [Route("")]
         [HttpPost]
-        public void Insert(Contact item)
+        public void Insert(ContactDTO item)
         {
-            UnitOfWork.Repository<Contact>().Insert(item);
+            UnitOfWork.Repository<Contact>().Insert(Mapper.Map<ContactDTO, Contact>(item));
             Hub.Clients.All.NewContactAdded(item);
         }
 
         [Route("{id:int}")]
         [HttpPut]
-        public void Update(int id, Contact item)
+        public void Update(int id, ContactDTO item)
         {
-            UnitOfWork.Repository<Contact>().Update(item);
+            UnitOfWork.Repository<Contact>().Update(Mapper.Map<ContactDTO, Contact>(item));
         }
 
         [Route("del")]
         [HttpDelete]
-        public void Delete(Contact item)
+        public void Delete(ContactDTO item)
         {
-            UnitOfWork.Repository<Contact>().Delete(item);
+            UnitOfWork.Repository<Contact>().Delete(Mapper.Map<ContactDTO, Contact>(item));
         }
     }
 }
