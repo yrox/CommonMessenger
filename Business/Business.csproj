@@ -54,12 +54,6 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Olga.Data">
-      <HintPath>..\dlls\Olga.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Olga.Data.Interfaces">
-      <HintPath>..\dlls\Olga.Data.Interfaces.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -92,11 +86,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ContactsService.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{9135745f-7fe2-4bb7-a547-b02d38dbbcb3}</Project>
-      <Name>Data</Name>
+    <ProjectReference Include="..\DTOs\DTOs.csproj">
+      <Project>{f56599eb-3227-4240-98e0-7310ec249915}</Project>
+      <Name>DTOs</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

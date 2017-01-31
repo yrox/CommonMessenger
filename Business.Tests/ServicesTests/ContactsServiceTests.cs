@@ -3,10 +3,10 @@
 namespace Business.Tests.ServicesTests
 {
     [TestFixture]
-    public class ContactsServiceTests
+    public class ContactsServiceTests//TODO
     {
         [Test]
-        public void NewContactAdded_ShouldPostContsct_Succeed()
+        public void NewContactAdded_ShouldPostContact_Succeed()
         {
             
         }

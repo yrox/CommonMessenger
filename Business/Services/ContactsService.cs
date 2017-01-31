@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
 using Business.Interfaces;
-using Data.Entities;
+using DTOs;
 
 namespace Business.Services
 {
@@ -25,20 +24,20 @@ namespace Business.Services
             SetupClient();
         }
 
-        public IEnumerable<Contact> GetAllContacts(IContacts account)
+        public IEnumerable<ContactDTO> GetAllContacts(IContacts account)
         {
             return account.GetAllContacts();
         }
-        public Contact GetContact(IContacts account, long id)
+        public ContactDTO GetContact(IContacts account, long id)
         {
             return account.GetContact(id);
         }
-        public Contact GetContact(IContacts account, string nameOrPhoneNumber)
+        public ContactDTO GetContact(IContacts account, string nameOrPhoneNumber)
         {
             return account.GetContact(nameOrPhoneNumber);
         }
 
-        public void NewContactAdded(Contact contact)
+        public void NewContactAdded(ContactDTO contact)
         {
             _httpClient.PostAsJsonAsync("api/Contacts", contact);
         }

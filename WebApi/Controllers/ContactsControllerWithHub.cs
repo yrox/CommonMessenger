@@ -1,31 +1,33 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using AutoMapper;
 using Data.Entities;
+using DTOs;
 using Olga.Data.Interfaces;
 using WebApi.Hubs;
 
 namespace WebApi.Controllers
 {
-    [RoutePrefix("api/Contacts")]
+    [RoutePrefix("api/contacts")]
     public class ContactsControllerWithHub : BaseControllerWithHub<ContactsНub>
     {
         public ContactsControllerWithHub(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
-        // GET: api/Contacts
+        [Route("")]
         [HttpGet]
-        public IEnumerable<Contact> Get()//TODO: GetAll
+        public IEnumerable<ContactDTO> Get()//TODO: GetAll
         {
-            return new List<Contact>();
+            return new List<ContactDTO>();
         }
 
-        // GET: api/Contacts/5
+        [Route("{id:int}")]
         [HttpGet]
-        public Contact Get(int id)
+        public ContactDTO Get(int id)
         {
-            return UnitOfWork.Repository<Contact>().Find(id);
+            return Mapper.Map<Contact, ContactDTO>(UnitOfWork.Repository<Contact>().Find(id));
         }
 
-        // POST: api/Contacts
+        [Route("")]
         [HttpPost]
         public void Insert(Contact item)
         {
@@ -33,14 +35,14 @@ namespace WebApi.Controllers
             Hub.Clients.All.NewContactAdded(item);
         }
 
-        // PUT: api/Contacts/5
+        [Route("{id:int}")]
         [HttpPut]
-        public void Update(Contact item)
+        public void Update(int id, Contact item)
         {
             UnitOfWork.Repository<Contact>().Update(item);
         }
 
-        // DELETE: api/Contacts/5
+        [Route("del")]
         [HttpDelete]
         public void Delete(Contact item)
         {

@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
-using Data.Entities;
+using DTOs;
 
 namespace Business.Interfaces
 {
     public interface IContacts
     {
-        IEnumerable<Contact> GetAllContacts();
-        Contact GetContact(long id);
-        Contact GetContact(string nameOrPhoneNumber);
-        void NewContactAdded(Contact contact);
+        IEnumerable<ContactDTO> GetAllContacts();
+        ContactDTO GetContact(long id);
+        ContactDTO GetContact(string nameOrPhoneNumber);
+        void NewContactAdded(ContactDTO contact);
     }
 }
