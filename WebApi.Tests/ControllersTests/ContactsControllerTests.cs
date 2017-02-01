@@ -1,4 +1,5 @@
 ﻿using System;
+using AutoMapper;
 using Data.Entities;
 using DTOs;
 using Moq;
@@ -17,7 +18,8 @@ namespace WebApi.Tests.ControllersTests
         [SetUp]
         public void SetUp()
         {
-            
+            Mapper.Initialize(x => x.AddProfile<MapProfile>());
+
             _unitOfWorkMock = new Mock<UnitOfWork>();
             _unitOfWorkMock.Setup(x => x.Repository<Contact>()).Verifiable();
             _unitOfWorkMock.Setup(x => x.Repository<Contact>().Find(It.IsAny<int>())).Returns(new Contact());

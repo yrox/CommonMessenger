@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using AutoMapper;
 
 namespace WebApi
 {
@@ -10,6 +11,7 @@ namespace WebApi
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+            Mapper.Initialize(x => x.AddProfile<MapProfile>());
 
             //config.Routes.MapHttpRoute(
                 //name: "DefaultApi",
