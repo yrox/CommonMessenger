@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using Data.Entities;
 using DTOs;
@@ -26,8 +27,18 @@ namespace WebApi.Tests.ControllersTests
             _unitOfWorkMock.Setup(x => x.Repository<Contact>().Delete(It.IsAny<Contact>())).Verifiable();
             _unitOfWorkMock.Setup(x => x.Repository<Contact>().Insert(It.IsAny<Contact>())).Verifiable();
             _unitOfWorkMock.Setup(x => x.Repository<Contact>().Update(It.IsAny<Contact>())).Verifiable();
+            _unitOfWorkMock.Setup(x => x.Repository<Contact>().GetAll()).Returns(new List<Contact> {new Contact()});
 
             _contactsController = new ContactsController(_unitOfWorkMock.Object);
+        }
+
+        [Test]
+        public void GetAll_ShouldReturnEntitiesCol_Succeed()
+        {
+            var result = _contactsController.GetAll();
+            _unitOfWorkMock.Verify(x => x.Repository<Contact>().GetAll(), Times.Once);
+            Assert.NotNull(result);
+            Assert.IsInstanceOf<IEnumerable<ContactDTO>>(result);
         }
 
         [Test]
