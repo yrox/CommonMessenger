@@ -27,6 +27,8 @@ namespace WebApi.Tests.ControllersTests
             _unitOfWorkMock.Setup(x => x.Repository<MetaContact>().Delete(It.IsAny<MetaContact>())).Verifiable();
             _unitOfWorkMock.Setup(x => x.Repository<MetaContact>().Insert(It.IsAny<MetaContact>())).Verifiable();
             _unitOfWorkMock.Setup(x => x.Repository<MetaContact>().Update(It.IsAny<MetaContact>())).Verifiable();
+            _unitOfWorkMock.Setup(x => x.Repository<MetaContact>().GetAll())
+                .Returns(new List<MetaContact> {new MetaContact()});
 
             _metaContactController = new MetaContactController(_unitOfWorkMock.Object);
         }
