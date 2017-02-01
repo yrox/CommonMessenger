@@ -102,11 +102,10 @@
     <Compile Include="App_StartTests\WebApiConfigTests.cs" />
     <Compile Include="ControllersTests\MetaContactControllerTests.cs" />
     <Compile Include="ControllersTests\ContactsControllerTests.cs" />
+    <Compile Include="HubsTests\ContactsHubTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="HubsTests\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
