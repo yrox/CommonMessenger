@@ -15,9 +15,9 @@ namespace WebApi.Controllers
 
         [Route("")]
         [HttpGet]
-        public IEnumerable<MetaContactDTO> GetAll()//TODO GetAll
+        public IEnumerable<MetaContactDTO> GetAll()
         {
-            return new List<MetaContactDTO>();
+            return Mapper.Map<IEnumerable<MetaContact>, IEnumerable<MetaContactDTO>>(UnitOfWork.Repository<MetaContact>().GetAll());
         }
 
         [Route("{id:int}")]
