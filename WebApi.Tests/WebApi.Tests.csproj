@@ -120,6 +120,7 @@
     <Compile Include="ControllersTests\MetaContactControllerTests.cs" />
     <Compile Include="ControllersTests\ContactsControllerTests.cs" />
     <Compile Include="HubsTests\ContactsHubTests.cs" />
+    <Compile Include="HubsTests\MessagesHubTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
