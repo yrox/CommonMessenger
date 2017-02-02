@@ -169,11 +169,13 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BaseControllerWithHub.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\MetaContactController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hubs\ContactsНub.cs" />
+    <Compile Include="Hubs\MessagesHub.cs" />
     <Compile Include="MapProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App_Start\Startup.cs" />

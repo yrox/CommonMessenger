@@ -33,7 +33,7 @@ namespace WebApi.Controllers
         public void Insert(ContactDTO item)
         {
             UnitOfWork.Repository<Contact>().Insert(Mapper.Map<ContactDTO, Contact>(item));
-            Hub.Clients.All.NewContactAdded(item);
+            Hub.Clients.All.NewContactAdded();
         }
 
         [Route("{id:int}")]
