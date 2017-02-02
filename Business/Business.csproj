@@ -83,7 +83,7 @@
     <Compile Include="Interfaces\IAccount.cs" />
     <Compile Include="Interfaces\IContacts.cs" />
     <Compile Include="Interfaces\IMessaging.cs" />
-    <Compile Include="Mappers\EntytiesMapper.cs" />
+    <Compile Include="Mappers\EntitiesMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ContactsService.cs" />
   </ItemGroup>

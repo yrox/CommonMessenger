@@ -6,7 +6,7 @@ using DTOs;
 
 namespace Business.Mappers
 {
-    public class EntytiesMapper
+    public class EntitiesMapper
     {
         private static DateTime ConvertFromUnixTimestamp(int timestamp)
         {
@@ -17,7 +17,7 @@ namespace Business.Mappers
         public static ContactDTO Map(VkNet.Model.User vkContact)
         {
             Mapper.Initialize(cfg => cfg.CreateMap<VkNet.Model.User, ContactDTO>()
-                .ForMember("ContactIdentifier", x => x.MapFrom(c => c.Id))
+                .ForMember("AccountId", x => x.MapFrom(c => c.Id))
                 .ForMember("Name", x => x.MapFrom(c => c.FirstName + " " + c.LastName)));
             var contact = Mapper.Map<VkNet.Model.User, ContactDTO>(vkContact);
             return contact;
@@ -33,16 +33,14 @@ namespace Business.Mappers
             if (tlContact.last_name != null)
             {
                 Mapper.Initialize(cfg => cfg.CreateMap<TeleSharp.TL.TLUser, ContactDTO>()
-                .ForMember("ContactIdentifier", x => x.MapFrom(c => c.id))
-                .ForMember("Name", x => x.MapFrom(c => c.first_name + " " + c.last_name))
-                .ForMember("PhoneNumber", x => x.MapFrom(c => c.phone)));
+                .ForMember("AccountId", x => x.MapFrom(c => c.id))
+                .ForMember("Name", x => x.MapFrom(c => c.first_name + " " + c.last_name)));
             }
             else
             {
                 Mapper.Initialize(cfg => cfg.CreateMap<TeleSharp.TL.TLUser, ContactDTO>()
-                .ForMember("ContactIdentifier", x => x.MapFrom(c => c.id))
-                .ForMember("Name", x => x.MapFrom(c => c.first_name))
-                .ForMember("PhoneNumber", x => x.MapFrom(c => c.phone)));
+                .ForMember("AccountId", x => x.MapFrom(c => c.id))
+                .ForMember("Name", x => x.MapFrom(c => c.first_name)));
             }
             var result = Mapper.Map<TeleSharp.TL.TLAbsUser, ContactDTO>(tlContact);
             return result;
