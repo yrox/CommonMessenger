@@ -9,8 +9,12 @@ namespace WebApi
         {
             CreateMap<DTOs.ContactDTO, Data.Entities.Contact>();
             CreateMap<DTOs.MetaContactDTO, Data.Entities.MetaContact>();
+
             CreateMap<Data.Entities.Contact, DTOs.ContactDTO >();
             CreateMap<Data.Entities.MetaContact, DTOs.MetaContactDTO>();
+
+            CreateMap<Data.Entities.Message, DTOs.MessageDTO>();
+            CreateMap<DTOs.MessageDTO, Data.Entities.Message>();
 
         }
     }
