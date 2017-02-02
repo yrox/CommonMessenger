@@ -5,7 +5,7 @@ namespace WebApi.Controllers
 {
     public abstract class BaseController : ApiController
     {
-        protected BaseController() { }
+        //protected BaseController() { }
         protected IUnitOfWork UnitOfWork { get; set; }
 
         protected BaseController(IUnitOfWork unitOfWork)

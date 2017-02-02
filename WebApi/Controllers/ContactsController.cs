@@ -11,7 +11,7 @@ namespace WebApi.Controllers
     [RoutePrefix("api/contacts")]
     public class ContactsController : BaseControllerWithHub<ContactsНub>
     {
-        public ContactsController() { }
+        //public ContactsController() { }
         public ContactsController(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
         [Route("")]
