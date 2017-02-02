@@ -28,14 +28,6 @@ namespace Business.Services
         {
             return account.GetAllContacts();
         }
-        public ContactDTO GetContact(IContacts account, long id)
-        {
-            return account.GetContact(id);
-        }
-        public ContactDTO GetContact(IContacts account, string nameOrPhoneNumber)
-        {
-            return account.GetContact(nameOrPhoneNumber);
-        }
 
         public void NewContactAdded(ContactDTO contact)
         {
