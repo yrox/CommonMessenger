@@ -37,6 +37,11 @@ namespace Business.Accounts
             return code;
         };
 
+        private void NewContactAdded(ContactDTO contact)//TODO post contact
+        {
+            throw new NotImplementedException();
+        }
+
         //Func<string> code = () =>
         //{
         //    Console.Write("Please enter code: ");
@@ -126,9 +131,6 @@ namespace Business.Accounts
         //    return EntitiesMapper.Map(_longPollHistory.Messages).ToList();
         //}
 
-        public void NewContactAdded(ContactDTO contact)//TODO post contact
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

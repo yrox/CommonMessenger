@@ -9,7 +9,6 @@ namespace Business.Interfaces
         void Authorize(string captcha, long sid);
 
         IEnumerable<ContactDTO> GetAllContacts();
-        void NewContactAdded(ContactDTO contact);
 
         void SendMessage(MessageDTO message);
         void SendMessage(MessageDTO message, string captcha, long sid);
