@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountDTO.cs" />
     <Compile Include="ContactDTO.cs" />
     <Compile Include="MessageDTO.cs" />
     <Compile Include="MetaContactDTO.cs" />
