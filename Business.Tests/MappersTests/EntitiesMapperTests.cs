@@ -5,7 +5,7 @@ using Business.Mappers;
 using DTOs;
 using NUnit.Framework;
 
-namespace Business.Tests.Mappers
+namespace Business.Tests.MappersTests
 {
     [TestFixture]
     public class EntitiesMapperTests
@@ -48,6 +48,44 @@ namespace Business.Tests.Mappers
             var result = EntitiesMapper.Map(vkContactEnum);
             Assert.NotNull(result);
             Assert.IsInstanceOf<IEnumerable<ContactDTO>>(result);
+        }
+
+        [Test]
+        public void Map_ShouldMapMessageDTO_to_VkMessage_Succeed()
+        {
+            var id = new Random().Next();
+            var mesage = EntitiesMapper.Map(new VkNet.Model.Message {UserId = id});
+            Assert.NotNull(mesage);
+            Assert.IsInstanceOf<MessageDTO>(mesage);
+            Assert.AreEqual(id, mesage.AccountId);
+        }
+
+        [Test]
+        public void Map_ShouldMapEnumerableMessageDTO_to_VkMessage_Succeed()
+        {
+            var vkMessageEnum = new List<VkNet.Model.Message>().ToList();
+            var result = EntitiesMapper.Map(vkMessageEnum);
+            Assert.NotNull(result);
+            Assert.IsInstanceOf<IEnumerable<MessageDTO>>(result);
+        }
+
+        [Test]
+        public void Map_ShouldMapMessageDTO_to_TlMessage_Succeed()
+        {
+            var id = new Random().Next();
+            var mesage = EntitiesMapper.Map(new TeleSharp.TL.TLMessage {from_id = id});
+            Assert.NotNull(mesage);
+            Assert.IsInstanceOf<MessageDTO>(mesage);
+            Assert.AreEqual(id, mesage.AccountId);
+        }
+
+        [Test]
+        public void Map_ShouldMapEnumerableMessageDTO_to_TlMessage_Succeed()
+        {
+            var tlMessageEnum = new List<TeleSharp.TL.TLMessage>().ToList();
+            var result = EntitiesMapper.Map(tlMessageEnum);
+            Assert.NotNull(result);
+            Assert.IsInstanceOf<IEnumerable<MessageDTO>>(result);
         }
     }
 }

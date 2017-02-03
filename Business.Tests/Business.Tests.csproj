@@ -108,7 +108,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mappers\EntitiesMapperTests.cs" />
+    <Compile Include="MappersTests\EntitiesMapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +124,9 @@
       <Project>{f56599eb-3227-4240-98e0-7310ec249915}</Project>
       <Name>DTOs</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AccountsTests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
