@@ -1,22 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Runtime.ExceptionServices;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using Business.Interfaces;
 using Business.Mappers;
 using DTOs;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using VkNet;
 using VkNet.Enums.Filters;
 using VkNet.Enums.SafetyEnums;
 using VkNet.Exception;
-using VkNet.Model;
 using VkNet.Model.RequestParams;
 
 namespace Business.Accounts
