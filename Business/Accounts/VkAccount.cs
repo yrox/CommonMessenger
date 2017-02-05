@@ -8,6 +8,7 @@ using Business.Interfaces;
 using Business.Mappers;
 using DTOs;
 using Newtonsoft.Json.Linq;
+using NotificationHandling.Interfaces;
 using VkNet;
 using VkNet.Enums.Filters;
 using VkNet.Enums.SafetyEnums;
@@ -18,14 +19,16 @@ namespace Business.Accounts
 {
     public class VkAccount : IAccount
     {
-        public VkAccount(AccountDTO acc)
+        public VkAccount(AccountDTO acc, INotificationHandler notificationHandler)
         {
             _api = new VkApi();
             _accountInfo = acc;
             _api.OnTokenExpires += ApiOnOnTokenExpires;
+            _notificationHandler = notificationHandler;
             //_pts = Convert.ToUInt64(acc.LastUpdate);
         }
 
+        private readonly INotificationHandler _notificationHandler;
         private readonly AccountDTO _accountInfo;
 
         private const int AppId = 5678626;
