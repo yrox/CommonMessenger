@@ -26,11 +26,7 @@ namespace Business.Accounts
             //_pts = Convert.ToUInt64(acc.LastUpdate);
         }
 
-        private AccountDTO _accountInfo;
-
-        private VkNet.Model.LongPollServerResponse _longPollServer;
-        private VkNet.Model.LongPollHistoryResponse _longPollHistory;
-        private ulong? _pts;
+        private readonly AccountDTO _accountInfo;
 
         private const int AppId = 5678626;
         private readonly VkApi _api;
@@ -54,16 +50,15 @@ namespace Business.Accounts
             return value;
         };
 
-        public void AuthorizeFromToken(string token)
-        {
-            _api.Authorize(token);
-        }
-
         private void ApiOnOnTokenExpires(VkApi api)
         {
             throw new NotImplementedException();
         }
 
+        public void AuthorizeFromToken(string token)
+        {
+            _api.Authorize(token);
+        }
         public void Authorize()
         {
             _api.Authorize(new ApiAuthParams
@@ -75,7 +70,6 @@ namespace Business.Accounts
                 TwoFactorAuthorization = _code
             });
         }
-
         public void Authorize(string codeValue)
         {
             code = codeValue;
@@ -96,7 +90,6 @@ namespace Business.Accounts
             }
             _accountInfo.AccessToken = _api.Token;
         }
-
         public void Authorize(string captcha, long sid)
         {
             _api.Authorize(new ApiAuthParams
@@ -110,7 +103,6 @@ namespace Business.Accounts
             });
             _accountInfo.AccessToken = _api.Token;
         }
-
         public IEnumerable<ContactDTO> GetAllContacts()
         {
             return _api.Friends.Get(new FriendsGetParams {Order = FriendsOrder.Hints, UserId = _accountInfo.AccountId}).Select(EntitiesMapper.Map).ToList();
@@ -142,15 +134,14 @@ namespace Business.Accounts
                 CaptchaSid = sid
             });
         }
-        
 
         public async Task GetUpdatesFromServer()//TODO answer parsing
         {
-            _longPollServer = _api.Messages.GetLongPollServer(true);
-            var ts = _longPollServer.Ts;
+            var longPollServer = _api.Messages.GetLongPollServer(true);
+            var ts = longPollServer.Ts;
             await Task.Run(async () =>
             {
-                string url = $"https://{_longPollServer.Server}?act=a_check&key={_longPollServer.Key}&ts={ts}&wait=100&version=1";
+                string url = $"https://{longPollServer.Server}?act=a_check&key={longPollServer.Key}&ts={ts}&wait=100&version=1";
                 using (var http = new HttpClient())
                 {
                     var json = await http.GetStringAsync(url).ConfigureAwait(false);
