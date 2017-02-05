@@ -1,14 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Runtime.ExceptionServices;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using Business.Interfaces;
 using Business.Mappers;
 using DTOs;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using VkNet;
 using VkNet.Enums.Filters;
 using VkNet.Enums.SafetyEnums;
 using VkNet.Exception;
+using VkNet.Model;
 using VkNet.Model.RequestParams;
 
 namespace Business.Accounts
@@ -19,12 +27,13 @@ namespace Business.Accounts
         {
             _api = new VkApi();
             _accountInfo = acc;
-            _pts = Convert.ToUInt64(acc.LastUpdate);
+            _api.OnTokenExpires += ApiOnOnTokenExpires;
+            //_pts = Convert.ToUInt64(acc.LastUpdate);
         }
 
         private AccountDTO _accountInfo;
 
-        private VkNet.Model.LongPollServerResponse _longPoll;
+        private VkNet.Model.LongPollServerResponse _longPollServer;
         private VkNet.Model.LongPollHistoryResponse _longPollHistory;
         private ulong? _pts;
 
@@ -32,23 +41,45 @@ namespace Business.Accounts
         private readonly VkApi _api;
 
         private static string code;
-        private Func<string> _code = () =>
-        {
-            return code;
-        };
+        //private Func<string> _code = () =>
+        //{
+        //    return code;
+        //};
 
         private void NewContactAdded(ContactDTO contact)//TODO post contact
         {
             throw new NotImplementedException();
         }
 
-        //Func<string> code = () =>
-        //{
-        //    Console.Write("Please enter code: ");
-        //    string value = Console.ReadLine();
+        private readonly Func<string> _code = () =>
+        {
+            Console.Write("Please enter code: ");
+            string value = Console.ReadLine();
 
-        //    return value;
-        //};
+            return value;
+        };
+
+        public void AuthorizeFromToken(string token)
+        {
+            _api.Authorize(token);
+        }
+
+        private void ApiOnOnTokenExpires(VkApi api)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Authorize()
+        {
+            _api.Authorize(new ApiAuthParams
+            {
+                ApplicationId = AppId,
+                Login = _accountInfo.Login,
+                Password = _accountInfo.Password,
+                Settings = Settings.All,
+                TwoFactorAuthorization = _code
+            });
+        }
 
         public void Authorize(string codeValue)
         {
@@ -68,7 +99,7 @@ namespace Business.Accounts
             {
                 ExceptionDispatchInfo.Capture(cEx).Throw();
             }
-
+            _accountInfo.AccessToken = _api.Token;
         }
 
         public void Authorize(string captcha, long sid)
@@ -82,6 +113,7 @@ namespace Business.Accounts
                 CaptchaKey = captcha,
                 CaptchaSid = sid
             });
+            _accountInfo.AccessToken = _api.Token;
         }
 
         public IEnumerable<ContactDTO> GetAllContacts()
@@ -115,22 +147,28 @@ namespace Business.Accounts
                 CaptchaSid = sid
             });
         }
-
-        //public IEnumerable<MessageDTO> GetNewMessages()
-        //{
-        //    _longPoll = _api.Messages.GetLongPollServer(useSsl: false, needPts: true);
-
-        //    _longPollHistory = _api.Messages.GetLongPollHistory(new MessagesGetLongPollHistoryParams
-        //    {
-        //        Ts = _longPoll.Ts,
-        //        Onlines = false,
-        //        Pts = _pts
-        //    });
-        //    _pts = _longPollHistory.NewPts;
-        //    _accountInfo.LastUpdate = _pts.ToString();
-        //    return EntitiesMapper.Map(_longPollHistory.Messages).ToList();
-        //}
-
         
+
+        public async Task GetUpdatesFromServer()//TODO answer parsing
+        {
+            _longPollServer = _api.Messages.GetLongPollServer(true);
+            var ts = _longPollServer.Ts;
+            await Task.Run(async () =>
+            {
+                string url = $"https://{_longPollServer.Server}?act=a_check&key={_longPollServer.Key}&ts={ts}&wait=100&version=1";
+                using (var http = new HttpClient())
+                {
+                    var json = await http.GetStringAsync(url).ConfigureAwait(false);
+                    var jAnswer = JObject.Parse(json);
+                    //ts = jAnswer.Ts;
+                    //if (updates.Updates.Count > 0)
+                    {
+                        //await SendUpdate.Invoke(updates.Updates);
+                    }
+                }
+                await GetUpdatesFromServer();
+            });
+        }
+
     }
 }
