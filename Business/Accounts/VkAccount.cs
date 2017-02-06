@@ -8,7 +8,6 @@ using Business.Interfaces;
 using Business.Mappers;
 using DTOs;
 using Newtonsoft.Json.Linq;
-using NotificationHandling.Interfaces;
 using VkNet;
 using VkNet.Enums.Filters;
 using VkNet.Enums.SafetyEnums;
@@ -17,9 +16,9 @@ using VkNet.Model.RequestParams;
 
 namespace Business.Accounts
 {
-    public class VkAccount : IAccount
+    public class VkAccount : BaseAccountEvents, IAccount
     {
-        public VkAccount(AccountDTO acc, INotificationHandler notificationHandler)
+        public VkAccount(AccountDTO acc)
         {
             _api = new VkApi();
             _accountInfo = acc;
@@ -28,8 +27,7 @@ namespace Business.Accounts
             //_pts = Convert.ToUInt64(acc.LastUpdate);
         }
 
-        private readonly INotificationHandler _notificationHandler;
-        private readonly AccountDTO _accountInfo;
+       private readonly AccountDTO _accountInfo;
 
         private const int AppId = 5678626;
         private readonly VkApi _api;
@@ -47,11 +45,6 @@ namespace Business.Accounts
 
             return value;
         };
-
-        public event EventHandler OnMessageRecived;
-        public event EventHandler OnContactAdded;
-        public event EventHandler OnCaptchaNeeded;
-        public event EventHandler OnAccountUpdated;
 
         private void ApiOnOnTokenExpires(VkApi api)
         {
@@ -106,6 +99,7 @@ namespace Business.Accounts
             });
             _accountInfo.AccessToken = _api.Token;
         }
+
         public IEnumerable<ContactDTO> GetAllContacts()
         {
             return _api.Friends.Get(new FriendsGetParams {Order = FriendsOrder.Hints, UserId = _accountInfo.AccountId}).Select(EntitiesMapper.Map).ToList();

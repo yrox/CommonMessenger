@@ -80,6 +80,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts\BaseAccountEvents.cs" />
     <Compile Include="Accounts\VkAccount.cs" />
     <Compile Include="Interfaces\IAccount.cs" />
     <Compile Include="Mappers\EntitiesMapper.cs" />
