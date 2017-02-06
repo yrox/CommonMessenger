@@ -51,6 +51,7 @@ namespace Business.Accounts
         public event EventHandler OnMessageRecived;
         public event EventHandler OnContactAdded;
         public event EventHandler OnCaptchaNeeded;
+        public event EventHandler OnAccountUpdated;
 
         private void ApiOnOnTokenExpires(VkApi api)
         {

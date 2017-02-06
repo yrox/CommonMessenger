@@ -17,6 +17,7 @@ namespace Business.Interfaces
         event EventHandler OnMessageRecived;
         event EventHandler OnContactAdded;
         event EventHandler OnCaptchaNeeded;
+        event EventHandler OnAccountUpdated;
 
     }
 }
