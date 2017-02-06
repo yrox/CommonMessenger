@@ -21,9 +21,14 @@ namespace NotificationHandling
             throw new NotImplementedException();
         }
 
-        public void ThrowCaptcha(string captchaUrl, long sid)
+        public string ThrowCaptcha(string captchaUrl, long sid)
         {
-            throw new NotImplementedException();
+            return _hubContext.Clients.All.CaptchaNeeded(captchaUrl);
+        }
+
+        public string ThrowCode()
+        {
+            return _hubContext.Clients.All.CodeNeeded();
         }
 
         public void UpdateAccount(AccountDTO account)

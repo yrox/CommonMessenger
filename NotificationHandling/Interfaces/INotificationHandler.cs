@@ -6,6 +6,7 @@ namespace NotificationHandling.Interfaces
     {
         void AddContact(ContactDTO contact);
         void UpdateAccount(AccountDTO account);
-        void ThrowCaptcha(string captchaUrl, long sid);
+        string ThrowCaptcha(string captchaUrl, long sid);
+        string ThrowCode();
     }
 }
