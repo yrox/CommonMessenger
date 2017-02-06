@@ -40,11 +40,6 @@ namespace Business.Accounts
         //    return code;
         //};
 
-        private void NewContactAdded(ContactDTO contact)//TODO post contact
-        {
-            throw new NotImplementedException();
-        }
-
         private readonly Func<string> _code = () =>
         {
             Console.Write("Please enter code: ");
@@ -52,6 +47,10 @@ namespace Business.Accounts
 
             return value;
         };
+
+        public event EventHandler OnMessageRecived;
+        public event EventHandler OnContactAdded;
+        public event EventHandler OnCaptchaNeeded;
 
         private void ApiOnOnTokenExpires(VkApi api)
         {

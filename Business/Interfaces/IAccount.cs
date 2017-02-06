@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DTOs;
 
 namespace Business.Interfaces
@@ -12,6 +13,10 @@ namespace Business.Interfaces
 
         void SendMessage(MessageDTO message);
         void SendMessage(MessageDTO message, string captcha, long sid);
+
+        event EventHandler OnMessageRecived;
+        event EventHandler OnContactAdded;
+        event EventHandler OnCaptchaNeeded;
 
     }
 }

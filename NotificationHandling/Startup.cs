@@ -1,10 +1,10 @@
 ﻿using Microsoft.Owin;
+using NotificationHandling;
 using Owin;
-using WebApi;
 
 [assembly: OwinStartup(typeof(Startup))]
 
-namespace WebApi
+namespace NotificationHandling
 {
     public class Startup
     {
