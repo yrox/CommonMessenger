@@ -9,7 +9,7 @@ using WebApi.Hubs;
 namespace WebApi.Controllers
 {
     [RoutePrefix("api/messages")]
-    public class MessagesController : BaseControllerWithHub<MessagesHub>
+    public class MessagesController : BaseController
     {
         public MessagesController(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
@@ -32,7 +32,6 @@ namespace WebApi.Controllers
         public void Insert(MessageDTO item)
         {
             UnitOfWork.Repository<Message>().Insert(Mapper.Map<MessageDTO, Message>(item));
-            Hub.Clients.All.MessageRecived();
         }
 
         [Route("{id:int}")]

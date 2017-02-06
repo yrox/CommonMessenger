@@ -9,7 +9,7 @@ using WebApi.Hubs;
 namespace WebApi.Controllers
 {
     [RoutePrefix("api/contacts")]
-    public class ContactsController : BaseControllerWithHub<ContactsНub>
+    public class ContactsController : BaseController
     {
         //public ContactsController() { }
         public ContactsController(IUnitOfWork unitOfWork) : base(unitOfWork) { }
@@ -33,7 +33,6 @@ namespace WebApi.Controllers
         public void Insert(ContactDTO item)
         {
             UnitOfWork.Repository<Contact>().Insert(Mapper.Map<ContactDTO, Contact>(item));
-            Hub.Clients.All.NewContactAdded();
         }
 
         [Route("{id:int}")]
