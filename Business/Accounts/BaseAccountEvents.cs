@@ -11,7 +11,8 @@ namespace Business.Accounts
         public delegate void ContactAdded(ContactDTO contact);
         public event ContactAdded OnContactAdded;
 
-        event EventHandler OnCaptchaNeeded;
+        public event EventHandler OnCaptchaNeeded;
+        public event EventHandler OnCodeNeeded;
 
         public delegate void AccountUpdated(AccountDTO account);
         public event AccountUpdated OnAccountUpdated;

@@ -51,9 +51,9 @@ namespace Business.Accounts
             throw new NotImplementedException();
         }
 
-        public void AuthorizeFromToken(string token)
+        public void AuthorizeFromToken()
         {
-            _api.Authorize(token);
+            _api.Authorize(_accountInfo.AccessToken);
         }
         public void Authorize()
         {
@@ -82,7 +82,7 @@ namespace Business.Accounts
             }
             catch (CaptchaNeededException cEx)
             {
-                ExceptionDispatchInfo.Capture(cEx).Throw();
+               //TODO captcha event
             }
             _accountInfo.AccessToken = _api.Token;
         }

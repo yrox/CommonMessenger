@@ -9,7 +9,8 @@ namespace NotificationHandling
     public class SignalrNotificationHandler : INotificationHandler
     {
         private readonly IHubContext _hubContext = GlobalHost.ConnectionManager.GetHubContext<NotifyingНub>();
-        
+               
+
         public void SendMessage(MessageDTO message)
         {
             _hubContext.Clients.All.MessageRecived(message);

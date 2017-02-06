@@ -193,6 +193,10 @@
       <Project>{f56599eb-3227-4240-98e0-7310ec249915}</Project>
       <Name>DTOs</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NotificationHandling\NotificationHandling.csproj">
+      <Project>{c5dda897-0bd3-45d6-bf60-4281a6513ce6}</Project>
+      <Name>NotificationHandling</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
