@@ -7,31 +7,32 @@ namespace Business
 {
     public class AccountsManager : BaseAccountEvents
     {
-        private IEnumerable<IAccount> _accounts;
+        private IAccount _account;
         
-        private void Authorize(IEnumerable<AccountDTO> accs)
+        private void Authorize(AccountDTO acc)
         {
-            
+            _account = new VkAccount(acc);
+
         }
 
-        public AccountsManager(IEnumerable<AccountDTO> accs)
+        public AccountsManager(AccountDTO acc)
         {
-            Authorize(accs);
+            Authorize(acc);
         }
        
         public IEnumerable<ContactDTO> GetAllContacts()
         {
-            throw new System.NotImplementedException();
+            return _account.GetAllContacts();
         }
 
         public void SendMessage(MessageDTO message)
         {
-            throw new System.NotImplementedException();
+            _account.SendMessage(message);
         }
 
         public void SendMessage(MessageDTO message, string captcha, long sid)
         {
-            throw new System.NotImplementedException();
+            _account.SendMessage(message, captcha, sid);
         }
     }
 }

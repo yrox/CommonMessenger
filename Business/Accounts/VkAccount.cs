@@ -46,14 +46,24 @@ namespace Business.Accounts
             return value;
         };
 
+        public delegate void DoSmth();
+
         private void ApiOnOnTokenExpires(VkApi api)
         {
-            throw new NotImplementedException();
+            //TODO refresh token
         }
 
         public void AuthorizeFromToken()
         {
-            _api.Authorize(_accountInfo.AccessToken);
+            try
+            {
+                _api.Authorize(_accountInfo.AccessToken);
+            }
+            catch (AccessTokenInvalidException)
+            {
+                Authorize(CodeNeededHandler());
+            }
+            
         }
         public void Authorize()
         {
@@ -65,6 +75,7 @@ namespace Business.Accounts
                 Settings = Settings.All,
                 TwoFactorAuthorization = _code
             });
+            _accountInfo.AccessToken = _api.Token;
         }
         public void Authorize(string codeValue)
         {
@@ -82,7 +93,7 @@ namespace Business.Accounts
             }
             catch (CaptchaNeededException cEx)
             {
-               //TODO captcha event
+                CaptchaNeededHandler(cEx.Img, cEx.Sid);
             }
             _accountInfo.AccessToken = _api.Token;
         }
