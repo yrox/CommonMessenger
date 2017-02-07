@@ -48,7 +48,7 @@ namespace NotificationHandling
 
         public void UpdateAccount(AccountDTO account)
         {
-            throw new NotImplementedException();
+            _httpClient.PutAsJsonAsync($"api/accounts/{account.Id}", account);
         }
 
         
