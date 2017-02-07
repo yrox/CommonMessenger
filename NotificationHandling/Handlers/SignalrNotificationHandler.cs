@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Business;
 using DTOs;
 using Microsoft.AspNet.SignalR;
 using NotificationHandling.Hubs;
@@ -9,7 +12,19 @@ namespace NotificationHandling
     public class SignalrNotificationHandler : INotificationHandler
     {
         private readonly IHubContext _hubContext = GlobalHost.ConnectionManager.GetHubContext<NotifyingНub>();
-               
+        private readonly AccountsManager _accountsManager;
+        private HttpClient _httpClient;
+
+        public SignalrNotificationHandler(AccountsManager manager)
+        {
+            _accountsManager = manager;
+            _httpClient = new HttpClient();
+            _httpClient.BaseAddress = new Uri("uri");
+            _httpClient.DefaultRequestHeaders.Accept.Clear();
+            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+        }
+
 
         public void SendMessage(MessageDTO message)
         {
@@ -18,7 +33,7 @@ namespace NotificationHandling
 
         public void AddContact(ContactDTO contact)
         {
-            throw new NotImplementedException();
+            _httpClient.PostAsJsonAsync("api/contacts", contact);
         }
 
         public string ThrowCaptcha(string captchaUrl, long sid)
@@ -35,5 +50,7 @@ namespace NotificationHandling
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }

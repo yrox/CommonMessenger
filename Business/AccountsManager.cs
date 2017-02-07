@@ -12,7 +12,7 @@ namespace Business
         private void Authorize(AccountDTO acc)
         {
             _account = new VkAccount(acc);
-
+            _account.AuthorizeFromToken();
         }
 
         public AccountsManager(AccountDTO acc)
