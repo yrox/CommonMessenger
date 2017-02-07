@@ -4,7 +4,6 @@ using AutoMapper;
 using Data.Entities;
 using DTOs;
 using Olga.Data.Interfaces;
-using WebApi.Hubs;
 
 namespace WebApi.Controllers
 {
