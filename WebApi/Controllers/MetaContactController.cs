@@ -36,7 +36,7 @@ namespace WebApi.Controllers
 
         [Route("{id:int}")]
         [HttpPut]
-        public void Update(int id, MetaContactDTO item)
+        public void Update(MetaContactDTO item)
         {
             UnitOfWork.Repository<MetaContact>().Update(Mapper.Map<MetaContactDTO, MetaContact>(item));
         }

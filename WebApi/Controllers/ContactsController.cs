@@ -36,7 +36,7 @@ namespace WebApi.Controllers
 
         [Route("{id:int}")]
         [HttpPut]
-        public void Update(int id, ContactDTO item)
+        public void Update(ContactDTO item)
         {
             UnitOfWork.Repository<Contact>().Update(Mapper.Map<ContactDTO, Contact>(item));
         }
