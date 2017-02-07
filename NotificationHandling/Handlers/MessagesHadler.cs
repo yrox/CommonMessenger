@@ -6,7 +6,7 @@ namespace NotificationHandling.Handlers
 {
     public class MessagesHadler : IMessagesHandler
     {
-        private AccountsManager _accountsManager;
+        private readonly AccountsManager _accountsManager;
 
         public MessagesHadler(AccountsManager manager)
         {

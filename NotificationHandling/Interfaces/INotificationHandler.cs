@@ -1,4 +1,5 @@
-﻿using DTOs;
+﻿using System;
+using DTOs;
 
 namespace NotificationHandling.Interfaces
 {
@@ -7,7 +8,7 @@ namespace NotificationHandling.Interfaces
         void SendMessage(MessageDTO message);
         void AddContact(ContactDTO contact);
         void UpdateAccount(AccountDTO account);
-        string ThrowCaptcha(string captchaUrl, long sid);
+        string ThrowCaptcha(Uri captchaUrl, long sid);
         string ThrowCode();
     }
 }

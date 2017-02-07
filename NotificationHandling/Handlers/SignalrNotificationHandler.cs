@@ -13,16 +13,25 @@ namespace NotificationHandling.Handlers
     {
         private readonly IHubContext _hubContext = GlobalHost.ConnectionManager.GetHubContext<NotifyingНub>();
         private readonly AccountsManager _accountsManager;
-        private HttpClient _httpClient;
+        private readonly HttpClient _httpClient;
+
+        private void InitializeAccountsManagerEvents()
+        {
+            _accountsManager.OnMessageRecived += SendMessage;
+            _accountsManager.OnAccountUpdated += UpdateAccount;
+            _accountsManager.OnCaptchaNeeded += ThrowCaptcha;
+            _accountsManager.OnCodeNeeded += ThrowCode;
+            _accountsManager.OnContactAdded += AddContact;
+        }
 
         public SignalrNotificationHandler(AccountsManager manager)
         {
             _accountsManager = manager;
+            InitializeAccountsManagerEvents();
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = new Uri("uri");
             _httpClient.DefaultRequestHeaders.Accept.Clear();
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
         }
 
 
@@ -36,7 +45,7 @@ namespace NotificationHandling.Handlers
             _httpClient.PostAsJsonAsync("api/contacts", contact);
         }
 
-        public string ThrowCaptcha(string captchaUrl, long sid)
+        public string ThrowCaptcha(Uri captchaUrl, long sid)
         {
             return _hubContext.Clients.All.CaptchaNeeded(captchaUrl);
         }
