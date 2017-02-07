@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Business.Interfaces;
 using Business.Mappers;
 using DTOs;
-using Newtonsoft.Json.Linq;
 using VkNet;
 using VkNet.Enums.Filters;
 using VkNet.Enums.SafetyEnums;
@@ -23,7 +22,7 @@ namespace Business.Accounts
             _api = new VkApi();
             _accountInfo = acc;
             _api.OnTokenExpires += ApiOnOnTokenExpires;
-            _notificationHandler = notificationHandler;
+            
             //_pts = Convert.ToUInt64(acc.LastUpdate);
         }
 
@@ -52,6 +51,27 @@ namespace Business.Accounts
         {
             //TODO refresh token
         }
+        private async Task GetUpdatesFromServer()
+        {
+            var longPollServer = _api.Messages.GetLongPollServer(true);
+            var ts = longPollServer.Ts;
+            await Task.Run(async () =>
+            {
+                string url = $"https://{longPollServer.Server}?act=a_check&key={longPollServer.Key}&ts={ts}&wait=100&version=1";
+                using (var http = new HttpClient())
+                {
+                    var response = await http.GetStringAsync(url).ConfigureAwait(false);
+                    var updates = VkUpdatesParser.DeserializeUpdates(response);
+                    ts = updates.Ts;
+                    var newMessages = VkUpdatesParser.GetMessagesFromUpdate(updates).ToList();
+                    if (newMessages.Any())
+                    {
+                        MessageRecivedHandler(EntitiesMapper.Map(newMessages));
+                    }
+                }
+                await GetUpdatesFromServer();
+            });
+        }
 
         public void AuthorizeFromToken()
         {
@@ -63,7 +83,7 @@ namespace Business.Accounts
             {
                 Authorize(CodeNeededHandler());
             }
-            
+            GetUpdatesFromServer().Wait();
         }
         public void Authorize()
         {
@@ -76,6 +96,7 @@ namespace Business.Accounts
                 TwoFactorAuthorization = _code
             });
             _accountInfo.AccessToken = _api.Token;
+            GetUpdatesFromServer().Wait();
         }
         public void Authorize(string codeValue)
         {
@@ -96,6 +117,7 @@ namespace Business.Accounts
                 CaptchaNeededHandler(cEx.Img, cEx.Sid);
             }
             _accountInfo.AccessToken = _api.Token;
+            GetUpdatesFromServer().Wait();
         }
         public void Authorize(string captcha, long sid)
         {
@@ -109,13 +131,13 @@ namespace Business.Accounts
                 CaptchaSid = sid
             });
             _accountInfo.AccessToken = _api.Token;
+            GetUpdatesFromServer().Wait();
         }
 
         public IEnumerable<ContactDTO> GetAllContacts()
         {
             return _api.Friends.Get(new FriendsGetParams {Order = FriendsOrder.Hints, UserId = _accountInfo.AccountId}).Select(EntitiesMapper.Map).ToList();
         }
-        
 
         public void SendMessage(MessageDTO message)
         {
@@ -143,26 +165,7 @@ namespace Business.Accounts
             });
         }
 
-        public async Task GetUpdatesFromServer()//TODO answer parsing
-        {
-            var longPollServer = _api.Messages.GetLongPollServer(true);
-            var ts = longPollServer.Ts;
-            await Task.Run(async () =>
-            {
-                string url = $"https://{longPollServer.Server}?act=a_check&key={longPollServer.Key}&ts={ts}&wait=100&version=1";
-                using (var http = new HttpClient())
-                {
-                    var json = await http.GetStringAsync(url).ConfigureAwait(false);
-                    var jAnswer = JObject.Parse(json);
-                    //ts = jAnswer.Ts;
-                    //if (updates.Updates.Count > 0)
-                    {
-                        //await SendUpdate.Invoke(updates.Updates);
-                    }
-                }
-                await GetUpdatesFromServer();
-            });
-        }
+       
 
     }
 }

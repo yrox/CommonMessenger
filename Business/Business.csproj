@@ -85,6 +85,8 @@
     <Compile Include="Accounts\VkAccount.cs" />
     <Compile Include="Interfaces\IAccount.cs" />
     <Compile Include="Mappers\EntitiesMapper.cs" />
+    <Compile Include="Mappers\VkUpdatesParser.cs" />
+    <Compile Include="Models\VkLongPollingUpdates.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

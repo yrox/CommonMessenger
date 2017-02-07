@@ -1,10 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using DTOs;
 
 namespace Business.Accounts
 {
     public abstract class BaseAccountEvents
     {
+        public void MessageRecivedHandler(IEnumerable<MessageDTO> messages)
+        {
+            if (OnMessageRecived == null) return;
+            foreach (var message in messages)
+            {
+                OnMessageRecived.Invoke(message);
+            }
+        }
         public void MessageRecivedHandler(MessageDTO message)
         {
             OnMessageRecived?.Invoke(message);

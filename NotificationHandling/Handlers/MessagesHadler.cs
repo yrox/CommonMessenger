@@ -1,5 +1,4 @@
-﻿using System;
-using Business;
+﻿using Business;
 using DTOs;
 using NotificationHandling.Interfaces;
 

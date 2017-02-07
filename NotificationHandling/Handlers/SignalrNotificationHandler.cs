@@ -7,7 +7,7 @@ using Microsoft.AspNet.SignalR;
 using NotificationHandling.Hubs;
 using NotificationHandling.Interfaces;
 
-namespace NotificationHandling
+namespace NotificationHandling.Handlers
 {
     public class SignalrNotificationHandler : INotificationHandler
     {
