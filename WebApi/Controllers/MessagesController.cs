@@ -3,15 +3,20 @@ using System.Web.Http;
 using AutoMapper;
 using Data.Entities;
 using DTOs;
+using NotificationHandling.Interfaces;
 using Olga.Data.Interfaces;
-using WebApi.Hubs;
 
 namespace WebApi.Controllers
 {
     [RoutePrefix("api/messages")]
     public class MessagesController : BaseController
     {
-        public MessagesController(IUnitOfWork unitOfWork) : base(unitOfWork) { }
+        private readonly IMessagesHandler _messagesHandler;
+
+        public MessagesController(IUnitOfWork unitOfWork, IMessagesHandler messagesHandler) : base(unitOfWork)
+        {
+            _messagesHandler = messagesHandler;
+        }
 
         [Route("")]
         [HttpGet]
@@ -32,6 +37,14 @@ namespace WebApi.Controllers
         public void Insert(MessageDTO item)
         {
             UnitOfWork.Repository<Message>().Insert(Mapper.Map<MessageDTO, Message>(item));
+        }
+
+        [Route("send")]
+        [HttpPost]
+        public void Send(MessageDTO item)
+        {
+            Insert(item);
+            _messagesHandler.SendMessage(item);
         }
 
         [Route("{id:int}")]
