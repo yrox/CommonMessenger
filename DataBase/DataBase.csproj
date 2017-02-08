@@ -69,6 +69,10 @@
     <Compile Include="Migrations\201701270903471_MetaContactEntityAdded.Designer.cs">
       <DependentUpon>201701270903471_MetaContactEntityAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702080045267_AccountAdded.cs" />
+    <Compile Include="Migrations\201702080045267_AccountAdded.Designer.cs">
+      <DependentUpon>201702080045267_AccountAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -97,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701270903471_MetaContactEntityAdded.resx">
       <DependentUpon>201701270903471_MetaContactEntityAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702080045267_AccountAdded.resx">
+      <DependentUpon>201702080045267_AccountAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
