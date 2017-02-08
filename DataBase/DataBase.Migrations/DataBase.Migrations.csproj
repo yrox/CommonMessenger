@@ -81,12 +81,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{9135745f-7fe2-4bb7-a547-b02d38dbbcb3}</Project>
-      <Name>Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Migrations\201701261315434_InitialCreate.resx">
       <DependentUpon>201701261315434_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
@@ -105,6 +99,12 @@
     <EmbeddedResource Include="Migrations\201702080045267_AccountAdded.resx">
       <DependentUpon>201702080045267_AccountAdded.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\Data.Business\Data.Business.csproj">
+      <Project>{62cf1182-5d56-4690-921d-9a47bef0b58c}</Project>
+      <Name>Data.Business</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

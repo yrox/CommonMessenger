@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Business", "..\Data\Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Business", "WebApi.Business\WebApi.Business.csproj", "{98956285-7885-40E7-BA0E-C21171561F75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.BusinessTests", "WebApi.Business.Tests\WebApi.BusinessTests.csproj", "{1C825FCB-DC3E-4711-B9D0-37E9A9ED2449}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Business.Tests", "WebApi.Business.Tests\WebApi.Business.Tests.csproj", "{1C825FCB-DC3E-4711-B9D0-37E9A9ED2449}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "..\Business\Business\Business.csproj", "{53950521-CDDC-4284-9DE1-69D11A1EA277}"
 EndProject

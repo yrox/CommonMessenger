@@ -5,7 +5,7 @@ namespace DataBase.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Data.Context>
+    internal sealed class Configuration : DbMigrationsConfiguration<Data.Business.Context>
     {
         public Configuration()
         {
@@ -13,7 +13,7 @@ namespace DataBase.Migrations
             ContextKey = "Data.Context";
         }
 
-        protected override void Seed(Data.Context context)
+        protected override void Seed(Data.Business.Context context)
         {
             //  This method will be called after migrating to the latest version.
 
