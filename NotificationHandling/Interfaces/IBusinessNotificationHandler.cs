@@ -2,7 +2,7 @@
 
 namespace NotificationHandling.Interfaces
 {
-    public interface IMessagesHandler
+    public interface IBusinessNotificationHandler
     {
         void SendMessage(MessageDTO message);
         void SendMessage(MessageDTO message, string captcha, long sid);

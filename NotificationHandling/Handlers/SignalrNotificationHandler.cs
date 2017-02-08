@@ -1,65 +1,41 @@
 ﻿using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using Business;
 using DTOs;
-using Microsoft.AspNet.SignalR;
-using NotificationHandling.Hubs;
 using NotificationHandling.Interfaces;
 
 namespace NotificationHandling.Handlers
 {
     public class SignalrNotificationHandler : INotificationHandler
     {
-        private readonly IHubContext _hubContext = GlobalHost.ConnectionManager.GetHubContext<NotifyingНub>();
-        private readonly AccountsManager _accountsManager;
-        private readonly HttpClient _httpClient;
-
-        private void InitializeAccountsManagerEvents()
+        private async Task<AccountDTO> GetAccountAsync()
         {
-            _accountsManager.OnMessageRecived += SendMessage;
-            _accountsManager.OnAccountUpdated += UpdateAccount;
-            _accountsManager.OnCaptchaNeeded += ThrowCaptcha;
-            _accountsManager.OnCodeNeeded += ThrowCode;
-            _accountsManager.OnContactAdded += AddContact;
+            var result = new AccountDTO();
+            var httpClient = new HttpClient();
+            httpClient.BaseAddress = new Uri("http://localhost:53473/");
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var response = await httpClient.GetAsync("api/account/1");
+            if (response.IsSuccessStatusCode)
+            {
+                result = await response.Content.ReadAsAsync<AccountDTO>();
+            }
+            return result;
         }
 
-        public SignalrNotificationHandler(AccountsManager manager)
+        public SignalrNotificationHandler()
         {
-            _accountsManager = manager;
-            InitializeAccountsManagerEvents();
-            _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("uri");
-            _httpClient.DefaultRequestHeaders.Accept.Clear();
-            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var account = GetAccountAsync().Result;
+            var accountsManager = new AccountsManager(account);
+            BusinessNotificationHandler = new BusinessNotificationHadler(accountsManager);
+            UserNotificationHandler = new SignalrUserNotificationHandler(accountsManager);
         }
 
+        public IBusinessNotificationHandler BusinessNotificationHandler { get; }
 
-        public void SendMessage(MessageDTO message)
-        {
-            _hubContext.Clients.All.MessageRecived(message);
-        }
-
-        public void AddContact(ContactDTO contact)
-        {
-            _httpClient.PostAsJsonAsync("api/contacts", contact);
-        }
-
-        public string ThrowCaptcha(Uri captchaUrl, long sid)
-        {
-            return _hubContext.Clients.All.CaptchaNeeded(captchaUrl);
-        }
-
-        public string ThrowCode()
-        {
-            return _hubContext.Clients.All.CodeNeeded();
-        }
-
-        public void UpdateAccount(AccountDTO account)
-        {
-            _httpClient.PutAsJsonAsync($"api/accounts/{account.Id}", account);
-        }
-
-        
+        public IUserNotificationHandler UserNotificationHandler { get; }
+       
     }
 }

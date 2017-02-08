@@ -4,11 +4,11 @@ using NotificationHandling.Interfaces;
 
 namespace NotificationHandling.Handlers
 {
-    public class MessagesHadler : IMessagesHandler
+    public class BusinessNotificationHadler : IBusinessNotificationHandler
     {
         private readonly AccountsManager _accountsManager;
 
-        public MessagesHadler(AccountsManager manager)
+        public BusinessNotificationHadler(AccountsManager manager)
         {
             _accountsManager = manager;
         }

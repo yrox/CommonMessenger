@@ -11,9 +11,9 @@ namespace WebApi.Controllers
     [RoutePrefix("api/messages")]
     public class MessagesController : BaseController
     {
-        private readonly IMessagesHandler _messagesHandler;
+        private readonly IBusinessNotificationHandler _messagesHandler;
 
-        public MessagesController(IUnitOfWork unitOfWork, IMessagesHandler messagesHandler) : base(unitOfWork)
+        public MessagesController(IUnitOfWork unitOfWork, IBusinessNotificationHandler messagesHandler) : base(unitOfWork)
         {
             _messagesHandler = messagesHandler;
         }
