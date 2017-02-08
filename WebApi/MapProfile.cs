@@ -16,6 +16,9 @@ namespace WebApi
             CreateMap<Data.Entities.Message, DTOs.MessageDTO>();
             CreateMap<DTOs.MessageDTO, Data.Entities.Message>();
 
+            CreateMap<Data.Entities.Account, DTOs.AccountDTO>();
+            CreateMap<DTOs.AccountDTO, Data.Entities.Account>();
+
         }
     }
 }
