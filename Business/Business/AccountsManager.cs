@@ -11,18 +11,18 @@ namespace Business
 
         private void InitializeEvents()
         {
-            (_account as BaseAccountEvents).OnMessageRecived += this.MessageRecivedHandler;
-            (_account as BaseAccountEvents).OnAccountUpdated += this.AccountUpdatedHandler;
-            (_account as BaseAccountEvents).OnCaptchaNeeded += this.CaptchaNeededHandler;
-            (_account as BaseAccountEvents).OnCodeNeeded += this.CodeNeededHandler;
-            (_account as BaseAccountEvents).OnContactAdded += this.ContactAddedHandler;
+            ((BaseAccountEvents) _account).OnMessageRecived += this.MessageRecivedHandler;
+            ((BaseAccountEvents) _account).OnAccountUpdated += this.AccountUpdatedHandler;
+            ((BaseAccountEvents) _account).OnCaptchaNeeded += this.CaptchaNeededHandler;
+            ((BaseAccountEvents) _account).OnCodeNeeded += this.CodeNeededHandler;
+            ((BaseAccountEvents) _account).OnContactAdded += this.ContactAddedHandler;
         }
 
         public void Authorize(AccountDTO acc)
         {
             _account = new VkAccount(acc);
             InitializeEvents();
-            _account.Authorize("467722");
+            _account.Authorize("123304");
            
         }
 

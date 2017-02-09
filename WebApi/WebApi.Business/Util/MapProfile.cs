@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WebApi
+namespace WebApi.Util
 {
     public class MapProfile : AutoMapper.Profile
     {

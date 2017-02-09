@@ -191,7 +191,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="MapProfile.cs" />
+    <Compile Include="Identity\ApplicationUserManager.cs" />
+    <Compile Include="Util\AutofacCofig.cs" />
+    <Compile Include="Util\MapProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

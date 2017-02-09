@@ -7,6 +7,7 @@ using Moq;
 using NUnit.Framework;
 using Olga.Data;
 using WebApi.Controllers;
+using WebApi.Util;
 
 namespace WebApi.Test.ControllersTests
 {

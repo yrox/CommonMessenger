@@ -2,7 +2,6 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Business;
-using Business.Accounts;
 using DTOs;
 using Microsoft.AspNet.SignalR;
 using NotificationHandling.Hubs;
@@ -25,7 +24,6 @@ namespace NotificationHandling.Handlers
             _accountsManager.OnContactAdded += AddContact;
         }
 
-
         public SignalrUserNotificationHandler(AccountsManager manager)
         {
             _accountsManager = manager;
@@ -35,7 +33,6 @@ namespace NotificationHandling.Handlers
             _httpClient.DefaultRequestHeaders.Accept.Clear();
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
-
 
         public void SendMessage(MessageDTO message)
         {
