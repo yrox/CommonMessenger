@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using AutoMapper;
-using Data.Business.Entities;
+using Data.Identity.Entities;
 using DTOs;
 using Olga.Data.Interfaces;
 

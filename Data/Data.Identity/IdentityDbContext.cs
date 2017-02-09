@@ -9,5 +9,6 @@ namespace Data.Identity
         public IdentityDbContext() : base("CommonMessangerDb") { }
         
         public DbSet<Account> Accounts { get; set; }
+
     }
 }

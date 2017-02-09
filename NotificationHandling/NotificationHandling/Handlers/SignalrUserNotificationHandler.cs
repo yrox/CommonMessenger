@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Business;
+using Business.Accounts;
 using DTOs;
 using Microsoft.AspNet.SignalR;
 using NotificationHandling.Hubs;
@@ -24,12 +25,13 @@ namespace NotificationHandling.Handlers
             _accountsManager.OnContactAdded += AddContact;
         }
 
+
         public SignalrUserNotificationHandler(AccountsManager manager)
         {
             _accountsManager = manager;
             InitializeAccountsManagerEvents();
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("uri");
+            _httpClient.BaseAddress = new Uri("http://localhost:53473/");
             _httpClient.DefaultRequestHeaders.Accept.Clear();
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
@@ -37,6 +39,7 @@ namespace NotificationHandling.Handlers
 
         public void SendMessage(MessageDTO message)
         {
+            _httpClient.PostAsJsonAsync("api/messages", message);
             _hubContext.Clients.All.MessageRecived(message);
         }
 

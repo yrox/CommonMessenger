@@ -27,10 +27,11 @@ namespace NotificationHandling.Handlers
 
         public SignalrNotificationHandler()
         {
-            var account = GetAccountAsync().Result;
-            var accountsManager = new AccountsManager(account);
+            //var account = GetAccountAsync().Result;
+            var accountsManager = new AccountsManager();
             BusinessNotificationHandler = new BusinessNotificationHadler(accountsManager);
             UserNotificationHandler = new SignalrUserNotificationHandler(accountsManager);
+            accountsManager.Authorize(new AccountDTO { Login = "yrox152@gmail.com", Password = "MWAHAHA17954gotteenn90years" });
         }
 
         public IBusinessNotificationHandler BusinessNotificationHandler { get; }

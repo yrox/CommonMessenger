@@ -22,7 +22,6 @@ namespace Business.Accounts
             _api = new VkApi();
             _accountInfo = acc;
             _api.OnTokenExpires += ApiOnOnTokenExpires;
-            
             //_pts = Convert.ToUInt64(acc.LastUpdate);
         }
 
@@ -32,20 +31,18 @@ namespace Business.Accounts
         private readonly VkApi _api;
 
         private static string code;
-        //private Func<string> _code = () =>
-        //{
-        //    return code;
-        //};
-
-        private readonly Func<string> _code = () =>
+        private Func<string> _code = () =>
         {
-            Console.Write("Please enter code: ");
-            string value = Console.ReadLine();
-
-            return value;
+            return code;
         };
 
-        public delegate void DoSmth();
+        //private readonly Func<string> _code = () =>
+        //{
+        //    Console.Write("Please enter code: ");
+        //    string value = Console.ReadLine();
+
+        //    return value;
+        //};
 
         private void ApiOnOnTokenExpires(VkApi api)
         {

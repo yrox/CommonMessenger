@@ -29,10 +29,9 @@ namespace WebApi
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().SingleInstance().WithParameter("context", new Context());
             
-            
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
-
+            var h = new SignalrNotificationHandler();
         }
 
         protected void Application_End()

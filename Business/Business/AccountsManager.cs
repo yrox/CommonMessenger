@@ -8,17 +8,28 @@ namespace Business
     public class AccountsManager : BaseAccountEvents
     {
         private IAccount _account;
-        
-        private void Authorize(AccountDTO acc)
+
+        private void InitializeEvents()
         {
-            _account = new VkAccount(acc);
-            _account.AuthorizeFromToken();
+            (_account as BaseAccountEvents).OnMessageRecived += this.MessageRecivedHandler;
+            (_account as BaseAccountEvents).OnAccountUpdated += this.AccountUpdatedHandler;
+            (_account as BaseAccountEvents).OnCaptchaNeeded += this.CaptchaNeededHandler;
+            (_account as BaseAccountEvents).OnCodeNeeded += this.CodeNeededHandler;
+            (_account as BaseAccountEvents).OnContactAdded += this.ContactAddedHandler;
         }
 
-        public AccountsManager(AccountDTO acc)
+        public void Authorize(AccountDTO acc)
         {
-            Authorize(acc);
+            _account = new VkAccount(acc);
+            InitializeEvents();
+            _account.Authorize("467722");
+           
         }
+
+        //public AccountsManager(AccountDTO acc)
+        //{
+        //    Authorize(acc);
+        //}
        
         public IEnumerable<ContactDTO> GetAllContacts()
         {
