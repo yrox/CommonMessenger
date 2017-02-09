@@ -38,6 +38,14 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\Data\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\Data\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -49,6 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IdentityMigrations\201702082350174_Initial.cs" />
+    <Compile Include="IdentityMigrations\201702082350174_Initial.Designer.cs">
+      <DependentUpon>201702082350174_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdentityMigrations\Configuration.cs" />
     <Compile Include="Migrations\201701261315434_InitialCreate.cs" />
     <Compile Include="Migrations\201701261315434_InitialCreate.Designer.cs">
       <DependentUpon>201701261315434_InitialCreate.cs</DependentUpon>
@@ -73,6 +86,14 @@
     <Compile Include="Migrations\201702080045267_AccountAdded.Designer.cs">
       <DependentUpon>201702080045267_AccountAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702082333210_Initial.cs" />
+    <Compile Include="Migrations\201702082333210_Initial.Designer.cs">
+      <DependentUpon>201702082333210_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702082355398_AccountsRemoved.cs" />
+    <Compile Include="Migrations\201702082355398_AccountsRemoved.Designer.cs">
+      <DependentUpon>201702082355398_AccountsRemoved.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -81,6 +102,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="IdentityMigrations\201702082350174_Initial.resx">
+      <DependentUpon>201702082350174_Initial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701261315434_InitialCreate.resx">
       <DependentUpon>201701261315434_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,11 +123,21 @@
     <EmbeddedResource Include="Migrations\201702080045267_AccountAdded.resx">
       <DependentUpon>201702080045267_AccountAdded.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702082333210_Initial.resx">
+      <DependentUpon>201702082333210_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702082355398_AccountsRemoved.resx">
+      <DependentUpon>201702082355398_AccountsRemoved.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\Data.Business\Data.Business.csproj">
       <Project>{62cf1182-5d56-4690-921d-9a47bef0b58c}</Project>
       <Name>Data.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Data.Identity\Data.Identity.csproj">
+      <Project>{30cd422e-6110-44f7-b982-91ba84b13f37}</Project>
+      <Name>Data.Identity</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Identity", "Data.Ident
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Business.Tests", "Data.Business.Tests\Data.Business.Tests.csproj", "{4458EA0D-94A7-4D95-837D-F3BA48B2E0FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase.Migrations", "..\DataBase\DataBase.Migrations\DataBase.Migrations.csproj", "{BD91465C-8E10-4616-8CB7-599651683715}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4458EA0D-94A7-4D95-837D-F3BA48B2E0FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4458EA0D-94A7-4D95-837D-F3BA48B2E0FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4458EA0D-94A7-4D95-837D-F3BA48B2E0FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD91465C-8E10-4616-8CB7-599651683715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD91465C-8E10-4616-8CB7-599651683715}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD91465C-8E10-4616-8CB7-599651683715}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD91465C-8E10-4616-8CB7-599651683715}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

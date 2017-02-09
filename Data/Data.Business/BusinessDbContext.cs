@@ -7,12 +7,11 @@ namespace Data.Business
     {
         public Context() : base("CommonMessangerDb")
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<Context>());
+            //Database.SetInitializer(new CreateDatabaseIfNotExists<Context>());
         }
 
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<MetaContact> MetaContacts { get; set; }
         public DbSet<Message> Messages { get; set; }
-        public DbSet<Account> Accounts { get; set; }
     }
 }

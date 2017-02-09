@@ -1,7 +1,7 @@
 ﻿
 using Olga.Data;
 
-namespace Data.Business.Entities
+namespace Data.Identity.Entities
 {
     public class Account : Entity
     {
