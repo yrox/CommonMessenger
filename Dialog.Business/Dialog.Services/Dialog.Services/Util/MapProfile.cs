@@ -2,7 +2,7 @@
 using Dialog.Data.Entities;
 using Dialog.DTOs;
 
-namespace WebApi.Util
+namespace Dialog.Services.Util
 {
     public class MapProfile : AutoMapper.Profile
     {

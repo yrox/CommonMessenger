@@ -1,43 +1,27 @@
-﻿using System;
-using Dialog.Data.Entities;
+﻿using Dialog.Data.Entities;
+using Dialog.Data.EntityFramewrk;
 using Dialog.Data.Interfaces;
 using Olga.Data;
 using Olga.Data.Interfaces;
 
 namespace Dialog.Data
 {
-    public class DialogUnitOfWork : UnitOfWork, IBusinessUnitOfWork//TODO: implement getters
+    public class DialogUnitOfWork : UnitOfWork, IDialogUnitOfWork
     {
-        public IRepository<Account> AccountsRepository
+        public DialogUnitOfWork(DialogDbContext context)
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            RegisterRepository(new Repository<Account>(context));
+            RegisterRepository(new Repository<Contact>(context));
+            RegisterRepository(new Repository<Message>(context));
+            RegisterRepository(new Repository<MetaContact>(context));
         }
 
-        public IRepository<Contact> ContactsRepository
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public IRepository<Account> AccountsRepository => GetRepository<Account>();
 
-        public IRepository<Message> MessagesRepository
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public IRepository<Contact> ContactsRepository => GetRepository<Contact>();
 
-        public IRepository<MetaContact> MetaContactsRepository
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public IRepository<Message> MessagesRepository => GetRepository<Message>();
+
+        public IRepository<MetaContact> MetaContactsRepository => GetRepository<MetaContact>();
     }
 }

@@ -3,7 +3,7 @@ using Olga.Data.Interfaces;
 
 namespace Dialog.Data.Interfaces
 {
-    public interface IBusinessUnitOfWork : IUnitOfWork
+    public interface IDialogUnitOfWork : IUnitOfWork
     {
         IRepository<Contact> ContactsRepository { get; }
 
