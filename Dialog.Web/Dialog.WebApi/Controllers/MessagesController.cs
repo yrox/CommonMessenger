@@ -42,7 +42,6 @@ namespace WebApi.Controllers
         [HttpPost]
         public void Send(MessageDTO item)
         {
-            Insert(item);
             _messagesHandler.SendMessage(item);
         }
 

@@ -49,6 +49,7 @@ namespace Dialog.Services.Services
 
         public void Send(MessageDTO entity)
         {
+            Insert(entity);
             //TODO somehow reference to notif handlers
         }
     }
