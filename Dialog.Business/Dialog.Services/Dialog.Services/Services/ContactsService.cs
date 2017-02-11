@@ -17,6 +17,7 @@ namespace Dialog.Services.Services
             _dialogUnitOfWork = unitOfWork;
             _mapper = mapper;
         }
+
         public IEnumerable<ContactDTO> GetAll()
         {
             return

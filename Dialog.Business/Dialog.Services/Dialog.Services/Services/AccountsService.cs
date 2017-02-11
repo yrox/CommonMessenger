@@ -11,11 +11,13 @@ namespace Dialog.Services.Services
     {
         private readonly IDialogUnitOfWork _dialogUnitOfWork;
         private readonly IMapper _mapper;
+
         public AccountsService(IDialogUnitOfWork unitOfWork, IMapper mapper)
         {
             _dialogUnitOfWork = unitOfWork;
             _mapper = mapper;
         }
+
         public IEnumerable<AccountDTO> GetAll()
         {
             return
@@ -32,7 +34,7 @@ namespace Dialog.Services.Services
             _dialogUnitOfWork.AccountsRepository.Insert(_mapper.Map<AccountDTO, Account>(entity));
             _dialogUnitOfWork.SaveChanges();
         }
-        
+
         public void Update(AccountDTO entity)
         {
             _dialogUnitOfWork.AccountsRepository.Update(_mapper.Map<AccountDTO, Account>(entity));
@@ -44,6 +46,5 @@ namespace Dialog.Services.Services
             _dialogUnitOfWork.AccountsRepository.Delete(_mapper.Map<AccountDTO, Account>(entity));
             _dialogUnitOfWork.SaveChanges();
         }
-
     }
 }

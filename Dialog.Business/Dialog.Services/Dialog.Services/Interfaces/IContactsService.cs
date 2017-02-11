@@ -3,7 +3,7 @@ using Dialog.DTOs;
 
 namespace Dialog.Services.Interfaces
 {
-    public interface IContactsService 
+    public interface IContactsService
     {
         IEnumerable<ContactDTO> GetAll();
 
@@ -14,7 +14,5 @@ namespace Dialog.Services.Interfaces
         void Update(ContactDTO entity);
 
         void Delete(ContactDTO entity);
-
-        
     }
 }

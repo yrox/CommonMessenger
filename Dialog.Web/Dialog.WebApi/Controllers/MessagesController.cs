@@ -1,42 +1,41 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using AutoMapper;
-using Dialog.Data.Entities;
 using Dialog.DTOs;
+using Dialog.Services.Interfaces;
 using NotificationHandling.Interfaces;
-using Olga.Data.Interfaces;
 
 namespace WebApi.Controllers
 {
     [RoutePrefix("api/messages")]
-    public class MessagesController : BaseController
+    public class MessagesController : ApiController
     {
         private readonly IBusinessNotificationHandler _messagesHandler;
+        private readonly IMessagesService _messagesService;
 
-        public MessagesController(IUnitOfWork unitOfWork, IBusinessNotificationHandler messagesHandler) : base(unitOfWork)
+        public MessagesController(IMessagesService service)
         {
-            _messagesHandler = messagesHandler;
+            _messagesService = service;
         }
 
         [Route("")]
         [HttpGet]
         public IEnumerable<MessageDTO> GetAll()
         {
-            return Mapper.Map<IEnumerable<Message>, IEnumerable<MessageDTO>>(UnitOfWork.Repository<Message>().GetAll());
+            return _messagesService.GetAll();
         }
 
         [Route("{id:int}")]
         [HttpGet]
         public MessageDTO Get(int id)
         {
-            return Mapper.Map<Message, MessageDTO>(UnitOfWork.Repository<Message>().Find(id));
+            return _messagesService.Find(id);
         }
 
         [Route("")]
         [HttpPost]
         public void Insert(MessageDTO item)
         {
-            UnitOfWork.Repository<Message>().Insert(Mapper.Map<MessageDTO, Message>(item));
+            _messagesService.Insert(item);
         }
 
         [Route("send")]
@@ -51,14 +50,14 @@ namespace WebApi.Controllers
         [HttpPut]
         public void Update(MessageDTO item)
         {
-            UnitOfWork.Repository<Message>().Update(Mapper.Map<MessageDTO, Message>(item));
+            _messagesService.Update(item);
         }
 
         [Route("del")]
         [HttpDelete]
         public void Delete(MessageDTO item)
         {
-            UnitOfWork.Repository<Message>().Delete(Mapper.Map<MessageDTO, Message>(item));
+            _messagesService.Delete(item);
         }
     }
 }

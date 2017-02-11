@@ -3,7 +3,7 @@ using Dialog.DTOs;
 
 namespace Dialog.Services.Interfaces
 {
-    public interface IMetaContactsService 
+    public interface IMetaContactsService
     {
         IEnumerable<MetaContactDTO> GetAll();
 
@@ -14,6 +14,5 @@ namespace Dialog.Services.Interfaces
         void Update(MetaContactDTO entity);
 
         void Delete(MetaContactDTO entity);
-        
     }
 }

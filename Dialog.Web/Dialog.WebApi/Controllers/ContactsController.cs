@@ -1,50 +1,53 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using AutoMapper;
-using Dialog.Data.Entities;
 using Dialog.DTOs;
-using Olga.Data.Interfaces;
+using Dialog.Services.Interfaces;
 
 namespace WebApi.Controllers
 {
     [RoutePrefix("api/contacts")]
-    public class ContactsController : BaseController
+    public class ContactsController : ApiController
     {
-        public ContactsController(IUnitOfWork unitOfWork) : base(unitOfWork) { }
+        private readonly IContactsService _contactsService;
+
+        public ContactsController(IContactsService service)
+        {
+            _contactsService = service;
+        }
 
         [Route("")]
         [HttpGet]
         public IEnumerable<ContactDTO> GetAll()
         {
-            return Mapper.Map<IEnumerable<Contact>, IEnumerable<ContactDTO>>(UnitOfWork.Repository<Contact>().GetAll());
+            return _contactsService.GetAll();
         }
 
         [Route("{id:int}")]
         [HttpGet]
         public ContactDTO Get(int id)
         {
-            return Mapper.Map<Contact, ContactDTO>(UnitOfWork.Repository<Contact>().Find(id));
+            return _contactsService.Find(id);
         }
 
         [Route("")]
         [HttpPost]
         public void Insert(ContactDTO item)
         {
-            UnitOfWork.Repository<Contact>().Insert(Mapper.Map<ContactDTO, Contact>(item));
+            _contactsService.Insert(item);
         }
 
         [Route("{id:int}")]
         [HttpPut]
         public void Update(ContactDTO item)
         {
-            UnitOfWork.Repository<Contact>().Update(Mapper.Map<ContactDTO, Contact>(item));
+            _contactsService.Update(item);
         }
 
         [Route("del")]
         [HttpDelete]
         public void Delete(ContactDTO item)
         {
-            UnitOfWork.Repository<Contact>().Delete(Mapper.Map<ContactDTO, Contact>(item));
+            _contactsService.Delete(item);
         }
     }
 }

@@ -13,9 +13,9 @@ namespace WebApi
             //Mapper.Initialize(x => x.AddProfile<MapProfile>());
 
             //config.Routes.MapHttpRoute(
-                //name: "DefaultApi",
-                //routeTemplate: "api/{controller}/{id}",
-                //defaults: new { id = RouteParameter.Optional }
+            //name: "DefaultApi",
+            //routeTemplate: "api/{controller}/{id}",
+            //defaults: new { id = RouteParameter.Optional }
             //);
         }
     }

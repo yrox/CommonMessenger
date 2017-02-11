@@ -16,6 +16,5 @@ namespace Dialog.Services.Interfaces
         void Delete(MessageDTO entity);
 
         void Send(MessageDTO entity);
-
     }
 }

@@ -1,50 +1,53 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using AutoMapper;
-using Dialog.Data.Entities;
 using Dialog.DTOs;
-using Olga.Data.Interfaces;
+using Dialog.Services.Interfaces;
 
 namespace WebApi.Controllers
 {
     [RoutePrefix("api/accunts")]
-    public class AccountsController : BaseController
+    public class AccountsController : ApiController
     {
-        public AccountsController(IUnitOfWork unitOfWork) : base(unitOfWork) { }
+        private readonly IAccountsService _accountsService;
+
+        public AccountsController(IAccountsService service)
+        {
+            _accountsService = service;
+        }
 
         [Route("")]
         [HttpGet]
         public IEnumerable<AccountDTO> Get()
         {
-            return Mapper.Map<IEnumerable<Account>, IEnumerable<AccountDTO>>(UnitOfWork.Repository<Account>().GetAll());
+            return _accountsService.GetAll();
         }
 
         [Route("{id:int}")]
         [HttpGet]
         public AccountDTO Get(int id)
         {
-            return Mapper.Map<Account, AccountDTO>(UnitOfWork.Repository<Account>().Find(id));
+            return _accountsService.Find(id);
         }
 
         [Route("")]
         [HttpPost]
         public void Insert(AccountDTO item)
         {
-            UnitOfWork.Repository<Account>().Insert(Mapper.Map<AccountDTO, Account>(item));
+            _accountsService.Insert(item);
         }
 
         [Route("{id:int}")]
         [HttpPut]
         public void Update(AccountDTO item)
         {
-            UnitOfWork.Repository<Account>().Update(Mapper.Map<AccountDTO, Account>(item));
+            _accountsService.Update(item);
         }
 
         [Route("del")]
         [HttpDelete]
         public void Delete(AccountDTO item)
         {
-            UnitOfWork.Repository<Account>().Delete(Mapper.Map<AccountDTO, Account>(item));
+            _accountsService.Delete(item);
         }
     }
 }

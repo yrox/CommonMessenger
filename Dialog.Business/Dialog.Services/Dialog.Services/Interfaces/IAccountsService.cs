@@ -3,7 +3,7 @@ using Dialog.DTOs;
 
 namespace Dialog.Services.Interfaces
 {
-    public interface IAccountsService 
+    public interface IAccountsService
     {
         IEnumerable<AccountDTO> GetAll();
 
@@ -14,6 +14,5 @@ namespace Dialog.Services.Interfaces
         void Update(AccountDTO entity);
 
         void Delete(AccountDTO entity);
-       
     }
 }
