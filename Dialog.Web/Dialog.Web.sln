@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialog.Data", "..\Dialog.Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialog.NotificationHandling", "..\Dialog.Business\Dialog.NotificationHandling\Dialog.NotificationHandling\Dialog.NotificationHandling.csproj", "{C5DDA897-0BD3-45D6-BF60-4281A6513CE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialog.Services", "..\Dialog.Business\Dialog.Services\Dialog.Services\Dialog.Services.csproj", "{BE79A857-BA84-4779-9F2A-CB77C089A1B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C5DDA897-0BD3-45D6-BF60-4281A6513CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5DDA897-0BD3-45D6-BF60-4281A6513CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5DDA897-0BD3-45D6-BF60-4281A6513CE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE79A857-BA84-4779-9F2A-CB77C089A1B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE79A857-BA84-4779-9F2A-CB77C089A1B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE79A857-BA84-4779-9F2A-CB77C089A1B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE79A857-BA84-4779-9F2A-CB77C089A1B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

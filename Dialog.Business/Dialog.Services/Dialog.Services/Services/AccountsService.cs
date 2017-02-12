@@ -21,29 +21,29 @@ namespace Dialog.Services.Services
         public IEnumerable<AccountDTO> GetAll()
         {
             return
-                _mapper.Map<IEnumerable<Account>, IEnumerable<AccountDTO>>(_dialogUnitOfWork.AccountsRepository.GetAll());
+                _mapper.Map<IEnumerable<AccountDTO>>(_dialogUnitOfWork.AccountsRepository.GetAll());
         }
 
         public AccountDTO Find(int id)
         {
-            return _mapper.Map<Account, AccountDTO>(_dialogUnitOfWork.AccountsRepository.Find(id));
+            return _mapper.Map<AccountDTO>(_dialogUnitOfWork.AccountsRepository.Find(id));
         }
 
         public void Insert(AccountDTO entity)
         {
-            _dialogUnitOfWork.AccountsRepository.Insert(_mapper.Map<AccountDTO, Account>(entity));
+            _dialogUnitOfWork.AccountsRepository.Insert(_mapper.Map<Account>(entity));
             _dialogUnitOfWork.SaveChanges();
         }
 
         public void Update(AccountDTO entity)
         {
-            _dialogUnitOfWork.AccountsRepository.Update(_mapper.Map<AccountDTO, Account>(entity));
+            _dialogUnitOfWork.AccountsRepository.Update(_mapper.Map<Account>(entity));
             _dialogUnitOfWork.SaveChanges();
         }
 
         public void Delete(AccountDTO entity)
         {
-            _dialogUnitOfWork.AccountsRepository.Delete(_mapper.Map<AccountDTO, Account>(entity));
+            _dialogUnitOfWork.AccountsRepository.Delete(_mapper.Map<Account>(entity));
             _dialogUnitOfWork.SaveChanges();
         }
     }

@@ -132,13 +132,6 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Olga.Data">
-      <HintPath>..\dlls\Olga.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Olga.Data.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\dlls\Olga.Data.Interfaces.dll</HintPath>
-    </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
@@ -179,7 +172,6 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\MetaContactController.cs" />
@@ -212,13 +204,13 @@
       <Project>{c5dda897-0bd3-45d6-bf60-4281a6513ce6}</Project>
       <Name>Dialog.NotificationHandling</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Dialog.Business\Dialog.Services\Dialog.Services\Dialog.Services.csproj">
+      <Project>{be79a857-ba84-4779-9f2a-cb77c089a1b7}</Project>
+      <Name>Dialog.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Dialog.Common\Dialog.DTOs\Dialog.DTOs\Dialog.DTOs.csproj">
       <Project>{d188611d-a856-4e67-ae9b-2b0c8093699d}</Project>
       <Name>Dialog.DTOs</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Dialog.Data\Dialog.Data\Dialog.Data\Dialog.Data.csproj">
-      <Project>{239b771e-e1ee-4a99-b207-fcaae44f49fa}</Project>
-      <Name>Dialog.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
