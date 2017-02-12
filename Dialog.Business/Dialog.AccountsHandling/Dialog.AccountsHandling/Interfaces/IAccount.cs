@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using AutoMapper;
 using Dialog.DTOs;
 
 namespace Dialog.AccountsHandling.Interfaces

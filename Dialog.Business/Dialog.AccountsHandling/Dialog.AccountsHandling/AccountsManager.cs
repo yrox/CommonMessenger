@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using AutoMapper;
 using Dialog.AccountsHandling.Accounts;
 using Dialog.AccountsHandling.Interfaces;
 using Dialog.DTOs;
@@ -18,9 +19,9 @@ namespace Dialog.AccountsHandling
             ((BaseAccountEvents) _account).OnContactAdded += this.ContactAddedHandler;
         }
 
-        public void Authorize(AccountDTO acc)
+        public void Authorize(AccountDTO acc, IMapper mapper)
         {
-            _account = new VkAccount(acc);
+            _account = new VkAccount(acc, mapper);
             InitializeEvents();
             _account.Authorize("123304");
            

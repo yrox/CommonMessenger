@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Runtime.ExceptionServices;
 using System.Threading.Tasks;
+using AutoMapper;
 using Dialog.AccountsHandling.Interfaces;
 using Dialog.AccountsHandling.Util;
 using Dialog.DTOs;
@@ -19,6 +20,8 @@ namespace Dialog.AccountsHandling.Accounts
     {
         private const int AppId = 5678626;
 
+        private IMapper _mapper;
+
         private static string code;
 
         private readonly AccountDTO _accountInfo;
@@ -29,11 +32,12 @@ namespace Dialog.AccountsHandling.Accounts
             return code;
         };
 
-        public VkAccount(AccountDTO acc)
+        public VkAccount(AccountDTO acc, IMapper mapper)
         {
             _api = new VkApi();
             _accountInfo = acc;
             _api.OnTokenExpires += ApiOnOnTokenExpires;
+            _mapper = mapper;
             //_pts = Convert.ToUInt64(acc.LastUpdate);
         }
 
@@ -89,7 +93,12 @@ namespace Dialog.AccountsHandling.Accounts
 
         public IEnumerable<ContactDTO> GetAllContacts()
         {
-            return _api.Friends.Get(new FriendsGetParams {Order = FriendsOrder.Hints, UserId = _accountInfo.AccountId}).Select(EntitiesMapper.Map).ToList();
+            return _mapper.Map<IEnumerable<ContactDTO>>
+                (_api.Friends.Get(new FriendsGetParams
+                {
+                    Order = FriendsOrder.Hints,
+                    UserId = _accountInfo.AccountId
+                }));
         }
 
         public void SendMessage(MessageDTO message)
@@ -147,7 +156,7 @@ namespace Dialog.AccountsHandling.Accounts
                     var newMessages = VkUpdatesParser.GetMessagesFromUpdate(updates).ToList();
                     if (newMessages.Any())
                     {
-                        MessageRecivedHandler(EntitiesMapper.Map(newMessages));
+                        MessageRecivedHandler(_mapper.Map<IEnumerable<MessageDTO>>(newMessages));
                     }
                 }
                 await GetUpdatesFromServer();

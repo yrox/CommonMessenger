@@ -14,6 +14,7 @@ namespace Dialog.AccountsHandling.Util
             return JsonConvert.DeserializeObject<VkLongPollingUpdates>(updates);
         }
 
+        //TODO converting from unix timestamp to datetime
         public static IEnumerable<VkNet.Model.Message> GetMessagesFromUpdate(VkLongPollingUpdates updates)
         {
             
@@ -21,7 +22,7 @@ namespace Dialog.AccountsHandling.Util
             return newMessages.Select(message => message as IList<string> ?? message.ToList()).Select(enumerable => new Message
             {
                 Body = enumerable.ElementAt(6),
-                Date = EntitiesMapper.ConvertFromUnixTimestamp(Convert.ToInt32(enumerable.ElementAt(4))),
+                //Date = EntitiesMapper.ConvertFromUnixTimestamp(Convert.ToInt32(enumerable.ElementAt(4))),
                 FromId = Convert.ToInt32(enumerable.ElementAt(3))
             }).ToList();
         }

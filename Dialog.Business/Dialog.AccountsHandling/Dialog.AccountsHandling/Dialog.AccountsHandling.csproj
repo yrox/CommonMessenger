@@ -82,7 +82,8 @@
     <Compile Include="Entities\VkLongPollingUpdates.cs" />
     <Compile Include="Interfaces\IAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\EntitiesMapper.cs" />
+    <Compile Include="Util\MapperProfiles\ContactProfile.cs" />
+    <Compile Include="Util\MapperProfiles\MessageProfile.cs" />
     <Compile Include="Util\VkUpdatesParser.cs" />
   </ItemGroup>
   <ItemGroup>
