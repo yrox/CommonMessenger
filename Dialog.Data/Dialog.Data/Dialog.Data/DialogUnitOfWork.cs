@@ -8,12 +8,12 @@ namespace Dialog.Data
 {
     public class DialogUnitOfWork : UnitOfWork, IDialogUnitOfWork
     {
-        public DialogUnitOfWork(DialogDbContext context)
+        public DialogUnitOfWork(string nameOrConnectionString) : base(new DialogDbContext(nameOrConnectionString))
         {
-            RegisterRepository(new Repository<Account>(context));
-            RegisterRepository(new Repository<Contact>(context));
-            RegisterRepository(new Repository<Message>(context));
-            RegisterRepository(new Repository<MetaContact>(context));
+            RegisterRepository(new Repository<Account>(Context));
+            RegisterRepository(new Repository<Contact>(Context));
+            RegisterRepository(new Repository<Message>(Context));
+            RegisterRepository(new Repository<MetaContact>(Context));
         }
 
         public IRepository<Account> AccountsRepository => GetRepository<Account>();

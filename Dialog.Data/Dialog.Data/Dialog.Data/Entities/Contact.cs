@@ -1,4 +1,4 @@
-﻿using Olga.Data;
+﻿using Olga.Data.Entities;
 
 namespace Dialog.Data.Entities
 {
