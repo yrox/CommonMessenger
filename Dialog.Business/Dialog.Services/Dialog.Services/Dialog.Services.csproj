@@ -63,8 +63,8 @@
     <Compile Include="Services\ContactsService.cs" />
     <Compile Include="Services\MessagesService.cs" />
     <Compile Include="Services\MetaContactsService.cs" />
-    <Compile Include="Util\AutofacConfig.cs" />
     <Compile Include="Util\MapProfile.cs" />
+    <Compile Include="Util\ServiceModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Dialog.Common\Dialog.DTOs\Dialog.DTOs\Dialog.DTOs.csproj">

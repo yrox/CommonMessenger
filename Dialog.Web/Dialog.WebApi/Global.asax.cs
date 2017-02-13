@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Http;
+using Autofac;
 using Autofac.Integration.WebApi;
-using NotificationHandling.Handlers;
 using WebApi.Util;
 
 namespace WebApi
@@ -11,8 +11,9 @@ namespace WebApi
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+
             GlobalConfiguration.Configuration.DependencyResolver =
-                new AutofacWebApiDependencyResolver(AutofacCofig.CreateContainer());
+                new AutofacWebApiDependencyResolver(AutofacConfig.GetContainerBuilder());
 
             //var h = new SignalrNotificationHandler();
         }

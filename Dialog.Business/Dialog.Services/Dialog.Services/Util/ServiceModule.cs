@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using Dialog.Data;
-using Dialog.Data.EntityFramewrk;
 using Dialog.Data.Interfaces;
+using Dialog.Services.Services;
 
 namespace Dialog.Services.Util
 {
@@ -11,7 +11,11 @@ namespace Dialog.Services.Util
         {
             builder.RegisterType<DialogUnitOfWork>().As<IDialogUnitOfWork>()
                 .WithParameter("context", "DialogDb");
-            base.Load(builder);
+
+            builder.RegisterType<MetaContactsService>().AsImplementedInterfaces();
+            builder.RegisterType<ContactsService>().AsImplementedInterfaces();
+            builder.RegisterType<MessagesService>().AsImplementedInterfaces();
+            builder.RegisterType<AccountsService>().AsImplementedInterfaces();
         }
     }
 }
