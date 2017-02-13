@@ -7,13 +7,13 @@ namespace Dialog.DataBase.Migrations.DialogMigrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class UserRefmessagetext : IMigrationMetadata
+    public sealed partial class UserIdinUserRef : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UserRefmessagetext));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UserIdinUserRef));
         
         string IMigrationMetadata.Id
         {
-            get { return "201702132146333_UserRef, message text"; }
+            get { return "201702132153225_UserId in UserRef"; }
         }
         
         string IMigrationMetadata.Source

@@ -67,9 +67,9 @@
     <Compile Include="DialogMigrations\201702132145057_Initial.Designer.cs">
       <DependentUpon>201702132145057_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="DialogMigrations\201702132146333_UserRef, message text.cs" />
-    <Compile Include="DialogMigrations\201702132146333_UserRef, message text.Designer.cs">
-      <DependentUpon>201702132146333_UserRef, message text.cs</DependentUpon>
+    <Compile Include="DialogMigrations\201702132153225_UserId in UserRef.cs" />
+    <Compile Include="DialogMigrations\201702132153225_UserId in UserRef.Designer.cs">
+      <DependentUpon>201702132153225_UserId in UserRef.cs</DependentUpon>
     </Compile>
     <Compile Include="DialogMigrations\Configuration.cs" />
     <Compile Include="IdentityMigrations\201702132125425_InitialDatabaseCreation.cs" />
@@ -94,8 +94,8 @@
     <EmbeddedResource Include="DialogMigrations\201702132145057_Initial.resx">
       <DependentUpon>201702132145057_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DialogMigrations\201702132146333_UserRef, message text.resx">
-      <DependentUpon>201702132146333_UserRef, message text.cs</DependentUpon>
+    <EmbeddedResource Include="DialogMigrations\201702132153225_UserId in UserRef.resx">
+      <DependentUpon>201702132153225_UserId in UserRef.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdentityMigrations\201702132125425_InitialDatabaseCreation.resx">
       <DependentUpon>201702132125425_InitialDatabaseCreation.cs</DependentUpon>
