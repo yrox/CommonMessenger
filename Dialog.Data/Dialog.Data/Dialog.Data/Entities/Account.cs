@@ -12,6 +12,6 @@ namespace Dialog.Data.Entities
         public string Login { get; set; }
         public string Password { get; set; }
 
-        public int UserId { get; set; }
+        public UserReference User { get; set; }
     }
 }

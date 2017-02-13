@@ -4,6 +4,6 @@ namespace Dialog.Data.Entities
 {
     public class UserReference : Entity
     {
-
+        public string UserName { get; set; }
     }
 }

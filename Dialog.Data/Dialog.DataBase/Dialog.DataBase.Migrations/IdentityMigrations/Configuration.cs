@@ -11,6 +11,7 @@ namespace Dialog.DataBase.Migrations.IdentityMigrations
         {
             AutomaticMigrationsEnabled = false;
             MigrationsDirectory = @"IdentityMigrations";
+            ContextKey = "Dialog.DataBase.Migrations.Context.IdentityDbContext";
         }
 
         protected override void Seed(Dialog.DataBase.Migrations.Context.AppDbContext context)
