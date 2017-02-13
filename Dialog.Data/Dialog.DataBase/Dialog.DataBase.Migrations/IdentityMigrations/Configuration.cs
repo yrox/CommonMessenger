@@ -1,11 +1,11 @@
-namespace DataBase.IdentityMigrations
+namespace Dialog.DataBase.Migrations.IdentityMigrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Data.Identity.IdentityDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Dialog.DataBase.Migrations.Context.AppDbContext>
     {
         public Configuration()
         {
@@ -13,7 +13,7 @@ namespace DataBase.IdentityMigrations
             MigrationsDirectory = @"IdentityMigrations";
         }
 
-        protected override void Seed(Data.Identity.IdentityDbContext context)
+        protected override void Seed(Dialog.DataBase.Migrations.Context.AppDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

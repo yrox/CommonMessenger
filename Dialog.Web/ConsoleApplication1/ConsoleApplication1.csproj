@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{17A30A8E-A591-43BA-99F6-2DBA9444C8C2}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{AFD96494-D103-49D6-ADAF-B403D34F2781}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dialog.DataBase.Migrations</RootNamespace>
-    <AssemblyName>Dialog.DataBase.Migrations</AssemblyName>
+    <RootNamespace>ConsoleApplication1</RootNamespace>
+    <AssemblyName>ConsoleApplication1</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -38,17 +41,11 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Olga.Data">
+      <HintPath>..\..\Dialog.Common\DLLs\Olga.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Olga.Identity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Dialog.Common\DLLs\Olga.Identity.dll</HintPath>
+    <Reference Include="Olga.Data.Interfaces">
+      <HintPath>..\..\Dialog.Common\DLLs\Olga.Data.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -61,31 +58,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\AppDbContext.cs" />
-    <Compile Include="Context\DialogDbContext.cs" />
-    <Compile Include="DialogMigrations\Configuration.cs" />
-    <Compile Include="IdentityMigrations\201702132125425_InitialDatabaseCreation.cs" />
-    <Compile Include="IdentityMigrations\201702132125425_InitialDatabaseCreation.Designer.cs">
-      <DependentUpon>201702132125425_InitialDatabaseCreation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IdentityMigrations\Configuration.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Dialog.Data\Dialog.Data\Dialog.Data.csproj">
-      <Project>{239b771e-e1ee-4a99-b207-fcaae44f49fa}</Project>
-      <Name>Dialog.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="IdentityMigrations\201702132125425_InitialDatabaseCreation.resx">
-      <DependentUpon>201702132125425_InitialDatabaseCreation.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\..\Dialog.Data\Dialog.Data\Dialog.Data\Dialog.Data.csproj">
+      <Project>{239b771e-e1ee-4a99-b207-fcaae44f49fa}</Project>
+      <Name>Dialog.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

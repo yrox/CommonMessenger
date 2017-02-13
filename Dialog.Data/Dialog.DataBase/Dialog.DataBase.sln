@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialog.DataBase.Migrations", "Dialog.DataBase.Migrations\Dialog.DataBase.Migrations.csproj", "{17A30A8E-A591-43BA-99F6-2DBA9444C8C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialog.Data", "..\Dialog.Data\Dialog.Data\Dialog.Data.csproj", "{239B771E-E1EE-4A99-B207-FCAAE44F49FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{17A30A8E-A591-43BA-99F6-2DBA9444C8C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17A30A8E-A591-43BA-99F6-2DBA9444C8C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17A30A8E-A591-43BA-99F6-2DBA9444C8C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{239B771E-E1EE-4A99-B207-FCAAE44F49FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{239B771E-E1EE-4A99-B207-FCAAE44F49FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{239B771E-E1EE-4A99-B207-FCAAE44F49FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{239B771E-E1EE-4A99-B207-FCAAE44F49FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

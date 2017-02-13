@@ -60,6 +60,7 @@
     <Compile Include="Entities\Contact.cs" />
     <Compile Include="Entities\Message.cs" />
     <Compile Include="Entities\MetaContact.cs" />
+    <Compile Include="Entities\UserReference.cs" />
     <Compile Include="EntityFramewrk\DialogDbContext.cs" />
     <Compile Include="Interfaces\IDialogUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

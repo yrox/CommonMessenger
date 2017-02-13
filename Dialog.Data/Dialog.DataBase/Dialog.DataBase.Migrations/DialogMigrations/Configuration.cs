@@ -1,19 +1,19 @@
-namespace DataBase.Migrations
+namespace Dialog.DataBase.Migrations.DialogMigrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Data.Business.EntitFramework.BusinessDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Dialog.DataBase.Migrations.Context.DialogDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Data.Business.EntitFramework.BusinessDbContext";
+            MigrationsDirectory = @"DialogMigrations";
         }
 
-        protected override void Seed(Data.Business.EntitFramework.BusinessDbContext context)
+        protected override void Seed(Dialog.DataBase.Migrations.Context.DialogDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

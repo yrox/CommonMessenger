@@ -7,7 +7,7 @@ using Dialog.DTOs;
 using NotificationHandling.Interfaces;
 
 namespace NotificationHandling.Handlers
-{
+{//TODO get accs from db to pass to accManager
     public class SignalrNotificationHandler : INotificationHandler
     {
         public SignalrNotificationHandler()
@@ -16,7 +16,7 @@ namespace NotificationHandling.Handlers
             var accountsManager = new AccountsManager();
             BusinessNotificationHandler = new BusinessNotificationHadler(accountsManager);
             UserNotificationHandler = new SignalrUserNotificationHandler(accountsManager);
-            accountsManager.Authorize(new AccountDTO());
+            //accountsManager.Authorize(new AccountDTO());
         }
 
         public IBusinessNotificationHandler BusinessNotificationHandler { get; }
