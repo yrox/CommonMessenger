@@ -10,7 +10,7 @@ namespace WebApi.Test.App_StartTests
         public void Register_ShouldMapRoutes_Succeed()
         {
             var config = new HttpConfiguration();
-            WebApiConfig.Register(config);
+            RoutesConfig.Register(config);
             Assert.NotZero(config.Routes.Count);
         }
     }

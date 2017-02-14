@@ -1,8 +1,5 @@
-﻿using System;
-using System.Web;
-using Autofac;
+﻿using Autofac;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Olga.Identity;
@@ -26,7 +23,7 @@ namespace WebApi
             app.CreatePerOwinContext<AppUserManager>(AppUserManager.Create);
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
-                AuthenticationType = "ApplicationCookie",
+                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,//"ApplicationCookie",
                 LoginPath = new PathString("/Account/Login")
             });
 

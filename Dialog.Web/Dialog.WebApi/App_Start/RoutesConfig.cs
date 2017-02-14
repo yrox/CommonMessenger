@@ -2,7 +2,7 @@
 
 namespace WebApi
 {
-    public static class WebApiConfig
+    public static class RoutesConfig
     {
         public static void Register(HttpConfiguration config)
         {
@@ -10,7 +10,7 @@ namespace WebApi
 
             // Web API routes
             config.MapHttpAttributeRoutes();
-            //Mapper.Initialize(x => x.AddProfile<MapProfile>());
+            
 
             //config.Routes.MapHttpRoute(
             //name: "DefaultApi",
