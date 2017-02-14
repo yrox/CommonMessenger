@@ -5,6 +5,7 @@ using Dialog.Services.Interfaces;
 
 namespace WebApi.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/accounts")]
     public class AccountsController : ApiController
     {

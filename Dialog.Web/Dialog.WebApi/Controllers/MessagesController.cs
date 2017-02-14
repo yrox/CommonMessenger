@@ -6,6 +6,7 @@ using NotificationHandling.Interfaces;
 
 namespace WebApi.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/messages")]
     public class MessagesController : ApiController
     {
