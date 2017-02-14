@@ -11,7 +11,7 @@
 *.userprefs
 
 # ignore an entire directory
-/ConsoleApplication1/
+/Dialog.Web\ConsoleApplication1\
 
 # Build results
 [Dd]ebug/
