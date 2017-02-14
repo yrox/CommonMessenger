@@ -19,7 +19,7 @@ namespace WebApi.Test.ControllersTests
         [SetUp]
         public void SetUp()
         {
-            Mapper.Initialize(x => x.AddProfile<MapProfile>());
+            Mapper.Initialize(x => x.AddProfile<WebMapProfile>());
 
             _unitOfWorkMock = new Mock<UnitOfWork>();
             _unitOfWorkMock.Setup(x => x.Repository<Message>()).Verifiable();

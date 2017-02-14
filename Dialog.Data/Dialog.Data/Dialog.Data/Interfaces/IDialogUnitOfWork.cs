@@ -12,5 +12,7 @@ namespace Dialog.Data.Interfaces
         IRepository<MetaContact> MetaContactsRepository { get; }
 
         IRepository<Account> AccountsRepository { get; }
+
+        IRepository<UserReference> UserReferencesRepository { get; }
     }
 }

@@ -16,5 +16,7 @@ namespace Dialog.Data.EntityFramewrk
         public DbSet<Message> Messages { get; set; }
 
         public DbSet<Account> Accounts { get; set; }
+
+        public DbSet<UserReference> UserReferences { get; set; }
     }
 }

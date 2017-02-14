@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using AutoMapper;
 using Dialog.Data;
 using Dialog.Data.Interfaces;
 using Dialog.Services.Services;
@@ -13,7 +14,7 @@ namespace Dialog.Services.Util
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<DialogUnitOfWork>().As<IDialogUnitOfWork>()
-                .WithParameter("context", "DialogDb");
+                .WithParameter("nameOrConnectionString", "Dialog");
 
             builder.RegisterType<MetaContactsService>().AsImplementedInterfaces();
             builder.RegisterType<ContactsService>().AsImplementedInterfaces();
@@ -23,6 +24,8 @@ namespace Dialog.Services.Util
             builder.RegisterType<SignalrNotificationHandler>().As<INotificationHandler>();
             builder.RegisterType<SignalrUserNotificationHandler>().As<IUserNotificationHandler>();
             builder.RegisterType<BusinessNotificationHadler>().As<IBusinessNotificationHandler>();
+
+            builder.Register(x => new MapperConfiguration(cfg => cfg.AddProfile(typeof(ServiceMapProfile))));
         }
     }
 }

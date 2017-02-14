@@ -63,18 +63,14 @@
   <ItemGroup>
     <Compile Include="Context\AppDbContext.cs" />
     <Compile Include="Context\DialogDbContext.cs" />
-    <Compile Include="DialogMigrations\201702132145057_Initial.cs" />
-    <Compile Include="DialogMigrations\201702132145057_Initial.Designer.cs">
-      <DependentUpon>201702132145057_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DialogMigrations\201702132153225_UserId in UserRef.cs" />
-    <Compile Include="DialogMigrations\201702132153225_UserId in UserRef.Designer.cs">
-      <DependentUpon>201702132153225_UserId in UserRef.cs</DependentUpon>
+    <Compile Include="DialogMigrations\201702132254105_Initial.cs" />
+    <Compile Include="DialogMigrations\201702132254105_Initial.Designer.cs">
+      <DependentUpon>201702132254105_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="DialogMigrations\Configuration.cs" />
-    <Compile Include="IdentityMigrations\201702132125425_InitialDatabaseCreation.cs" />
-    <Compile Include="IdentityMigrations\201702132125425_InitialDatabaseCreation.Designer.cs">
-      <DependentUpon>201702132125425_InitialDatabaseCreation.cs</DependentUpon>
+    <Compile Include="IdentityMigrations\201702132257349_InitialDatabaseCreation.cs" />
+    <Compile Include="IdentityMigrations\201702132257349_InitialDatabaseCreation.Designer.cs">
+      <DependentUpon>201702132257349_InitialDatabaseCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="IdentityMigrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,14 +87,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="DialogMigrations\201702132145057_Initial.resx">
-      <DependentUpon>201702132145057_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="DialogMigrations\201702132254105_Initial.resx">
+      <DependentUpon>201702132254105_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DialogMigrations\201702132153225_UserId in UserRef.resx">
-      <DependentUpon>201702132153225_UserId in UserRef.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IdentityMigrations\201702132125425_InitialDatabaseCreation.resx">
-      <DependentUpon>201702132125425_InitialDatabaseCreation.cs</DependentUpon>
+    <EmbeddedResource Include="IdentityMigrations\201702132257349_InitialDatabaseCreation.resx">
+      <DependentUpon>201702132257349_InitialDatabaseCreation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -5,7 +5,7 @@ using Dialog.Services.Interfaces;
 
 namespace WebApi.Controllers
 {
-    [RoutePrefix("api/accunts")]
+    [RoutePrefix("api/accounts")]
     public class AccountsController : ApiController
     {
         private readonly IAccountsService _accountsService;
