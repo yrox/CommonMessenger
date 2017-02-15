@@ -2,7 +2,6 @@
 using AutoMapper;
 using Dialog.DTOs;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Olga.Identity;
 using Olga.Identity.Interfaces;

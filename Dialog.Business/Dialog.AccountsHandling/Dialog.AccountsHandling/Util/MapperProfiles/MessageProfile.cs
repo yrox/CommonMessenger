@@ -2,7 +2,7 @@
 using AutoMapper;
 using Dialog.DTOs;
 
-namespace Dialog.AccountsHandling.Util.AutoMapperConfig
+namespace Dialog.AccountsHandling.Util.MapperProfiles
 {
     public class MessageProfile : Profile
     {
