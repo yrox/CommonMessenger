@@ -23,7 +23,7 @@ namespace WebApi.Controllers
         [HttpPost]
         public async void Login(UserDTO userData)
         {
-            var user = await _userManager.FindAsync(userData.Name, userData.Password);
+            var user = await _userManager.FindAsync(userData.UserName, userData.Password);
             _authenticationManager.SignOut();
             var identity = _userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
             _authenticationManager.SignIn(identity);
@@ -38,7 +38,7 @@ namespace WebApi.Controllers
             user = new AppUser()
             {
                 Email = userData.Email,
-                UserName = userData.Name
+                UserName = userData.UserName
             };
             var result = await _userManager.CreateAsync(user, userData.Password);
             //await _userManager.AddToRoleAsync(user.Id, "user");
