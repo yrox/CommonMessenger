@@ -25,6 +25,6 @@ namespace Dialog.Data
 
         public IRepository<MetaContact> MetaContactsRepository => GetRepository<MetaContact>();
 
-        public IRepository<UserReference> UserReferencesRepository => GetRepository<UserReference>();
+        //public IRepository<UserReference> UserReferencesRepository => GetRepository<UserReference>();
     }
 }

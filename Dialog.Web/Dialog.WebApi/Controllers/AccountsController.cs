@@ -9,46 +9,53 @@ namespace WebApi.Controllers
     [RoutePrefix("api/accounts")]
     public class AccountsController : ApiController
     {
-        private readonly IAccountsService _accountsService;
+        private readonly IAccountsService _accountsAccService;
+        private readonly IUsersService _usersService;
 
-        public AccountsController(IAccountsService service)
+        public AccountsController(IAccountsService accService, IUsersService usersService)
         {
-            _accountsService = service;
+            _accountsAccService = accService;
+            _usersService = usersService;
         }
 
         [Route("")]
         [HttpGet]
         public IEnumerable<AccountDTO> Get()
         {
-            return _accountsService.GetAll();
+            var userId = _usersService.GetIdByName(User.Identity.Name);
+            return _accountsAccService.GetByUserId(userId);
         }
 
         [Route("{id:int}")]
         [HttpGet]
         public AccountDTO Get(int id)
         {
-            return _accountsService.Find(id);
+            return _accountsAccService.Find(id);
         }
 
         [Route("")]
         [HttpPost]
         public void Insert(AccountDTO item)
         {
-            _accountsService.Insert(item);
+            var userId = _usersService.GetIdByName(User.Identity.Name);
+            item.User.Id = userId;
+            _accountsAccService.Insert(item);
         }
 
         [Route("{id:int}")]
         [HttpPut]
         public void Update(AccountDTO item)
         {
-            _accountsService.Update(item);
+            var userId = _usersService.GetIdByName(User.Identity.Name);
+            item.User.Id = userId;
+            _accountsAccService.Update(item);
         }
 
         [Route("del")]
         [HttpDelete]
         public void Delete(AccountDTO item)
         {
-            _accountsService.Delete(item);
+            _accountsAccService.Delete(item);
         }
     }
 }

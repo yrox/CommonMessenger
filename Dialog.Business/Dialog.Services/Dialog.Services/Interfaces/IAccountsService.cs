@@ -7,6 +7,8 @@ namespace Dialog.Services.Interfaces
     {
         IEnumerable<AccountDTO> GetAll();
 
+        IEnumerable<AccountDTO> GetByUserId(int id);
+
         AccountDTO Find(int id);
 
         void Insert(AccountDTO entity);

@@ -13,6 +13,6 @@ namespace Dialog.Data.Interfaces
 
         IRepository<Account> AccountsRepository { get; }
 
-        IRepository<UserReference> UserReferencesRepository { get; }
+        //IRepository<UserReference> UserReferencesRepository { get; }
     }
 }

@@ -24,6 +24,12 @@ namespace Dialog.Services.Services
                 _mapper.Map<IEnumerable<AccountDTO>>(_dialogUnitOfWork.AccountsRepository.GetAll());
         }
 
+        public IEnumerable<AccountDTO> GetByUserId(int id)
+        {
+            return
+                _mapper.Map<IEnumerable<AccountDTO>>(_dialogUnitOfWork.AccountsRepository.GetAll(x => x.User.Id == id));
+        }
+
         public AccountDTO Find(int id)
         {
             return _mapper.Map<AccountDTO>(_dialogUnitOfWork.AccountsRepository.Find(id));
