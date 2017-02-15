@@ -4,7 +4,7 @@ namespace Dialog.Data.Entities
 {
     public class UserReference : Entity
     {
-        public int UserId { get; set; }
+        public int Email { get; set; }
         public string UserName { get; set; }
     }
 }

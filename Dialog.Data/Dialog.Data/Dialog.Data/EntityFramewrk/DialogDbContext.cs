@@ -9,15 +9,16 @@ namespace Dialog.Data.EntityFramewrk
 
         public DialogDbContext(string nameOrConnectionString) : base(nameOrConnectionString) { }
 
-        public DbSet<Contact> Contacts { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
 
-        public DbSet<MetaContact> MetaContacts { get; set; }
-
-        public DbSet<Message> Messages { get; set; }
-
-        public DbSet<Account> Accounts { get; set; }
-
-        public DbSet<UserReference> UserReferences { get; set; }
+            modelBuilder.Entity<Account>().ToTable("Accounts");
+            modelBuilder.Entity<Contact>().ToTable("Contacts");
+            modelBuilder.Entity<Message>().ToTable("Messages");
+            modelBuilder.Entity<MetaContact>().ToTable("MetaContacts");
+            modelBuilder.Entity<UserReference>().ToTable("Users");
+        }
 
 
     }

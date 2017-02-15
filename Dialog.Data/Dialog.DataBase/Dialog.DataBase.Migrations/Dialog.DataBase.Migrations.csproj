@@ -67,6 +67,14 @@
     <Compile Include="DialogMigrations\201702132254105_Initial.Designer.cs">
       <DependentUpon>201702132254105_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="DialogMigrations\201702150019578_UserRef changes.cs" />
+    <Compile Include="DialogMigrations\201702150019578_UserRef changes.Designer.cs">
+      <DependentUpon>201702150019578_UserRef changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogMigrations\201702150021313_UserRef ref to user table.cs" />
+    <Compile Include="DialogMigrations\201702150021313_UserRef ref to user table.Designer.cs">
+      <DependentUpon>201702150021313_UserRef ref to user table.cs</DependentUpon>
+    </Compile>
     <Compile Include="DialogMigrations\Configuration.cs" />
     <Compile Include="IdentityMigrations\201702132257349_InitialDatabaseCreation.cs" />
     <Compile Include="IdentityMigrations\201702132257349_InitialDatabaseCreation.Designer.cs">
@@ -89,6 +97,12 @@
   <ItemGroup>
     <EmbeddedResource Include="DialogMigrations\201702132254105_Initial.resx">
       <DependentUpon>201702132254105_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogMigrations\201702150019578_UserRef changes.resx">
+      <DependentUpon>201702150019578_UserRef changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogMigrations\201702150021313_UserRef ref to user table.resx">
+      <DependentUpon>201702150021313_UserRef ref to user table.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdentityMigrations\201702132257349_InitialDatabaseCreation.resx">
       <DependentUpon>201702132257349_InitialDatabaseCreation.cs</DependentUpon>

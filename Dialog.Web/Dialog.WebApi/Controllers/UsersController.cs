@@ -21,9 +21,9 @@ namespace WebApi.Controllers
 
         [Route("signin")]
         [HttpPost]
-        public async void Login(UserDTO model)
+        public async void Login(UserDTO userData)
         {
-            var user = await _userManager.FindAsync(model.Name, model.Password);
+            var user = await _userManager.FindAsync(userData.Name, userData.Password);
             _authenticationManager.SignOut();
             var identity = _userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
             _authenticationManager.SignIn(identity);
@@ -31,17 +31,17 @@ namespace WebApi.Controllers
 
         [Route("signup")]
         [HttpPost]
-        public async void Register(UserDTO model)
+        public async void Register(UserDTO userData)
         {
-           var user = await _userManager.FindByEmailAsync(model.Login);
+           var user = await _userManager.FindByEmailAsync(userData.Email);
             
             user = new AppUser()
             {
-                Email = model.Login,
-                UserName = model.Name
+                Email = userData.Email,
+                UserName = userData.Name
             };
-            var result = await _userManager.CreateAsync(user, model.Password);
-            await _userManager.AddToRoleAsync(user.Id, "user");
+            var result = await _userManager.CreateAsync(user, userData.Password);
+            //await _userManager.AddToRoleAsync(user.Id, "user");
         }
 
         [Authorize]
