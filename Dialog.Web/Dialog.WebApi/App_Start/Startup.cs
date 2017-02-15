@@ -17,7 +17,7 @@ namespace WebApi
 
             app.UseAutofacMiddleware(container);
 
-            app.CreatePerOwinContext(() => AppDbContext.Create("Dialog"));
+            //app.CreatePerOwinContext(() => AppDbContext.Create("Dialog"));
             app.CreatePerOwinContext<AppUserManager>(AppUserManager.Create);
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {

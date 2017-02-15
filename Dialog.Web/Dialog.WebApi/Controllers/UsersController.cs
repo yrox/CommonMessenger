@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using Olga.Identity;
@@ -31,16 +32,17 @@ namespace WebApi.Controllers
 
         [Route("signup")]
         [HttpPost]
-        public async void Register(UserDTO userData)
+        public void Register(UserDTO userData)
         {
            //var user = await _userManager.FindByEmailAsync(userData.Email);
-            var data = userData ?? new UserDTO {Email = "emaail", UserName = "vasya", Password = "password"};
+            var data = userData ?? new UserDTO {Email = "email", UserName = "secondOne", Password = "password"};
             var user = new AppUser()
             {
                 Email = data.Email,
                 UserName = data.UserName
             };
-            var result = await _userManager.CreateAsync(user, data.Password);
+            _userManager.Create(user, data.Password);
+
             //await _userManager.AddToRoleAsync(user.Id, "user");
         }
 

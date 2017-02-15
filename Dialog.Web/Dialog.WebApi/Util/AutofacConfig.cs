@@ -8,6 +8,7 @@ using Dialog.Services.Util;
 using Microsoft.AspNet.Identity;
 using Olga.Identity;
 using Olga.Identity.EntityFramework;
+using WebApi.Controllers;
 
 namespace WebApi.Util
 {
@@ -26,11 +27,11 @@ namespace WebApi.Util
 
             builder.RegisterAssemblyTypes().AssignableTo(typeof(Profile)).As<Profile>();
 
-            
             builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
-            builder.RegisterType<AppDbContext>().AsSelf().WithParameter("connectionString", "Dialog");
+            builder.RegisterType<AppDbContext>().AsSelf().WithParameter("connectionString", "Dialog").SingleInstance();
             builder.RegisterType<AppUserManager>().AsSelf().InstancePerRequest();
             builder.RegisterType<AppUserStore>().As<IUserStore<AppUser, int>>();
+            
 
             builder.Register(c => new MapperConfiguration(cfg =>
             {
