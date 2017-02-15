@@ -20,14 +20,12 @@ namespace Dialog.Services.Services
 
         public IEnumerable<AccountDTO> GetAll()
         {
-            return
-                _mapper.Map<IEnumerable<AccountDTO>>(_dialogUnitOfWork.AccountsRepository.GetAll());
+            return _dialogUnitOfWork.AccountsRepository.GetAll<AccountDTO>();
         }
 
         public IEnumerable<AccountDTO> GetByUserId(int id)
         {
-            return
-                _mapper.Map<IEnumerable<AccountDTO>>(_dialogUnitOfWork.AccountsRepository.GetAll(x => x.User.Id == id));
+            return _dialogUnitOfWork.AccountsRepository.GetAll<AccountDTO>(x => x.User.Id == id);
         }
 
         public AccountDTO Find(int id)

@@ -21,8 +21,7 @@ namespace Dialog.Services.Services
 
         public IEnumerable<MessageDTO> GetAll()
         {
-            return
-                _mapper.Map<IEnumerable<MessageDTO>>(_dialogUnitOfWork.MessagesRepository.GetAll());
+            return _dialogUnitOfWork.MessagesRepository.GetAll<MessageDTO>();
         }
 
         public MessageDTO Find(int id)

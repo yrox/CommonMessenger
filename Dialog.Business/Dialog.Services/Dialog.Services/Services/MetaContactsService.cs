@@ -20,8 +20,7 @@ namespace Dialog.Services.Services
 
         public IEnumerable<MetaContactDTO> GetAll()
         {
-            return _mapper.Map<IEnumerable<MetaContactDTO>>(
-                _dialogUnitOfWork.MetaContactsRepository.GetAll());
+            return _dialogUnitOfWork.MetaContactsRepository.GetAll<MetaContactDTO>();
         }
 
         public MetaContactDTO Find(int id)
