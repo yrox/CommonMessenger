@@ -1,7 +1,4 @@
-﻿using System;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Dialog.AccountsHandling;
 using Dialog.DTOs;
 using NotificationHandling.Interfaces;
@@ -10,8 +7,11 @@ namespace NotificationHandling.Handlers
 {//TODO get accs from db to pass to accManager
     public class SignalrNotificationHandler : INotificationHandler
     {
-        public SignalrNotificationHandler()
+        private IEnumerable<AccountDTO> _userAccs;
+
+        public SignalrNotificationHandler(IEnumerable<AccountDTO> accs)
         {
+            _userAccs = accs;
             //var account = GetAccountAsync().Result;
             var accountsManager = new AccountsManager();
             BusinessNotificationHandler = new BusinessNotificationHadler(accountsManager);
@@ -23,19 +23,19 @@ namespace NotificationHandling.Handlers
 
         public IUserNotificationHandler UserNotificationHandler { get; }
 
-        private async Task<AccountDTO> GetAccountAsync()
-        {
-            var result = new AccountDTO();
-            var httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri("http://localhost:53473/");
-            httpClient.DefaultRequestHeaders.Accept.Clear();
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            var response = await httpClient.GetAsync("api/account/1");
-            if (response.IsSuccessStatusCode)
-            {
-                result = await response.Content.ReadAsAsync<AccountDTO>();
-            }
-            return result;
-        }
+        //private async Task<AccountDTO> GetAccountAsync()
+        //{
+        //    var result = new AccountDTO();
+        //    var httpClient = new HttpClient();
+        //    httpClient.BaseAddress = new Uri("http://localhost:53473/");
+        //    httpClient.DefaultRequestHeaders.Accept.Clear();
+        //    httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //    var response = await httpClient.GetAsync("api/accounts/1");
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        result = await response.Content.ReadAsAsync<AccountDTO>();
+        //    }
+        //    return result;
+        //}
     }
 }

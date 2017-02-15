@@ -38,10 +38,12 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Olga.Data">
+    <Reference Include="Olga.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Dialog.Common\DLLs\Olga.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Olga.Data.Interfaces">
+    <Reference Include="Olga.Data.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Dialog.Common\DLLs\Olga.Data.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="System" />

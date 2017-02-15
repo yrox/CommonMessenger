@@ -1,11 +1,13 @@
-﻿using System.Linq;
-using System.Reflection;
-using System.Web.Compilation;
+﻿using System.Reflection;
+using System.Web;
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
 using AutoMapper;
 using Dialog.Services.Util;
+using Microsoft.AspNet.Identity;
+using Olga.Identity;
+using Olga.Identity.EntityFramework;
 
 namespace WebApi.Util
 {
@@ -15,15 +17,20 @@ namespace WebApi.Util
         {
             var builder = new ContainerBuilder();
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-            var assemblies = BuildManager.GetReferencedAssemblies().Cast<Assembly>();
+
+            //var assemblies = BuildManager.GetReferencedAssemblies().Cast<Assembly>();
+            //builder.RegisterAssemblyModules(assemblies.ToArray());
 
             builder.RegisterWebApiFilterProvider(GlobalConfiguration.Configuration);
             builder.RegisterModule(new ServiceModule());
 
-            //builder.RegisterAssemblyModules(assemblies.ToArray());
-
-            //Automapper Non-static configuration
             builder.RegisterAssemblyTypes().AssignableTo(typeof(Profile)).As<Profile>();
+
+            
+            builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
+            builder.RegisterType<AppDbContext>().AsSelf().WithParameter("connectionString", "Dialog");
+            builder.RegisterType<AppUserManager>().AsSelf().InstancePerRequest();
+            builder.RegisterType<AppUserStore>().As<IUserStore<AppUser, int>>();
 
             builder.Register(c => new MapperConfiguration(cfg =>
             {

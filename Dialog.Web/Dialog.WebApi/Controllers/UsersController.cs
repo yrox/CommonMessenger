@@ -33,14 +33,14 @@ namespace WebApi.Controllers
         [HttpPost]
         public async void Register(UserDTO userData)
         {
-           var user = await _userManager.FindByEmailAsync(userData.Email);
-            
-            user = new AppUser()
+           //var user = await _userManager.FindByEmailAsync(userData.Email);
+            var data = userData ?? new UserDTO {Email = "emaail", UserName = "vasya", Password = "password"};
+            var user = new AppUser()
             {
-                Email = userData.Email,
-                UserName = userData.UserName
+                Email = data.Email,
+                UserName = data.UserName
             };
-            var result = await _userManager.CreateAsync(user, userData.Password);
+            var result = await _userManager.CreateAsync(user, data.Password);
             //await _userManager.AddToRoleAsync(user.Id, "user");
         }
 

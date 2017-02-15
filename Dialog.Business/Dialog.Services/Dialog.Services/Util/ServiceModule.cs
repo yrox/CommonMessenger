@@ -20,6 +20,7 @@ namespace Dialog.Services.Util
             builder.RegisterType<ContactsService>().AsImplementedInterfaces();
             builder.RegisterType<MessagesService>().AsImplementedInterfaces();
             builder.RegisterType<AccountsService>().AsImplementedInterfaces();
+            builder.RegisterType<UsersService>().AsImplementedInterfaces();
 
             builder.RegisterType<SignalrNotificationHandler>().As<INotificationHandler>();
             builder.RegisterType<SignalrUserNotificationHandler>().As<IUserNotificationHandler>();

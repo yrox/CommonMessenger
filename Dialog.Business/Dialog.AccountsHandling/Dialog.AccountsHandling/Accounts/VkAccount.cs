@@ -20,7 +20,7 @@ namespace Dialog.AccountsHandling.Accounts
     {
         private const int AppId = 5678626;
 
-        private IMapper _mapper;
+        private readonly IMapper _mapper;
 
         private static string code;
 

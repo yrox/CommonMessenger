@@ -38,10 +38,12 @@
       <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Olga.Data">
+    <Reference Include="Olga.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Dialog.Common\DLLs\Olga.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Olga.Data.Interfaces">
+    <Reference Include="Olga.Data.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Dialog.Common\DLLs\Olga.Data.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -58,11 +60,13 @@
     <Compile Include="Interfaces\IContactsService.cs" />
     <Compile Include="Interfaces\IMessagesService.cs" />
     <Compile Include="Interfaces\IMetaContactsService.cs" />
+    <Compile Include="Interfaces\IUsersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountsService.cs" />
     <Compile Include="Services\ContactsService.cs" />
     <Compile Include="Services\MessagesService.cs" />
     <Compile Include="Services\MetaContactsService.cs" />
+    <Compile Include="Services\UsersService.cs" />
     <Compile Include="Util\ServiceMapProfile.cs" />
     <Compile Include="Util\ServiceModule.cs" />
   </ItemGroup>

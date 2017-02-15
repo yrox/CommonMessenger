@@ -8,12 +8,10 @@ using Owin;
 
 namespace WebApi
 {
-    //TODO fucking middleware
     public class Startup
     {
         public void Configuration(IAppBuilder app)
         {
-            app.CreatePerOwinContext(() => AppDbContext.Create("NewsDbConnectionString"));
             var builder = new ContainerBuilder();
             var container = builder.Build();
 
