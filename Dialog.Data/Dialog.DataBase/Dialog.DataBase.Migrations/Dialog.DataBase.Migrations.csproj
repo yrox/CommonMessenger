@@ -80,6 +80,14 @@
     <Compile Include="IdentityMigrations\201702132257349_InitialDatabaseCreation.Designer.cs">
       <DependentUpon>201702132257349_InitialDatabaseCreation.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdentityMigrations\201702151140114_DropAspTables.cs" />
+    <Compile Include="IdentityMigrations\201702151140114_DropAspTables.Designer.cs">
+      <DependentUpon>201702151140114_DropAspTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdentityMigrations\201702151150319_DropRoleUserAspTables.cs" />
+    <Compile Include="IdentityMigrations\201702151150319_DropRoleUserAspTables.Designer.cs">
+      <DependentUpon>201702151150319_DropRoleUserAspTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="IdentityMigrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -106,6 +114,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IdentityMigrations\201702132257349_InitialDatabaseCreation.resx">
       <DependentUpon>201702132257349_InitialDatabaseCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdentityMigrations\201702151140114_DropAspTables.resx">
+      <DependentUpon>201702151140114_DropAspTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdentityMigrations\201702151150319_DropRoleUserAspTables.resx">
+      <DependentUpon>201702151150319_DropRoleUserAspTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
