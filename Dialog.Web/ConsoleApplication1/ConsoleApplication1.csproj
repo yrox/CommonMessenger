@@ -66,6 +66,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Dialog.Common\Dialog.DTOs\Dialog.DTOs\Dialog.DTOs.csproj">
+      <Project>{d188611d-a856-4e67-ae9b-2b0c8093699d}</Project>
+      <Name>Dialog.DTOs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Dialog.Data\Dialog.Data\Dialog.Data\Dialog.Data.csproj">
       <Project>{239b771e-e1ee-4a99-b207-fcaae44f49fa}</Project>
       <Name>Dialog.Data</Name>

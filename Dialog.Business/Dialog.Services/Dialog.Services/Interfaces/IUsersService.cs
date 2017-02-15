@@ -10,6 +10,11 @@ namespace Dialog.Services.Interfaces
         int GetIdByName(string name);
 
         string GetNameById(int id);
-        
+
+        void Login(UserDTO userData);
+
+        void Register(UserDTO userData);
+
+        void Logout();
     }
 }

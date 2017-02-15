@@ -1,55 +1,38 @@
 ﻿using System.Web.Http;
-using Microsoft.AspNet.Identity;
-using Microsoft.Owin.Security;
-using Olga.Identity;
 using Dialog.DTOs;
+using Dialog.Services.Interfaces;
 
 namespace WebApi.Controllers
 {
     [RoutePrefix("api/users")]
     public class UsersController : ApiController
     {
-        private readonly AppUserManager _userManager;
-        private readonly IAuthenticationManager _authenticationManager;
+        private readonly IUsersService _usersService;
 
-        public UsersController(AppUserManager userManager,
-            IAuthenticationManager authenticationManager)
+        public UsersController(IUsersService service)
         {
-            _userManager = userManager;
-            _authenticationManager = authenticationManager;
+            _usersService = service;
         }
 
         [Route("signin")]
         [HttpPost]
-        public async void Login(UserDTO userData)
+        public void Login(UserDTO userData)
         {
-            var user = await _userManager.FindAsync(userData.UserName, userData.Password);
-            _authenticationManager.SignOut();
-            var identity = _userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
-            _authenticationManager.SignIn(identity);
+           _usersService.Login(userData);
         }
 
         [Route("signup")]
         [HttpPost]
         public void Register(UserDTO userData)
         {
-           //var user = await _userManager.FindByEmailAsync(userData.Email);
-            var data = userData ?? new UserDTO {Email = "email", UserName = "secondOne", Password = "password"};
-            var user = new AppUser()
-            {
-                Email = data.Email,
-                UserName = data.UserName
-            };
-            _userManager.Create(user, data.Password);
-
-            //await _userManager.AddToRoleAsync(user.Id, "user");
+           _usersService.Register(userData);
         }
 
         [Authorize]
         [Route("signout")]
         public void Logout()
         {
-            _authenticationManager.SignOut();
+           _usersService.Logout();
         }
     }
 }
