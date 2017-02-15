@@ -63,39 +63,25 @@
   <ItemGroup>
     <Compile Include="Context\AppDbContext.cs" />
     <Compile Include="Context\DialogDbContext.cs" />
-    <Compile Include="DialogMigrations\201702132254105_Initial.cs" />
-    <Compile Include="DialogMigrations\201702132254105_Initial.Designer.cs">
-      <DependentUpon>201702132254105_Initial.cs</DependentUpon>
+    <Compile Include="DialogMigrations\201702151236599_Initial.cs" />
+    <Compile Include="DialogMigrations\201702151236599_Initial.Designer.cs">
+      <DependentUpon>201702151236599_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="DialogMigrations\201702150019578_UserRef changes.cs" />
-    <Compile Include="DialogMigrations\201702150019578_UserRef changes.Designer.cs">
-      <DependentUpon>201702150019578_UserRef changes.cs</DependentUpon>
+    <Compile Include="DialogMigrations\201702151245230_UserReferencesDrop.cs" />
+    <Compile Include="DialogMigrations\201702151245230_UserReferencesDrop.Designer.cs">
+      <DependentUpon>201702151245230_UserReferencesDrop.cs</DependentUpon>
     </Compile>
-    <Compile Include="DialogMigrations\201702150021313_UserRef ref to user table.cs" />
-    <Compile Include="DialogMigrations\201702150021313_UserRef ref to user table.Designer.cs">
-      <DependentUpon>201702150021313_UserRef ref to user table.cs</DependentUpon>
+    <Compile Include="DialogMigrations\201702151246359_UserRefToUser.cs" />
+    <Compile Include="DialogMigrations\201702151246359_UserRefToUser.Designer.cs">
+      <DependentUpon>201702151246359_UserRefToUser.cs</DependentUpon>
     </Compile>
     <Compile Include="DialogMigrations\Configuration.cs" />
-    <Compile Include="IdentityMigrations\201702132257349_InitialDatabaseCreation.cs" />
-    <Compile Include="IdentityMigrations\201702132257349_InitialDatabaseCreation.Designer.cs">
-      <DependentUpon>201702132257349_InitialDatabaseCreation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IdentityMigrations\201702151140114_DropAspTables.cs" />
-    <Compile Include="IdentityMigrations\201702151140114_DropAspTables.Designer.cs">
-      <DependentUpon>201702151140114_DropAspTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IdentityMigrations\201702151150319_DropRoleUserAspTables.cs" />
-    <Compile Include="IdentityMigrations\201702151150319_DropRoleUserAspTables.Designer.cs">
-      <DependentUpon>201702151150319_DropRoleUserAspTables.cs</DependentUpon>
+    <Compile Include="IdentityMigrations\201702151238110_Initial.cs" />
+    <Compile Include="IdentityMigrations\201702151238110_Initial.Designer.cs">
+      <DependentUpon>201702151238110_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="IdentityMigrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Dialog.Data\Dialog.Data\Dialog.Data.csproj">
-      <Project>{239b771e-e1ee-4a99-b207-fcaae44f49fa}</Project>
-      <Name>Dialog.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -103,23 +89,23 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="DialogMigrations\201702132254105_Initial.resx">
-      <DependentUpon>201702132254105_Initial.cs</DependentUpon>
+    <ProjectReference Include="..\..\Dialog.Data\Dialog.Data\Dialog.Data.csproj">
+      <Project>{239b771e-e1ee-4a99-b207-fcaae44f49fa}</Project>
+      <Name>Dialog.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DialogMigrations\201702151236599_Initial.resx">
+      <DependentUpon>201702151236599_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DialogMigrations\201702150019578_UserRef changes.resx">
-      <DependentUpon>201702150019578_UserRef changes.cs</DependentUpon>
+    <EmbeddedResource Include="DialogMigrations\201702151245230_UserReferencesDrop.resx">
+      <DependentUpon>201702151245230_UserReferencesDrop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DialogMigrations\201702150021313_UserRef ref to user table.resx">
-      <DependentUpon>201702150021313_UserRef ref to user table.cs</DependentUpon>
+    <EmbeddedResource Include="DialogMigrations\201702151246359_UserRefToUser.resx">
+      <DependentUpon>201702151246359_UserRefToUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IdentityMigrations\201702132257349_InitialDatabaseCreation.resx">
-      <DependentUpon>201702132257349_InitialDatabaseCreation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IdentityMigrations\201702151140114_DropAspTables.resx">
-      <DependentUpon>201702151140114_DropAspTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IdentityMigrations\201702151150319_DropRoleUserAspTables.resx">
-      <DependentUpon>201702151150319_DropRoleUserAspTables.cs</DependentUpon>
+    <EmbeddedResource Include="IdentityMigrations\201702151238110_Initial.resx">
+      <DependentUpon>201702151238110_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

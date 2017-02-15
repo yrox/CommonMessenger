@@ -14,7 +14,6 @@ namespace Dialog.Data
             RegisterRepository(new Repository<Contact>(Context));
             RegisterRepository(new Repository<Message>(Context));
             RegisterRepository(new Repository<MetaContact>(Context));
-            RegisterRepository(new Repository<UserReference>(Context));
         }
 
         public IRepository<Account> AccountsRepository => GetRepository<Account>();
@@ -24,7 +23,5 @@ namespace Dialog.Data
         public IRepository<Message> MessagesRepository => GetRepository<Message>();
 
         public IRepository<MetaContact> MetaContactsRepository => GetRepository<MetaContact>();
-
-        //public IRepository<UserReference> UserReferencesRepository => GetRepository<UserReference>();
     }
 }

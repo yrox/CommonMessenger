@@ -7,10 +7,12 @@ namespace Dialog.DataBase.Migrations.DialogMigrations
     {
         public override void Up()
         {
+           
         }
         
         public override void Down()
         {
+           
         }
     }
 }
