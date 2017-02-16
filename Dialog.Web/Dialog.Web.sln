@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialog.WebApi.Tests", "Dial
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialog.Data", "..\Dialog.Data\Dialog.Data\Dialog.Data\Dialog.Data.csproj", "{239B771E-E1EE-4A99-B207-FCAAE44F49FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{AFD96494-D103-49D6-ADAF-B403D34F2781}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialog.Business.DTO", "..\Dialog.Business\Dialog.Business.DTO\Dialog.Business.DTO.csproj", "{DAC8598A-D136-46BB-9981-C0B74BEC21E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialog.Business.Service", "..\Dialog.Business\Dialog.Business.Service\Dialog.Business.Service.csproj", "{A08C053D-37AA-4C28-81CC-A74E3203052B}"
@@ -33,10 +31,6 @@ Global
 		{239B771E-E1EE-4A99-B207-FCAAE44F49FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{239B771E-E1EE-4A99-B207-FCAAE44F49FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{239B771E-E1EE-4A99-B207-FCAAE44F49FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AFD96494-D103-49D6-ADAF-B403D34F2781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AFD96494-D103-49D6-ADAF-B403D34F2781}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AFD96494-D103-49D6-ADAF-B403D34F2781}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AFD96494-D103-49D6-ADAF-B403D34F2781}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DAC8598A-D136-46BB-9981-C0B74BEC21E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DAC8598A-D136-46BB-9981-C0B74BEC21E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAC8598A-D136-46BB-9981-C0B74BEC21E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
