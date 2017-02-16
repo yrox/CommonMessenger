@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Web.Http;
 using Dialog.DTOs;
 using Dialog.Services.Interfaces;
@@ -19,6 +20,13 @@ namespace WebApi.Controllers
         [Route("")]
         [HttpGet]
         public IEnumerable<ContactDTO> GetAll()
+        {
+            return _contactsService.GetAll();
+        }
+
+        [Route("")]
+        [HttpGet]
+        public IEnumerable<ContactDTO> GetAllByUserame(string name)
         {
             return _contactsService.GetAll();
         }

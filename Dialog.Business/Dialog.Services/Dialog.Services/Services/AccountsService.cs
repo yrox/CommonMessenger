@@ -23,7 +23,7 @@ namespace Dialog.Services.Services
             return _dialogUnitOfWork.AccountsRepository.GetAll<AccountDTO>();
         }
 
-        public IEnumerable<AccountDTO> GetByUserId(int id)
+        public IEnumerable<AccountDTO> GetAllByUserId(int id)
         {
             return _dialogUnitOfWork.AccountsRepository.GetAll<AccountDTO>(x => x.User.Id == id);
         }

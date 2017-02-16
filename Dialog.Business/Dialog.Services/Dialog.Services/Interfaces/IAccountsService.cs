@@ -7,7 +7,7 @@ namespace Dialog.Services.Interfaces
     {
         IEnumerable<AccountDTO> GetAll();
 
-        IEnumerable<AccountDTO> GetByUserId(int id);
+        IEnumerable<AccountDTO> GetAllByUserId(int id);
 
         AccountDTO Find(int id);
 

@@ -5,7 +5,7 @@ using Dialog.Services.Interfaces;
 
 namespace WebApi.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [RoutePrefix("api/accounts")]
     public class AccountsController : ApiController
     {
@@ -23,7 +23,7 @@ namespace WebApi.Controllers
         public IEnumerable<AccountDTO> Get()
         {
             var userId = _usersService.GetByName(User.Identity.Name).Id;
-            return _accountsAccService.GetByUserId(userId);
+            return _accountsAccService.GetAllByUserId(userId);
         }
 
         [Route("{id:int}")]
