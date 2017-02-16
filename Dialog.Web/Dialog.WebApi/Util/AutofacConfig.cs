@@ -1,20 +1,12 @@
 ﻿using System.Reflection;
-using System.Web;
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
 using AutoMapper;
 using Dialog.Services.Util;
-using Microsoft.AspNet.Identity;
-using Olga.Identity;
-using Olga.Identity.EntityFramework;
-using Olga.Identity.Managers;
-using Olga.Identity.Stores;
-using WebApi.Controllers;
 
 namespace WebApi.Util
 {
-    //TODO move identity to service layer
     public class AutofacConfig
     {
         public static IContainer GetContainerBuilder()
@@ -32,13 +24,12 @@ namespace WebApi.Util
 
             builder.Register(c => new MapperConfiguration(cfg =>
             {
-                //cfg.AddProfile<ServiceMapProfile>();
                 cfg.AddProfile<WebMapProfile>();
             })).AsSelf().SingleInstance();
 
             builder.Register(c => c.Resolve<MapperConfiguration>().CreateMapper(c.Resolve))
                 .As<IMapper>().InstancePerLifetimeScope();
-
+            
             return builder.Build();
         }
     }

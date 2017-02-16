@@ -2,7 +2,6 @@
 using System.Web.Http;
 using Dialog.DTOs;
 using Dialog.Services.Interfaces;
-using NotificationHandling.Interfaces;
 
 namespace WebApi.Controllers
 {
@@ -10,7 +9,6 @@ namespace WebApi.Controllers
     [RoutePrefix("api/messages")]
     public class MessagesController : ApiController
     {
-        private readonly IBusinessNotificationHandler _messagesHandler;
         private readonly IMessagesService _messagesService;
 
         public MessagesController(IMessagesService service)
@@ -43,7 +41,7 @@ namespace WebApi.Controllers
         [HttpPost]
         public void Send(MessageDTO item)
         {
-            _messagesHandler.SendMessage(item);
+           _messagesService.Send(item);
         }
 
         [Route("{id:int}")]

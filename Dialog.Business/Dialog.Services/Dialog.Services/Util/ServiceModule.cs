@@ -10,6 +10,7 @@ using NotificationHandling.Handlers;
 using NotificationHandling.Interfaces;
 using Olga.Identity;
 using Olga.Identity.EntityFramework;
+using Olga.Identity.Interfaces;
 using Olga.Identity.Managers;
 using Olga.Identity.Stores;
 
@@ -22,6 +23,8 @@ namespace Dialog.Services.Util
         {
             builder.RegisterType<DialogUnitOfWork>().As<IDialogUnitOfWork>()
                 .WithParameter("nameOrConnectionString", "Dialog");
+            builder.RegisterType<IdentityUnitOfWork>().As<IIdentityUnitOfWork>()
+                .WithParameter("connectionString", "Dialog");
 
             builder.RegisterType<MetaContactsService>().AsImplementedInterfaces();
             builder.RegisterType<ContactsService>().AsImplementedInterfaces();
@@ -45,6 +48,7 @@ namespace Dialog.Services.Util
                     cfg.AddProfile(typeof(ContactProfile));
                     cfg.AddProfile(typeof(MessageProfile));
                     cfg.AddProfile(typeof(MetaContactProfile));
+                    cfg.AddProfile(typeof(UserProfile));
                 }));
         }
     }

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using Dialog.DTOs;
+using Dialog.Services.Interfaces;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using Olga.Identity;
@@ -8,7 +10,7 @@ using Olga.Identity.Interfaces;
 
 namespace Dialog.Services.Services
 {
-    public class UsersService
+    public class UsersService : IUsersService
     {
         private readonly IMapper _mapper;
         private readonly IIdentityUnitOfWork _unitOfWork;
@@ -23,17 +25,17 @@ namespace Dialog.Services.Services
 
         public IEnumerable<UserDTO> GetAll()
         {
-            return new List<UserDTO>();
+            return _mapper.Map<IEnumerable<UserDTO>>(_unitOfWork.UserManager.Users.ToList());
         }
 
-        public int GetIdByName(string name)
+        public UserDTO GetByName(string name)
         {
-            return 0;
+            return _mapper.Map<UserDTO>(_unitOfWork.UserManager.FindByName(name));
         }
 
-        public string GetNameById(int id)
+        public UserDTO GetById(int id)
         {
-            return "";
+            return _mapper.Map<UserDTO>(_unitOfWork.UserManager.FindById(id));
         }
 
         
@@ -45,22 +47,22 @@ namespace Dialog.Services.Services
             _authenticationManager.SignIn(identity);
         }
 
-   
+
         public void Register(UserDTO userData)
         {
-            //var user = await _userManager.FindByEmailAsync(userData.Email);
-            var data = userData ?? new UserDTO { Email = "email", UserName = "secondOne", Password = "password" };
+            var data = userData ?? new UserDTO { Email = "123", UserName = "firstOne", Password = "password" };
             var user = new AppUser()
             {
                 Email = data.Email,
                 UserName = data.UserName
             };
-            _unitOfWork.UserManager.Create(user, data.Password);
 
-            //await _userManager.AddToRoleAsync(user.Id, "user");
+            _unitOfWork.UserManager.Create(user, data.Password);
+            _unitOfWork.SaveChanges();
+
         }
 
-     
+
         public void Logout()
         {
             _authenticationManager.SignOut();

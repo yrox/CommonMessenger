@@ -5,7 +5,7 @@ using Dialog.Services.Interfaces;
 
 namespace WebApi.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [RoutePrefix("api/accounts")]
     public class AccountsController : ApiController
     {
@@ -22,7 +22,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public IEnumerable<AccountDTO> Get()
         {
-            var userId = _usersService.GetIdByName(User.Identity.Name);
+            var userId = _usersService.GetByName(User.Identity.Name).Id;
             return _accountsAccService.GetByUserId(userId);
         }
 
@@ -37,7 +37,7 @@ namespace WebApi.Controllers
         [HttpPost]
         public void Insert(AccountDTO item)
         {
-            var userId = _usersService.GetIdByName(User.Identity.Name);
+            var userId = _usersService.GetByName(User.Identity.Name).Id;
             item.User.Id = userId;
             _accountsAccService.Insert(item);
         }
@@ -46,7 +46,7 @@ namespace WebApi.Controllers
         [HttpPut]
         public void Update(AccountDTO item)
         {
-            var userId = _usersService.GetIdByName(User.Identity.Name);
+            var userId = _usersService.GetByName(User.Identity.Name).Id;
             item.User.Id = userId;
             _accountsAccService.Update(item);
         }

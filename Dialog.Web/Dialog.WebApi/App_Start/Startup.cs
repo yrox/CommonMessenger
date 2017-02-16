@@ -2,8 +2,6 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Olga.Identity;
-using Olga.Identity.EntityFramework;
 using Olga.Identity.Managers;
 using Owin;
 

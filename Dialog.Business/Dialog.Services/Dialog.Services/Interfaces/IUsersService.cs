@@ -7,9 +7,9 @@ namespace Dialog.Services.Interfaces
     {
         IEnumerable<UserDTO> GetAll();
 
-        int GetIdByName(string name);
+        UserDTO GetByName(string name);
 
-        string GetNameById(int id);
+        UserDTO GetById(int id);
 
         void Login(UserDTO userData);
 

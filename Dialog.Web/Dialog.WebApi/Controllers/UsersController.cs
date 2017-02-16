@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Collections.Generic;
+using System.Web.Http;
 using Dialog.DTOs;
 using Dialog.Services.Interfaces;
 
@@ -12,6 +13,27 @@ namespace WebApi.Controllers
         public UsersController(IUsersService service)
         {
             _usersService = service;
+        }
+
+        [Route("")]
+        [HttpGet]
+        public IEnumerable<UserDTO> GetAll()
+        {
+            return _usersService.GetAll();
+        }
+
+        [Route("{name:minlength(4)}")]
+        [HttpGet]
+        public UserDTO GetByName(string name)
+        {
+            return _usersService.GetByName(name);
+        }
+
+        [Route("{id:int}")]
+        [HttpGet]
+        public UserDTO GetById(int id)
+        {
+            return _usersService.GetById(id);
         }
 
         [Route("signin")]
