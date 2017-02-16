@@ -3,7 +3,7 @@ using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
 using AutoMapper;
-using Dialog.Services.Util;
+using Dialog.Business.Service.Util;
 
 namespace WebApi.Util
 {
@@ -29,6 +29,7 @@ namespace WebApi.Util
 
             builder.Register(c => c.Resolve<MapperConfiguration>().CreateMapper(c.Resolve))
                 .As<IMapper>().InstancePerLifetimeScope();
+            
             
             return builder.Build();
         }

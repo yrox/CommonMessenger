@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using Dialog.DTOs;
-using Dialog.Services.Interfaces;
+using Dialog.Business.DTO;
+using Dialog.Business.Service.Interfaces;
 
 namespace WebApi.Controllers
 {

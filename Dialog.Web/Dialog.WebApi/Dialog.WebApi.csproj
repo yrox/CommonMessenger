@@ -160,13 +160,13 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Dialog.Business\Dialog.Services\Dialog.Services\Dialog.Services.csproj">
-      <Project>{be79a857-ba84-4779-9f2a-cb77c089a1b7}</Project>
-      <Name>Dialog.Services</Name>
+    <ProjectReference Include="..\..\Dialog.Business\Dialog.Business.DTO\Dialog.Business.DTO.csproj">
+      <Project>{dac8598a-d136-46bb-9981-c0b74bec21e6}</Project>
+      <Name>Dialog.Business.DTO</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Dialog.Common\Dialog.DTOs\Dialog.DTOs\Dialog.DTOs.csproj">
-      <Project>{d188611d-a856-4e67-ae9b-2b0c8093699d}</Project>
-      <Name>Dialog.DTOs</Name>
+    <ProjectReference Include="..\..\Dialog.Business\Dialog.Business.Service\Dialog.Business.Service.csproj">
+      <Project>{a08c053d-37aa-4c28-81cc-a74e3203052b}</Project>
+      <Name>Dialog.Business.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
