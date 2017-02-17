@@ -1,7 +1,7 @@
 ﻿using Dialog.Busness.Notifications.Signalr;
 using Microsoft.Owin;
 using Owin;
-
+//TODO move notif to web
 [assembly: OwinStartup(typeof(Startup))]
 
 namespace Dialog.Busness.Notifications.Signalr

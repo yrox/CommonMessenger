@@ -7,7 +7,6 @@ using Dialog.Data.Interfaces;
 
 namespace Dialog.Business.Service.Services
 {
-    //TODO inject notifiers somehow
     public class MessagesService : IMessagesService
     {
         private readonly IDialogUnitOfWork _dialogUnitOfWork;
