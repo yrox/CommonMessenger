@@ -5,6 +5,8 @@ using Microsoft.Owin.Security.Cookies;
 using Olga.Identity.Managers;
 using Owin;
 
+[assembly: OwinStartup(typeof(WebApi.Startup))]
+
 namespace WebApi
 {
     public class Startup
@@ -24,6 +26,7 @@ namespace WebApi
                 LoginPath = new PathString("/Account/Login")
             });
 
+            app.MapSignalR();
         }
     }
 }

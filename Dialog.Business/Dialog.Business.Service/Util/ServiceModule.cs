@@ -3,8 +3,6 @@ using Autofac;
 using AutoMapper;
 using Dialog.Business.Service.Services;
 using Dialog.Business.Service.Util.MapProfiles;
-using Dialog.Busness.Notifications.Handlers;
-using Dialog.Busness.Notifications.Interfaces;
 using Dialog.Data;
 using Dialog.Data.Interfaces;
 using Microsoft.AspNet.Identity;
@@ -16,7 +14,6 @@ using Olga.Identity.Stores;
 
 namespace Dialog.Business.Service.Util
 {
-    //TODO pass accs to notifiers
     public class ServiceModule : Module
     {
         protected override void Load(ContainerBuilder builder)
@@ -36,10 +33,6 @@ namespace Dialog.Business.Service.Util
             builder.RegisterType<AppDbContext>().AsSelf().WithParameter("connectionString", "Dialog").SingleInstance();
             builder.RegisterType<AppUserManager>().AsSelf().InstancePerRequest();
             builder.RegisterType<AppUserStore>().As<IUserStore<AppUser, int>>();
-
-            builder.RegisterType<SignalrNotificationHandler>().As<INotificationHandler>();
-            builder.RegisterType<SignalrUserNotificationHandler>().As<IUserNotificationHandler>();
-            builder.RegisterType<BusinessNotificationHadler>().As<IBusinessNotificationHandler>();
 
             builder.Register(x => new MapperConfiguration(
                 cfg =>

@@ -1,35 +1,25 @@
-﻿using Dialog.Business.Accounts;
+﻿using System.Collections.Generic;
+using System.Linq;
+using AutoMapper;
+using Dialog.Business.Accounts;
+using Dialog.Business.DTO;
 using Dialog.Busness.Notifications.Interfaces;
+using Dialog.Busness.Notifications.Util;
 
 namespace Dialog.Busness.Notifications.Handlers
 {
     public class SignalrNotificationHandler : INotificationHandler
     {
-        public SignalrNotificationHandler(AccountsManager manager)
+        public SignalrNotificationHandler(IMapper mapper, IEnumerable<AccountDTO> accs, ConnectionMapping<string> connections, string userName)
         {
-            var accountsManager = manager;
-            //accountsManager.Authorize(new AccountDTO());
-            BusinessNotificationHandler = new BusinessNotificationHadler(accountsManager);
-            UserNotificationHandler = new SignalrUserNotificationHandler(accountsManager);
+            var accountsManager = new AccountsManager(accs.First(), mapper);
+            BusinessNotificationHandler = new BusinessNotificationHadler(accountsManager, userName);
+            UserNotificationHandler = new SignalrUserNotificationHandler(accountsManager, connections, userName);
         }
 
         public IBusinessNotificationHandler BusinessNotificationHandler { get; }
 
         public IUserNotificationHandler UserNotificationHandler { get; }
 
-        //private async Task<AccountDTO> GetAccountAsync()
-        //{
-        //    var result = new AccountDTO();
-        //    var httpClient = new HttpClient();
-        //    httpClient.BaseAddress = new Uri("http://localhost:53473/");
-        //    httpClient.DefaultRequestHeaders.Accept.Clear();
-        //    httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-        //    var response = await httpClient.GetAsync("api/accounts/1");
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        result = await response.Content.ReadAsAsync<AccountDTO>();
-        //    }
-        //    return result;
-        //}
     }
 }

@@ -13,8 +13,6 @@ namespace WebApi
 
             GlobalConfiguration.Configuration.DependencyResolver =
                 new AutofacWebApiDependencyResolver(AutofacConfig.GetContainerBuilder());
-
-            //var h = new SignalrNotificationHandler();
         }
     }
 }

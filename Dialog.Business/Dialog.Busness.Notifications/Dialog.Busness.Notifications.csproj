@@ -104,12 +104,12 @@
     <Compile Include="Handlers\BusinessNotificationHadler.cs" />
     <Compile Include="Handlers\SignalrNotificationHandler.cs" />
     <Compile Include="Handlers\SignalrUserNotificationHandler.cs" />
+    <Compile Include="Hubs\NotificationsНub.cs" />
     <Compile Include="Interfaces\IBusinessNotificationHandler.cs" />
     <Compile Include="Interfaces\INotificationHandler.cs" />
     <Compile Include="Interfaces\IUserNotificationHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Signalr\NotifyingНub.cs" />
-    <Compile Include="Signalr\Startup.cs" />
+    <Compile Include="Util\ConnectionMapping.cs" />
     <Compile Include="Util\NotificationHandlerModule.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +133,7 @@
       <Name>Dialog.Business.DTO</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

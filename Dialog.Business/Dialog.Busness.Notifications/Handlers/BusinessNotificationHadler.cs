@@ -8,10 +8,14 @@ namespace Dialog.Busness.Notifications.Handlers
     {
         private readonly AccountsManager _accountsManager;
 
-        public BusinessNotificationHadler(AccountsManager manager)
+        
+        public BusinessNotificationHadler(AccountsManager manager, string userName)
         {
             _accountsManager = manager;
+            UserName = userName;
         }
+
+        public string UserName { get; }
 
         public void SendMessage(MessageDTO message)
         {

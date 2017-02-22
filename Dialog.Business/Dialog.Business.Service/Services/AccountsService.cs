@@ -28,6 +28,11 @@ namespace Dialog.Business.Service.Services
             return _dialogUnitOfWork.AccountsRepository.GetAll<AccountDTO>(x => x.User.Id == id);
         }
 
+        public IEnumerable<AccountDTO> GetAllByUserName(string name)
+        {
+            return _dialogUnitOfWork.AccountsRepository.GetAll<AccountDTO>(x => x.User.UserName == name);
+        }
+
         public AccountDTO Find(int id)
         {
             return _mapper.Map<AccountDTO>(_dialogUnitOfWork.AccountsRepository.Find(id));

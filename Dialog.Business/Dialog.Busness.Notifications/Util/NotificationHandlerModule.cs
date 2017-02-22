@@ -1,25 +1,18 @@
-﻿using System.Collections.Generic;
-using Autofac;
+﻿using Autofac;
 using Dialog.Business.Accounts.Util;
-using Dialog.Business.DTO;
+using Dialog.Busness.Notifications.Hubs;
 
 namespace Dialog.Busness.Notifications.Util
 {
     public class NotificationHandlerModule : Module
     {
-        private readonly IEnumerable<AccountDTO> _accounts;
-
-        public NotificationHandlerModule(IEnumerable<AccountDTO> accs)
-        {
-            _accounts = accs;
-        }
-
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterModule(new AcountsHandlingModule());
-      
-            //builder.RegisterType<SignalrNotificationHandler>().AsImplementedInterfaces().WithParameter("manager", new AccountsManager(_accounts.First()));
-           
+
+            builder.RegisterType<ConnectionMapping<string>>().AsSelf().SingleInstance();
+            builder.RegisterType<NotificationsНub>().AsSelf();
+            
         }
     }
 }

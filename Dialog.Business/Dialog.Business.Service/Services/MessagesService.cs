@@ -11,11 +11,13 @@ namespace Dialog.Business.Service.Services
     {
         private readonly IDialogUnitOfWork _dialogUnitOfWork;
         private readonly IMapper _mapper;
+        private readonly INotificationsService _notifications;
 
-        public MessagesService(IDialogUnitOfWork unitOfWork, IMapper mapper)
+        public MessagesService(IDialogUnitOfWork unitOfWork, IMapper mapper, INotificationsService service)
         {
             _dialogUnitOfWork = unitOfWork;
             _mapper = mapper;
+            _notifications = service;
         }
 
         public IEnumerable<MessageDTO> GetAll()
@@ -46,10 +48,10 @@ namespace Dialog.Business.Service.Services
             _dialogUnitOfWork.SaveChanges();
         }
 
-        public void Send(MessageDTO entity)
+        public void Send(MessageDTO message, string userName)
         {
-            Insert(entity);
-            //TODO somehow reference to notif handlers
+            Insert(message);
+            _notifications.SendMessage(message, userName);
         }
     }
 }

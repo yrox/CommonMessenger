@@ -4,6 +4,7 @@ using Autofac;
 using Autofac.Integration.WebApi;
 using AutoMapper;
 using Dialog.Business.Service.Util;
+using WebApi.Controllers;
 
 namespace WebApi.Util
 {
@@ -29,7 +30,6 @@ namespace WebApi.Util
 
             builder.Register(c => c.Resolve<MapperConfiguration>().CreateMapper(c.Resolve))
                 .As<IMapper>().InstancePerLifetimeScope();
-            
             
             return builder.Build();
         }

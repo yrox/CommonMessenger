@@ -39,9 +39,9 @@ namespace WebApi.Controllers
 
         [Route("send")]
         [HttpPost]
-        public void Send(MessageDTO item)
+        public void Send(MessageDTO item, string username)
         {
-           _messagesService.Send(item);
+           _messagesService.Send(item, username);
         }
 
         [Route("{id:int}")]
