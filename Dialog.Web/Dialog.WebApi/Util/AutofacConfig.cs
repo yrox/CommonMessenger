@@ -4,9 +4,13 @@ using Autofac;
 using Autofac.Integration.WebApi;
 using AutoMapper;
 using Dialog.Business.Service.Util;
-using WebApi.Controllers;
+using Microsoft.AspNet.Identity;
+using Olga.Identity;
+using Olga.Identity.EntityFramework;
+using Olga.Identity.Managers;
+using Olga.Identity.Stores;
 
-namespace WebApi.Util
+namespace Dialog.WebApi.Util
 {
     public class AutofacConfig
     {
@@ -30,7 +34,11 @@ namespace WebApi.Util
 
             builder.Register(c => c.Resolve<MapperConfiguration>().CreateMapper(c.Resolve))
                 .As<IMapper>().InstancePerLifetimeScope();
-            
+
+            builder.RegisterType<AppDbContext>().AsSelf().WithParameter("connectionString", "Dialog").SingleInstance();
+            builder.RegisterType<AppUserManager>().AsSelf().InstancePerRequest();
+            builder.RegisterType<AppUserStore>().As<IUserStore<AppUser, int>>();
+
             return builder.Build();
         }
     }

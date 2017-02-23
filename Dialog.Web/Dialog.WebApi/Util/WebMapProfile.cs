@@ -1,7 +1,7 @@
 ﻿using System;
 using AutoMapper;
 
-namespace WebApi.Util
+namespace Dialog.WebApi.Util
 {
     public class WebMapProfile : Profile
     {

@@ -28,6 +28,7 @@ namespace Dialog.Business.Service.Util
             builder.RegisterType<MessagesService>().AsImplementedInterfaces();
             builder.RegisterType<AccountsService>().AsImplementedInterfaces();
             builder.RegisterType<UsersService>().AsImplementedInterfaces();
+            builder.RegisterType<NotifiationsService>().AsImplementedInterfaces();
 
             builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
             builder.RegisterType<AppDbContext>().AsSelf().WithParameter("connectionString", "Dialog").SingleInstance();

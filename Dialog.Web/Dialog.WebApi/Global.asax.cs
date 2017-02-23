@@ -1,9 +1,9 @@
 ﻿using System.Web;
 using System.Web.Http;
 using Autofac.Integration.WebApi;
-using WebApi.Util;
+using Dialog.WebApi.Util;
 
-namespace WebApi
+namespace Dialog.WebApi
 {
     public class WebApiApplication : HttpApplication
     {

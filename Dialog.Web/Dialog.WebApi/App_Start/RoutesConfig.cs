@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace WebApi
+namespace Dialog.WebApi
 {
     public static class RoutesConfig
     {

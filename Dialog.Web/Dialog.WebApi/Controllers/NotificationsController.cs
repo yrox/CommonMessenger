@@ -2,7 +2,7 @@
 using Dialog.Business.DTO;
 using Dialog.Business.Service.Interfaces;
 
-namespace WebApi.Controllers
+namespace Dialog.WebApi.Controllers
 {
     [RoutePrefix("api/notifications")]
     public class NotificationsController : ApiController

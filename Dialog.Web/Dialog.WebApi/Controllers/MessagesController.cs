@@ -3,7 +3,7 @@ using System.Web.Http;
 using Dialog.Business.DTO;
 using Dialog.Business.Service.Interfaces;
 
-namespace WebApi.Controllers
+namespace Dialog.WebApi.Controllers
 {
     [Authorize]
     [RoutePrefix("api/messages")]
