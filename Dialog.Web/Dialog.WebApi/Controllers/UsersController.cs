@@ -1,60 +1,79 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
+using AutoMapper;
 using Dialog.Business.DTO;
-using Dialog.Business.Service.Interfaces;
+using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
+using Olga.Identity;
+using Olga.Identity.Managers;
 
 namespace Dialog.WebApi.Controllers
 {
     [RoutePrefix("api/users")]
     public class UsersController : ApiController
     {
-        private readonly IUsersService _usersService;
+        private readonly IMapper _mapper;
+        private readonly AppUserManager _userManager;
+        private readonly IAuthenticationManager _authenticationManager;
 
-        public UsersController(IUsersService service)
+        public UsersController(IMapper mapper, AppUserManager manager, IAuthenticationManager authenticationManager)
         {
-            _usersService = service;
+            _mapper = mapper;
+            _userManager = manager;
+            _authenticationManager = authenticationManager;
         }
-
+        [AllowAnonymous]
         [Route("")]
         [HttpGet]
         public IEnumerable<UserDTO> GetAll()
         {
-            return _usersService.GetAll();
+            return _mapper.Map<IEnumerable<UserDTO>>(_userManager.Users.AsEnumerable());
         }
 
         [Route("{name:minlength(4)}")]
         [HttpGet]
         public UserDTO GetByName(string name)
         {
-            return _usersService.GetByName(name);
+            return _mapper.Map<UserDTO>(_userManager.FindByName(name));
         }
 
         [Route("{id:int}")]
         [HttpGet]
         public UserDTO GetById(int id)
         {
-            return _usersService.GetById(id);
+            return _mapper.Map<UserDTO>(_userManager.FindById(id));
         }
 
         [Route("signin")]
         [HttpPost]
-        public void Login(UserDTO userData)
+        public async void Login(UserDTO userData)
         {
-           _usersService.Login(userData);
+            var user = await _userManager.FindAsync(userData.UserName, userData.Password);
+            _authenticationManager.SignOut();
+            var identity = _userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+            _authenticationManager.SignIn(identity);
         }
 
         [Route("signup")]
         [HttpPost]
         public void Register(UserDTO userData)
         {
-           _usersService.Register(userData);
+            var data = userData ?? new UserDTO { Email = "12333323", UserName = "thirdOne", Password = "p3333assword" };
+            var user = new AppUser()
+            {
+                Email = data.Email,
+                UserName = data.UserName
+            };
+
+            _userManager.Create(user, data.Password);
         }
 
         [Authorize]
         [Route("signout")]
         public void Logout()
         {
-           _usersService.Logout();
+            _authenticationManager.SignOut();
         }
     }
 }

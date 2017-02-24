@@ -24,7 +24,6 @@ namespace Dialog.Business.Service.Services
         public static ConcurrentDictionary<string, INotificationHandler> NotificationHandlers
             = new ConcurrentDictionary<string, INotificationHandler>();
 
-        //TODO pass this to useror accs controller
         public void CreateUserNotificator(string userName)
         {
             var userAccs = _accountsService.GetAllByUserName(userName);

@@ -5,12 +5,6 @@ using Dialog.Business.Service.Services;
 using Dialog.Business.Service.Util.MapProfiles;
 using Dialog.Data;
 using Dialog.Data.Interfaces;
-using Microsoft.AspNet.Identity;
-using Olga.Identity;
-using Olga.Identity.EntityFramework;
-using Olga.Identity.Interfaces;
-using Olga.Identity.Managers;
-using Olga.Identity.Stores;
 
 namespace Dialog.Business.Service.Util
 {
@@ -20,20 +14,15 @@ namespace Dialog.Business.Service.Util
         {
             builder.RegisterType<DialogUnitOfWork>().As<IDialogUnitOfWork>()
                 .WithParameter("nameOrConnectionString", "Dialog");
-            builder.RegisterType<IdentityUnitOfWork>().As<IIdentityUnitOfWork>()
-                .WithParameter("connectionString", "Dialog");
-
+            
             builder.RegisterType<MetaContactsService>().AsImplementedInterfaces();
             builder.RegisterType<ContactsService>().AsImplementedInterfaces();
             builder.RegisterType<MessagesService>().AsImplementedInterfaces();
             builder.RegisterType<AccountsService>().AsImplementedInterfaces();
-            builder.RegisterType<UsersService>().AsImplementedInterfaces();
+            //builder.RegisterType<UsersService>().AsImplementedInterfaces();
             builder.RegisterType<NotifiationsService>().AsImplementedInterfaces();
 
             builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
-            builder.RegisterType<AppDbContext>().AsSelf().WithParameter("connectionString", "Dialog").SingleInstance();
-            builder.RegisterType<AppUserManager>().AsSelf().InstancePerRequest();
-            builder.RegisterType<AppUserStore>().As<IUserStore<AppUser, int>>();
 
             builder.Register(x => new MapperConfiguration(
                 cfg =>

@@ -26,6 +26,7 @@ namespace Dialog.Busness.Notifications.Handlers
             _hubContext = GlobalHost.ConnectionManager.GetHubContext<NotificationsНub>();
             InitializeAccountsManagerEvents();
 
+            //TODO change base address
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = new Uri("http://localhost:53473/");
             _httpClient.DefaultRequestHeaders.Accept.Clear();

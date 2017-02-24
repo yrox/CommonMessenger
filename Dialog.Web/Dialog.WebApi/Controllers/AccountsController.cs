@@ -2,6 +2,7 @@
 using System.Web.Http;
 using Dialog.Business.DTO;
 using Dialog.Business.Service.Interfaces;
+using Microsoft.AspNet.Identity;
 
 namespace Dialog.WebApi.Controllers
 {
@@ -10,19 +11,17 @@ namespace Dialog.WebApi.Controllers
     public class AccountsController : ApiController
     {
         private readonly IAccountsService _accountsAccService;
-        private readonly IUsersService _usersService;
-
-        public AccountsController(IAccountsService accService, IUsersService usersService)
+    
+        public AccountsController(IAccountsService accService)
         {
             _accountsAccService = accService;
-            _usersService = usersService;
         }
 
         [Route("")]
         [HttpGet]
         public IEnumerable<AccountDTO> Get()
         {
-            var userId = _usersService.GetByName(User.Identity.Name).Id;
+            var userId = User.Identity.GetUserId<int>();
             return _accountsAccService.GetAllByUserId(userId);
         }
 
@@ -37,7 +36,7 @@ namespace Dialog.WebApi.Controllers
         [HttpPost]
         public void Insert(AccountDTO item)
         {
-            var userId = _usersService.GetByName(User.Identity.Name).Id;
+            var userId = User.Identity.GetUserId<int>();
             item.User.Id = userId;
             _accountsAccService.Insert(item);
         }
@@ -46,7 +45,7 @@ namespace Dialog.WebApi.Controllers
         [HttpPut]
         public void Update(AccountDTO item)
         {
-            var userId = _usersService.GetByName(User.Identity.Name).Id;
+            var userId = User.Identity.GetUserId<int>();
             item.User.Id = userId;
             _accountsAccService.Update(item);
         }

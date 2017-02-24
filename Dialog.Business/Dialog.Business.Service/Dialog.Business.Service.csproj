@@ -125,14 +125,12 @@
     <Compile Include="Interfaces\IMessagesService.cs" />
     <Compile Include="Interfaces\IMetaContactsService.cs" />
     <Compile Include="Interfaces\INotificationsService.cs" />
-    <Compile Include="Interfaces\IUsersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountsService.cs" />
     <Compile Include="Services\ContactsService.cs" />
     <Compile Include="Services\MessagesService.cs" />
     <Compile Include="Services\MetaContactsService.cs" />
     <Compile Include="Services\NotifiationsService.cs" />
-    <Compile Include="Services\UsersService.cs" />
     <Compile Include="Util\MapProfiles\AccountProfile.cs" />
     <Compile Include="Util\MapProfiles\ContactProfile.cs" />
     <Compile Include="Util\MapProfiles\MessageProfile.cs" />

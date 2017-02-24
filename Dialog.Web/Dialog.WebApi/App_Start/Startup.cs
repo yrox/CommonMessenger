@@ -19,11 +19,11 @@ namespace Dialog.WebApi
 
             app.CreatePerOwinContext(() => AppDbContext.Create("Dialog"));
             app.CreatePerOwinContext<AppUserManager>(AppUserManager.Create);
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
-                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,//"ApplicationCookie",
-                LoginPath = new PathString("/Account/Login")
-            });
+            //app.UseCookieAuthentication(new CookieAuthenticationOptions
+            //{
+            //    AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,//"ApplicationCookie",
+            //    LoginPath = new PathString("/Account/Login")
+            //});
         }
     }
 }
