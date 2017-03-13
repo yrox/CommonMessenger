@@ -7,6 +7,6 @@ namespace Dialog.Data.Entities
         public int AccountId { get; set; }
         public string Name { get; set; }
 
-        public int? MetaContactId { get; set; }
+        public virtual MetaContact MetaContact { get; set; }
     }
 }

@@ -5,6 +5,9 @@ namespace Dialog.Data.Entities
 {
     public class MetaContact : Entity
     {
-        public IEnumerable<Contact> Contacts { get; set; }
+        public virtual IEnumerable<Contact> Contacts { get; set; }
+        public virtual IEnumerable<Message> Messages { get; set; }
+
+        public UserReference User { get; set; }
     }
 }

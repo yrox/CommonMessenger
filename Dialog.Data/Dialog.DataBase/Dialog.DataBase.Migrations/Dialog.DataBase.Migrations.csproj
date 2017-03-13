@@ -75,6 +75,14 @@
     <Compile Include="DialogMigrations\201702151246359_UserRefToUser.Designer.cs">
       <DependentUpon>201702151246359_UserRefToUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="DialogMigrations\201703131515055_MessagesList_UserRefAdded.cs" />
+    <Compile Include="DialogMigrations\201703131515055_MessagesList_UserRefAdded.Designer.cs">
+      <DependentUpon>201703131515055_MessagesList_UserRefAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogMigrations\201703131520047_VirtualMtaContact.cs" />
+    <Compile Include="DialogMigrations\201703131520047_VirtualMtaContact.Designer.cs">
+      <DependentUpon>201703131520047_VirtualMtaContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="DialogMigrations\Configuration.cs" />
     <Compile Include="IdentityMigrations\201702151238110_Initial.cs" />
     <Compile Include="IdentityMigrations\201702151238110_Initial.Designer.cs">
@@ -103,6 +111,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DialogMigrations\201702151246359_UserRefToUser.resx">
       <DependentUpon>201702151246359_UserRefToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogMigrations\201703131515055_MessagesList_UserRefAdded.resx">
+      <DependentUpon>201703131515055_MessagesList_UserRefAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogMigrations\201703131520047_VirtualMtaContact.resx">
+      <DependentUpon>201703131520047_VirtualMtaContact.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdentityMigrations\201702151238110_Initial.resx">
       <DependentUpon>201702151238110_Initial.cs</DependentUpon>
