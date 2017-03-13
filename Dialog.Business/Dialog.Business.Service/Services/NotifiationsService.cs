@@ -8,7 +8,7 @@ using Dialog.Busness.Notifications.Util;
 
 namespace Dialog.Business.Service.Services
 {
-    public class NotifiationsService
+    public class NotifiationsService : INotificationsService
     {
         private readonly IMapper _mapper;
         private readonly IAccountsService _accountsService;
@@ -20,10 +20,10 @@ namespace Dialog.Business.Service.Services
             _accountsService = accountsService;
             _connections = connections;
         }
-
+       
         public static ConcurrentDictionary<string, INotificationHandler> NotificationHandlers
             = new ConcurrentDictionary<string, INotificationHandler>();
-
+  
         public void CreateUserNotificator(string userName)
         {
             var userAccs = _accountsService.GetAllByUserName(userName);

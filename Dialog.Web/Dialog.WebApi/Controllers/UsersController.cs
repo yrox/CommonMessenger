@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Http;
 using AutoMapper;
 using Dialog.Business.DTO;
+using Dialog.Business.Service.Interfaces;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using Olga.Identity;
@@ -16,12 +17,14 @@ namespace Dialog.WebApi.Controllers
         private readonly IMapper _mapper;
         private readonly AppUserManager _userManager;
         private readonly IAuthenticationManager _authenticationManager;
+        private readonly INotificationsService _notificationsService;
 
-        public UsersController(IMapper mapper, AppUserManager manager, IAuthenticationManager authenticationManager)
+        public UsersController(IMapper mapper, AppUserManager manager, IAuthenticationManager authenticationManager, INotificationsService service)
         {
             _mapper = mapper;
             _userManager = manager;
             _authenticationManager = authenticationManager;
+            _notificationsService = service;
         }
         [AllowAnonymous]
         [Route("")]
@@ -53,6 +56,7 @@ namespace Dialog.WebApi.Controllers
             _authenticationManager.SignOut();
             var identity = _userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
             _authenticationManager.SignIn(identity);
+            _notificationsService.CreateUserNotificator(user.UserName);
         }
 
         [Route("signup")]

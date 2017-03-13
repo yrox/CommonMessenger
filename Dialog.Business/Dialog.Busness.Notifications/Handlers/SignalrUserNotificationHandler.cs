@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using AutoMapper;
 using Dialog.Business.Accounts;
 using Dialog.Business.DTO;
 using Dialog.Busness.Notifications.Hubs;
