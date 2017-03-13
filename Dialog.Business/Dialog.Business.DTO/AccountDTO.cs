@@ -1,6 +1,6 @@
 ﻿namespace Dialog.Business.DTO
 {
-    public class AccountDTO
+    public class AccountDto
     {
         public int Id { get; set; }
         public int AccountId { get; set; }
@@ -11,7 +11,7 @@
         public string Login { get; set; }
         public string Password { get; set; }
 
-        public UserDTO User { get; set; }
+        public UserDto User { get; set; }
 
     }
 }
