@@ -40,12 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountDTO.cs" />
-    <Compile Include="ContactDTO.cs" />
-    <Compile Include="MessageDTO.cs" />
-    <Compile Include="MetaContactDTO.cs" />
+    <Compile Include="AccountDto.cs" />
+    <Compile Include="ContactDto.cs" />
+    <Compile Include="MessageDto.cs" />
+    <Compile Include="MetaContactDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserDTO.cs" />
+    <Compile Include="UserDto.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
