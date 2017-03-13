@@ -18,35 +18,35 @@ namespace Dialog.WebApi.Controllers
 
         [Route("")]
         [HttpGet]
-        public IEnumerable<MetaContactDTO> GetAll()
+        public IEnumerable<MetaContactDto> GetAll()
         {
             return _metaContactsService.GetAll();
         }
 
         [Route("{id:int}")]
         [HttpGet]
-        public MetaContactDTO Get(int id)
+        public MetaContactDto Get(int id)
         {
             return _metaContactsService.Find(id);
         }
 
         [Route("")]
         [HttpPost]
-        public void Insert(MetaContactDTO item)
+        public void Insert(MetaContactDto item)
         {
             _metaContactsService.Insert(item);
         }
 
         [Route("{id:int}")]
         [HttpPut]
-        public void Update(MetaContactDTO item)
+        public void Update(MetaContactDto item)
         {
             _metaContactsService.Update(item);
         }
 
         [Route("del")]
         [HttpDelete]
-        public void Delete(MetaContactDTO item)
+        public void Delete(MetaContactDto item)
         {
             _metaContactsService.Delete(item);
         }

@@ -19,7 +19,7 @@ namespace Dialog.WebApi.Controllers
 
         [Route("")]
         [HttpGet]
-        public IEnumerable<AccountDTO> Get()
+        public IEnumerable<AccountDto> Get()
         {
             var userId = User.Identity.GetUserId<int>();
             return _accountsAccService.GetAllByUserId(userId);
@@ -27,14 +27,14 @@ namespace Dialog.WebApi.Controllers
 
         [Route("{id:int}")]
         [HttpGet]
-        public AccountDTO Get(int id)
+        public AccountDto Get(int id)
         {
             return _accountsAccService.Find(id);
         }
 
         [Route("")]
         [HttpPost]
-        public void Insert(AccountDTO item)
+        public void Insert(AccountDto item)
         {
             var userId = User.Identity.GetUserId<int>();
             item.User.Id = userId;
@@ -43,7 +43,7 @@ namespace Dialog.WebApi.Controllers
 
         [Route("{id:int}")]
         [HttpPut]
-        public void Update(AccountDTO item)
+        public void Update(AccountDto item)
         {
             var userId = User.Identity.GetUserId<int>();
             item.User.Id = userId;
@@ -52,7 +52,7 @@ namespace Dialog.WebApi.Controllers
 
         [Route("del")]
         [HttpDelete]
-        public void Delete(AccountDTO item)
+        public void Delete(AccountDto item)
         {
             _accountsAccService.Delete(item);
         }

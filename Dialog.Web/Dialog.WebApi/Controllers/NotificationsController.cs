@@ -16,7 +16,7 @@ namespace Dialog.WebApi.Controllers
 
         [Route("message")]
         [HttpPost]
-        public void SendMessageRecived(string userName, MessageDTO item)
+        public void SendMessageRecived(string userName, MessageDto item)
         {
             _service.SendMessage(item, userName);
         }

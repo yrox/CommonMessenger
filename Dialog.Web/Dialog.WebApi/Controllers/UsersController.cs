@@ -29,28 +29,28 @@ namespace Dialog.WebApi.Controllers
         [AllowAnonymous]
         [Route("")]
         [HttpGet]
-        public IEnumerable<UserDTO> GetAll()
+        public IEnumerable<UserDto> GetAll()
         {
-            return _mapper.Map<IEnumerable<UserDTO>>(_userManager.Users.AsEnumerable());
+            return _mapper.Map<IEnumerable<UserDto>>(_userManager.Users.AsEnumerable());
         }
 
         [Route("{name:minlength(4)}")]
         [HttpGet]
-        public UserDTO GetByName(string name)
+        public UserDto GetByName(string name)
         {
-            return _mapper.Map<UserDTO>(_userManager.FindByName(name));
+            return _mapper.Map<UserDto>(_userManager.FindByName(name));
         }
 
         [Route("{id:int}")]
         [HttpGet]
-        public UserDTO GetById(int id)
+        public UserDto GetById(int id)
         {
-            return _mapper.Map<UserDTO>(_userManager.FindById(id));
+            return _mapper.Map<UserDto>(_userManager.FindById(id));
         }
 
         [Route("signin")]
         [HttpPost]
-        public async void Login(UserDTO userData)
+        public async void Login(UserDto userData)
         {
             var user = await _userManager.FindAsync(userData.UserName, userData.Password);
             _authenticationManager.SignOut();
@@ -61,9 +61,9 @@ namespace Dialog.WebApi.Controllers
 
         [Route("signup")]
         [HttpPost]
-        public void Register(UserDTO userData)
+        public void Register(UserDto userData)
         {
-            var data = userData ?? new UserDTO { Email = "12333323", UserName = "thirdOne", Password = "p3333assword" };
+            var data = userData ?? new UserDto { Email = "12333323", UserName = "thirdOne", Password = "p3333assword" };
             var user = new AppUser()
             {
                 Email = data.Email,

@@ -18,42 +18,42 @@ namespace Dialog.WebApi.Controllers
 
         [Route("")]
         [HttpGet]
-        public IEnumerable<ContactDTO> GetAll()
+        public IEnumerable<ContactDto> GetAll()
         {
             return _contactsService.GetAll();
         }
 
         [Route("")]
         [HttpGet]
-        public IEnumerable<ContactDTO> GetAllByUserame(string name)
+        public IEnumerable<ContactDto> GetAllByUserame(string name)
         {
             return _contactsService.GetAll();
         }
 
         [Route("{id:int}")]
         [HttpGet]
-        public ContactDTO Get(int id)
+        public ContactDto Get(int id)
         {
             return _contactsService.Find(id);
         }
 
         [Route("")]
         [HttpPost]
-        public void Insert(ContactDTO item)
+        public void Insert(ContactDto item)
         {
             _contactsService.Insert(item);
         }
 
         [Route("{id:int}")]
         [HttpPut]
-        public void Update(ContactDTO item)
+        public void Update(ContactDto item)
         {
             _contactsService.Update(item);
         }
 
         [Route("del")]
         [HttpDelete]
-        public void Delete(ContactDTO item)
+        public void Delete(ContactDto item)
         {
             _contactsService.Delete(item);
         }

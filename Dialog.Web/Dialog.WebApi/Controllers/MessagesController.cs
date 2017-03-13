@@ -18,42 +18,42 @@ namespace Dialog.WebApi.Controllers
 
         [Route("")]
         [HttpGet]
-        public IEnumerable<MessageDTO> GetAll()
+        public IEnumerable<MessageDto> GetAll()
         {
             return _messagesService.GetAll();
         }
 
         [Route("{id:int}")]
         [HttpGet]
-        public MessageDTO Get(int id)
+        public MessageDto Get(int id)
         {
             return _messagesService.Find(id);
         }
 
         [Route("")]
         [HttpPost]
-        public void Insert(MessageDTO item)
+        public void Insert(MessageDto item)
         {
             _messagesService.Insert(item);
         }
 
         [Route("send")]
         [HttpPost]
-        public void Send(MessageDTO item, string username)
+        public void Send(MessageDto item, string username)
         {
            _messagesService.Send(item, username);
         }
 
         [Route("{id:int}")]
         [HttpPut]
-        public void Update(MessageDTO item)
+        public void Update(MessageDto item)
         {
             _messagesService.Update(item);
         }
 
         [Route("del")]
         [HttpDelete]
-        public void Delete(MessageDTO item)
+        public void Delete(MessageDto item)
         {
             _messagesService.Delete(item);
         }
