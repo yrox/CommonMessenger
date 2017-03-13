@@ -6,6 +6,6 @@ namespace Dialog.Business.Service.Interfaces
     {
         void CreateUserNotificator(string userName);
 
-        void SendMessage(MessageDTO message, string userName);
+        void SendMessage(MessageDto message, string userName);
     }
 }

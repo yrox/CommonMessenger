@@ -17,12 +17,12 @@ namespace Dialog.Busness.Notifications.Handlers
 
         public string UserName { get; }
 
-        public void SendMessage(MessageDTO message)
+        public void SendMessage(MessageDto message)
         {
             _accountsManager.SendMessage(message);
         }
 
-        public void SendMessage(MessageDTO message, string captcha, long sid)
+        public void SendMessage(MessageDto message, string captcha, long sid)
         {
             _accountsManager.SendMessage(message, captcha, sid);
         }

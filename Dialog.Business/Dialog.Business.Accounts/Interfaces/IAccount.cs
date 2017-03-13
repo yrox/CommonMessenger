@@ -9,9 +9,9 @@ namespace Dialog.Business.Accounts.Interfaces
         void Authorize(string code);
         void Authorize(string captcha, long sid);
 
-        IEnumerable<ContactDTO> GetAllContacts();
+        IEnumerable<ContactDto> GetAllContacts();
 
-        void SendMessage(MessageDTO message);
-        void SendMessage(MessageDTO message, string captcha, long sid);
+        void SendMessage(MessageDto message);
+        void SendMessage(MessageDto message, string captcha, long sid);
     }
 }

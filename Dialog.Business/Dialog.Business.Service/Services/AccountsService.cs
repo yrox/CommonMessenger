@@ -18,39 +18,39 @@ namespace Dialog.Business.Service.Services
             _mapper = mapper;
         }
 
-        public IEnumerable<AccountDTO> GetAll()
+        public IEnumerable<AccountDto> GetAll()
         {
-            return _dialogUnitOfWork.AccountsRepository.GetAll<AccountDTO>();
+            return _dialogUnitOfWork.AccountsRepository.GetAll<AccountDto>();
         }
 
-        public IEnumerable<AccountDTO> GetAllByUserId(int id)
+        public IEnumerable<AccountDto> GetAllByUserId(int id)
         {
-            return _dialogUnitOfWork.AccountsRepository.GetAll<AccountDTO>(x => x.User.Id == id);
+            return _dialogUnitOfWork.AccountsRepository.GetAll<AccountDto>(x => x.User.Id == id);
         }
 
-        public IEnumerable<AccountDTO> GetAllByUserName(string name)
+        public IEnumerable<AccountDto> GetAllByUserName(string name)
         {
-            return _dialogUnitOfWork.AccountsRepository.GetAll<AccountDTO>(x => x.User.UserName == name);
+            return _dialogUnitOfWork.AccountsRepository.GetAll<AccountDto>(x => x.User.UserName == name);
         }
 
-        public AccountDTO Find(int id)
+        public AccountDto Find(int id)
         {
-            return _mapper.Map<AccountDTO>(_dialogUnitOfWork.AccountsRepository.Find(id));
+            return _mapper.Map<AccountDto>(_dialogUnitOfWork.AccountsRepository.Find(id));
         }
 
-        public void Insert(AccountDTO entity)
+        public void Insert(AccountDto entity)
         {
             _dialogUnitOfWork.AccountsRepository.Insert(_mapper.Map<Account>(entity));
             _dialogUnitOfWork.SaveChanges();
         }
 
-        public void Update(AccountDTO entity)
+        public void Update(AccountDto entity)
         {
             _dialogUnitOfWork.AccountsRepository.Update(_mapper.Map<Account>(entity));
             _dialogUnitOfWork.SaveChanges();
         }
 
-        public void Delete(AccountDTO entity)
+        public void Delete(AccountDto entity)
         {
             _dialogUnitOfWork.AccountsRepository.Delete(_mapper.Map<Account>(entity));
             _dialogUnitOfWork.SaveChanges();

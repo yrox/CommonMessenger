@@ -5,11 +5,11 @@ namespace Dialog.Busness.Notifications.Interfaces
 {
     public interface IUserNotificationHandler
     {
-        void SendMessage(MessageDTO message);
+        void SendMessage(MessageDto message);
 
-        void AddContact(ContactDTO contact);
+        void AddContact(ContactDto contact);
 
-        void UpdateAccount(AccountDTO account);
+        void UpdateAccount(AccountDto account);
 
         string ThrowCaptcha(Uri captchaUrl, long sid);
 

@@ -5,14 +5,14 @@ namespace Dialog.Business.Service.Interfaces
 {
     public interface IMetaContactsService
     {
-        IEnumerable<MetaContactDTO> GetAll();
+        IEnumerable<MetaContactDto> GetAll();
 
-        MetaContactDTO Find(int id);
+        MetaContactDto Find(int id);
 
-        void Insert(MetaContactDTO entity);
+        void Insert(MetaContactDto entity);
 
-        void Update(MetaContactDTO entity);
+        void Update(MetaContactDto entity);
 
-        void Delete(MetaContactDTO entity);
+        void Delete(MetaContactDto entity);
     }
 }

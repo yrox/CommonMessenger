@@ -20,35 +20,35 @@ namespace Dialog.Business.Service.Services
             _notifications = service;
         }
 
-        public IEnumerable<MessageDTO> GetAll()
+        public IEnumerable<MessageDto> GetAll()
         {
-            return _dialogUnitOfWork.MessagesRepository.GetAll<MessageDTO>();
+            return _dialogUnitOfWork.MessagesRepository.GetAll<MessageDto>();
         }
 
-        public MessageDTO Find(int id)
+        public MessageDto Find(int id)
         {
-            return _mapper.Map<MessageDTO>(_dialogUnitOfWork.MessagesRepository.Find(id));
+            return _mapper.Map<MessageDto>(_dialogUnitOfWork.MessagesRepository.Find(id));
         }
 
-        public void Insert(MessageDTO entity)
+        public void Insert(MessageDto entity)
         {
             _dialogUnitOfWork.MessagesRepository.Insert(_mapper.Map<Message>(entity));
             _dialogUnitOfWork.SaveChanges();
         }
 
-        public void Update(MessageDTO entity)
+        public void Update(MessageDto entity)
         {
             _dialogUnitOfWork.MessagesRepository.Update(_mapper.Map<Message>(entity));
             _dialogUnitOfWork.SaveChanges();
         }
 
-        public void Delete(MessageDTO entity)
+        public void Delete(MessageDto entity)
         {
             _dialogUnitOfWork.MessagesRepository.Delete(_mapper.Map<Message>(entity));
             _dialogUnitOfWork.SaveChanges();
         }
 
-        public void Send(MessageDTO message, string userName)
+        public void Send(MessageDto message, string userName)
         {
             Insert(message);
             _notifications.SendMessage(message, userName);

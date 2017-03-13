@@ -18,7 +18,7 @@ namespace Dialog.Busness.Notifications.Hubs
 
         private readonly ConnectionMapping<string> _connections;
 
-        public void MessageRecived(string userName, MessageDTO message)
+        public void MessageRecived(string userName, MessageDto message)
         {
             foreach (var connection in _connections.GetConnections(userName))
             {

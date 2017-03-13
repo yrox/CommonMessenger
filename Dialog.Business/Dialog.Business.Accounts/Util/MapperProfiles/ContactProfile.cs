@@ -10,12 +10,12 @@ namespace Dialog.Business.Accounts.Util.MapperProfiles
             "Create a constructor and configure inside of your profile\'s constructor instead. Will be removed in 6.0")]
         protected override void Configure()
         {
-            CreateMap<VkNet.Model.User, ContactDTO>()
+            CreateMap<VkNet.Model.User, ContactDto>()
                 .ForMember("AccountId", x => x.MapFrom(c => c.Id))
                 .ForMember("Name", x => x.MapFrom(c => c.FirstName + " " + c.LastName))
                 .ReverseMap();
             
-            CreateMap<TeleSharp.TL.TLAbsUser, ContactDTO>()
+            CreateMap<TeleSharp.TL.TLAbsUser, ContactDto>()
                 .ForMember("AccountId", x => x.MapFrom(c => (c as TeleSharp.TL.TLUser).id))
                 .ForMember("Name", x => x
                 .MapFrom(c => (c as TeleSharp.TL.TLUser).first_name + " " + ((c as TeleSharp.TL.TLUser).last_name) ?? ""))

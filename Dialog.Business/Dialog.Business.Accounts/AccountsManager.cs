@@ -19,7 +19,7 @@ namespace Dialog.Business.Accounts
             ((BaseAccountEvents) _account).OnContactAdded += this.ContactAddedHandler;
         }
 
-        public void Authorize(AccountDTO acc, IMapper mapper)
+        public void Authorize(AccountDto acc, IMapper mapper)
         {
             _account = new VkAccount(acc, mapper);
             InitializeEvents();
@@ -27,22 +27,22 @@ namespace Dialog.Business.Accounts
            
         }
 
-        public AccountsManager(AccountDTO acc, IMapper mapper)
+        public AccountsManager(AccountDto acc, IMapper mapper)
         {
             Authorize(acc, mapper);
         }
 
-        public IEnumerable<ContactDTO> GetAllContacts()
+        public IEnumerable<ContactDto> GetAllContacts()
         {
             return _account.GetAllContacts();
         }
 
-        public void SendMessage(MessageDTO message)
+        public void SendMessage(MessageDto message)
         {
             _account.SendMessage(message);
         }
 
-        public void SendMessage(MessageDTO message, string captcha, long sid)
+        public void SendMessage(MessageDto message, string captcha, long sid)
         {
             _account.SendMessage(message, captcha, sid);
         }

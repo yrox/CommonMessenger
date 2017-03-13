@@ -6,17 +6,17 @@ namespace Dialog.Business.Accounts.Accounts
 {
     public abstract class BaseAccountEvents
     {
-        public delegate void AccountUpdated(AccountDTO account);
+        public delegate void AccountUpdated(AccountDto account);
 
         public delegate string CaptchaNeeded(Uri captchaUrl, long sid);
 
         public delegate string CodeNeeded();
 
-        public delegate void ContactAdded(ContactDTO contact);
+        public delegate void ContactAdded(ContactDto contact);
 
-        public delegate void MessageRecived(MessageDTO message);
+        public delegate void MessageRecived(MessageDto message);
 
-        public void MessageRecivedHandler(IEnumerable<MessageDTO> messages)
+        public void MessageRecivedHandler(IEnumerable<MessageDto> messages)
         {
             if (OnMessageRecived == null) return;
             foreach (var message in messages)
@@ -25,14 +25,14 @@ namespace Dialog.Business.Accounts.Accounts
             }
         }
 
-        public void MessageRecivedHandler(MessageDTO message)
+        public void MessageRecivedHandler(MessageDto message)
         {
             OnMessageRecived?.Invoke(message);
         }
 
         public event MessageRecived OnMessageRecived;
 
-        public void ContactAddedHandler(ContactDTO contact)
+        public void ContactAddedHandler(ContactDto contact)
         {
             OnContactAdded?.Invoke(contact);
         }
@@ -53,7 +53,7 @@ namespace Dialog.Business.Accounts.Accounts
 
         public event CodeNeeded OnCodeNeeded;
 
-        public void AccountUpdatedHandler(AccountDTO account)
+        public void AccountUpdatedHandler(AccountDto account)
         {
             OnAccountUpdated?.Invoke(account);
         }

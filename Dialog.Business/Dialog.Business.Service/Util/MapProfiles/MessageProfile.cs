@@ -10,7 +10,7 @@ namespace Dialog.Business.Service.Util.MapProfiles
         [Obsolete("Create a constructor and configure inside of your profile\'s constructor instead. Will be removed in 6.0")]
         protected override void Configure()
         {
-            CreateMap<Message, MessageDTO>().ReverseMap();
+            CreateMap<Message, MessageDto>().ReverseMap();
         }
     }
 }

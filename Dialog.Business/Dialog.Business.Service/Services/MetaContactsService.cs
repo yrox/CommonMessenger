@@ -18,29 +18,29 @@ namespace Dialog.Business.Service.Services
             _mapper = mapper;
         }
 
-        public IEnumerable<MetaContactDTO> GetAll()
+        public IEnumerable<MetaContactDto> GetAll()
         {
-            return _dialogUnitOfWork.MetaContactsRepository.GetAll<MetaContactDTO>();
+            return _dialogUnitOfWork.MetaContactsRepository.GetAll<MetaContactDto>();
         }
 
-        public MetaContactDTO Find(int id)
+        public MetaContactDto Find(int id)
         {
-            return _mapper.Map<MetaContactDTO>(_dialogUnitOfWork.MetaContactsRepository.Find(id));
+            return _mapper.Map<MetaContactDto>(_dialogUnitOfWork.MetaContactsRepository.Find(id));
         }
 
-        public void Insert(MetaContactDTO entity)
+        public void Insert(MetaContactDto entity)
         {
             _dialogUnitOfWork.MetaContactsRepository.Insert(_mapper.Map<MetaContact>(entity));
             _dialogUnitOfWork.SaveChanges();
         }
 
-        public void Update(MetaContactDTO entity)
+        public void Update(MetaContactDto entity)
         {
             _dialogUnitOfWork.MetaContactsRepository.Update(_mapper.Map<MetaContact>(entity));
             _dialogUnitOfWork.SaveChanges();
         }
 
-        public void Delete(MetaContactDTO entity)
+        public void Delete(MetaContactDto entity)
         {
             _dialogUnitOfWork.MetaContactsRepository.Delete(_mapper.Map<MetaContact>(entity));
             _dialogUnitOfWork.SaveChanges();

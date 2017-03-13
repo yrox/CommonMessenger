@@ -5,18 +5,18 @@ namespace Dialog.Business.Service.Interfaces
 {
     public interface IAccountsService
     {
-        IEnumerable<AccountDTO> GetAll();
+        IEnumerable<AccountDto> GetAll();
 
-        IEnumerable<AccountDTO> GetAllByUserId(int id);
+        IEnumerable<AccountDto> GetAllByUserId(int id);
 
-        IEnumerable<AccountDTO> GetAllByUserName(string name);
+        IEnumerable<AccountDto> GetAllByUserName(string name);
 
-        AccountDTO Find(int id);
+        AccountDto Find(int id);
 
-        void Insert(AccountDTO entity);
+        void Insert(AccountDto entity);
 
-        void Update(AccountDTO entity);
+        void Update(AccountDto entity);
 
-        void Delete(AccountDTO entity);
+        void Delete(AccountDto entity);
     }
 }

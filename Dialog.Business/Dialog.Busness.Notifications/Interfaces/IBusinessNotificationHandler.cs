@@ -4,8 +4,8 @@ namespace Dialog.Busness.Notifications.Interfaces
 {
     public interface IBusinessNotificationHandler
     {
-        void SendMessage(MessageDTO message);
+        void SendMessage(MessageDto message);
 
-        void SendMessage(MessageDTO message, string captcha, long sid);
+        void SendMessage(MessageDto message, string captcha, long sid);
     }
 }

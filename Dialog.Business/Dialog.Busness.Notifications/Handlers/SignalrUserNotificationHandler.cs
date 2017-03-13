@@ -34,7 +34,7 @@ namespace Dialog.Busness.Notifications.Handlers
 
         public string UserName { get; }
 
-        public void SendMessage(MessageDTO message)
+        public void SendMessage(MessageDto message)
         {
             _httpClient.PostAsJsonAsync("api/messages", message);
             foreach (var connection in _connections.GetConnections(UserName))
@@ -43,7 +43,7 @@ namespace Dialog.Busness.Notifications.Handlers
             }
         }
 
-        public void AddContact(ContactDTO contact)
+        public void AddContact(ContactDto contact)
         {
             _httpClient.PostAsJsonAsync("api/contacts", contact);
         }
@@ -68,7 +68,7 @@ namespace Dialog.Busness.Notifications.Handlers
             return result;
         }
 
-        public void UpdateAccount(AccountDTO account)
+        public void UpdateAccount(AccountDto account)
         {
             _httpClient.PutAsJsonAsync($"api/accounts/{account.Id}", account);
         }

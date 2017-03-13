@@ -5,16 +5,16 @@ namespace Dialog.Business.Service.Interfaces
 {
     public interface IMessagesService
     {
-        IEnumerable<MessageDTO> GetAll();
+        IEnumerable<MessageDto> GetAll();
 
-        MessageDTO Find(int id);
+        MessageDto Find(int id);
 
-        void Insert(MessageDTO entity);
+        void Insert(MessageDto entity);
 
-        void Update(MessageDTO entity);
+        void Update(MessageDto entity);
 
-        void Delete(MessageDTO entity);
+        void Delete(MessageDto entity);
 
-        void Send(MessageDTO entity, string userName);
+        void Send(MessageDto entity, string userName);
     }
 }

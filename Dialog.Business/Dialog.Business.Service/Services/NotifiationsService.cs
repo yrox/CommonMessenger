@@ -30,7 +30,7 @@ namespace Dialog.Business.Service.Services
             NotificationHandlers.TryAdd(userName, new SignalrNotificationHandler(_mapper, userAccs, _connections, userName));
         }
 
-        public void SendMessage(MessageDTO message, string userName)
+        public void SendMessage(MessageDto message, string userName)
         {
             INotificationHandler handler;
             var result = NotificationHandlers.TryGetValue(userName, out handler);

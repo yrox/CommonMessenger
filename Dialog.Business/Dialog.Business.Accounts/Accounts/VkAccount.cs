@@ -24,7 +24,7 @@ namespace Dialog.Business.Accounts.Accounts
 
         private static string code;
 
-        private readonly AccountDTO _accountInfo;
+        private readonly AccountDto _accountInfo;
         private readonly VkApi _api;
 
         private readonly Func<string> _code = () =>
@@ -32,7 +32,7 @@ namespace Dialog.Business.Accounts.Accounts
             return code;
         };
 
-        public VkAccount(AccountDTO acc, IMapper mapper)
+        public VkAccount(AccountDto acc, IMapper mapper)
         {
             _api = new VkApi();
             _accountInfo = acc;
@@ -91,9 +91,9 @@ namespace Dialog.Business.Accounts.Accounts
             GetUpdatesFromServer().Wait();
         }
 
-        public IEnumerable<ContactDTO> GetAllContacts()
+        public IEnumerable<ContactDto> GetAllContacts()
         {
-            return _mapper.Map<IEnumerable<ContactDTO>>
+            return _mapper.Map<IEnumerable<ContactDto>>
                 (_api.Friends.Get(new FriendsGetParams
                 {
                     Order = FriendsOrder.Hints,
@@ -101,7 +101,7 @@ namespace Dialog.Business.Accounts.Accounts
                 }));
         }
 
-        public void SendMessage(MessageDTO message)
+        public void SendMessage(MessageDto message)
         {
             try
             {
@@ -117,7 +117,7 @@ namespace Dialog.Business.Accounts.Accounts
             }
         }
 
-        public void SendMessage(MessageDTO message, string captcha, long sid)
+        public void SendMessage(MessageDto message, string captcha, long sid)
         {
             _api.Messages.Send(new MessagesSendParams
             {
@@ -156,7 +156,7 @@ namespace Dialog.Business.Accounts.Accounts
                     var newMessages = VkUpdatesParser.GetMessagesFromUpdate(updates).ToList();
                     if (newMessages.Any())
                     {
-                        MessageRecivedHandler(_mapper.Map<IEnumerable<MessageDTO>>(newMessages));
+                        MessageRecivedHandler(_mapper.Map<IEnumerable<MessageDto>>(newMessages));
                     }
                 }
                 await GetUpdatesFromServer();

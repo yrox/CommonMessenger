@@ -10,7 +10,7 @@ namespace Dialog.Busness.Notifications.Handlers
 {
     public class SignalrNotificationHandler : INotificationHandler
     {
-        public SignalrNotificationHandler(IMapper mapper, IEnumerable<AccountDTO> accs, ConnectionMapping<string> connections, string userName)
+        public SignalrNotificationHandler(IMapper mapper, IEnumerable<AccountDto> accs, ConnectionMapping<string> connections, string userName)
         {
             var accountsManager = new AccountsManager(accs.First(), mapper);
             BusinessNotificationHandler = new BusinessNotificationHadler(accountsManager, userName);
