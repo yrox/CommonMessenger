@@ -4,17 +4,17 @@ using Dialog.Business.Service.Interfaces;
 
 namespace Dialog.WebApi.Controllers
 {
-    [RoutePrefix("api/notifications")]
-    public class NotificationsController : ApiController
+    [RoutePrefix("api/notification")]
+    public class NotificationController : ApiController
     {
         private readonly INotificationsService _service;
 
-        public NotificationsController(INotificationsService service)
+        public NotificationController(INotificationsService service)
         {
             _service = service;
         }
 
-        [Route("message")]
+        [Route("sendmessage")]
         [HttpPost]
         public void SendMessageRecived(string userName, MessageDto item)
         {

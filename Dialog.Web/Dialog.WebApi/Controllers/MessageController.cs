@@ -6,12 +6,12 @@ using Dialog.Business.Service.Interfaces;
 namespace Dialog.WebApi.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/messages")]
-    public class MessagesController : ApiController
+    [RoutePrefix("api/message")]
+    public class MessageController : ApiController
     {
         private readonly IMessagesService _messagesService;
 
-        public MessagesController(IMessagesService service)
+        public MessageController(IMessagesService service)
         {
             _messagesService = service;
         }

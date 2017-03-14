@@ -7,12 +7,12 @@ using Microsoft.AspNet.Identity;
 namespace Dialog.WebApi.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/accounts")]
-    public class AccountsController : ApiController
+    [RoutePrefix("api/account")]
+    public class AccountController : ApiController
     {
         private readonly IAccountsService _accountsAccService;
     
-        public AccountsController(IAccountsService accService)
+        public AccountController(IAccountsService accService)
         {
             _accountsAccService = accService;
         }

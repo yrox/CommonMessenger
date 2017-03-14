@@ -6,12 +6,12 @@ using Dialog.Business.Service.Interfaces;
 namespace Dialog.WebApi.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/contacts")]
-    public class ContactsController : ApiController
+    [RoutePrefix("api/contact")]
+    public class ContactController : ApiController
     {
         private readonly IContactsService _contactsService;
 
-        public ContactsController(IContactsService service)
+        public ContactController(IContactsService service)
         {
             _contactsService = service;
         }
