@@ -7,12 +7,12 @@ using Dialog.Data.Interfaces;
 
 namespace Dialog.Business.Service.Services
 {
-    public class ContactsService : IContactsService
+    public class ContactService : IContactsService
     {
         private readonly IDialogUnitOfWork _dialogUnitOfWork;
         private readonly IMapper _mapper;
 
-        public ContactsService(IDialogUnitOfWork unitOfWork, IMapper mapper)
+        public ContactService(IDialogUnitOfWork unitOfWork, IMapper mapper)
         {
             _dialogUnitOfWork = unitOfWork;
             _mapper = mapper;

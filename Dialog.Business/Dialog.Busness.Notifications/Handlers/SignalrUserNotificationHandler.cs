@@ -36,7 +36,7 @@ namespace Dialog.Busness.Notifications.Handlers
 
         public void SendMessage(MessageDto message)
         {
-            _httpClient.PostAsJsonAsync("api/messages", message);
+            _httpClient.PostAsJsonAsync("api/message", message);
             foreach (var connection in _connections.GetConnections(UserName))
             {
                 _hubContext.Clients.Client(connection).MessageRecived(message);
@@ -45,7 +45,7 @@ namespace Dialog.Busness.Notifications.Handlers
 
         public void AddContact(ContactDto contact)
         {
-            _httpClient.PostAsJsonAsync("api/contacts", contact);
+            _httpClient.PostAsJsonAsync("api/contact", contact);
         }
 
         public string ThrowCaptcha(Uri captchaUrl, long sid)
@@ -70,7 +70,7 @@ namespace Dialog.Busness.Notifications.Handlers
 
         public void UpdateAccount(AccountDto account)
         {
-            _httpClient.PutAsJsonAsync($"api/accounts/{account.Id}", account);
+            _httpClient.PutAsJsonAsync($"api/account/{account.Id}", account);
         }
 
         private void InitializeAccountsManagerEvents()

@@ -3,6 +3,7 @@ using Autofac;
 using AutoMapper;
 using Dialog.Business.Service.Services;
 using Dialog.Business.Service.Util.MapProfiles;
+using Dialog.Busness.Notifications.Util;
 using Dialog.Data;
 using Dialog.Data.Interfaces;
 
@@ -15,11 +16,11 @@ namespace Dialog.Business.Service.Util
             builder.RegisterType<DialogUnitOfWork>().As<IDialogUnitOfWork>()
                 .WithParameter("nameOrConnectionString", "Dialog");
             
-            builder.RegisterType<MetaContactsService>().AsImplementedInterfaces();
-            builder.RegisterType<ContactsService>().AsImplementedInterfaces();
-            builder.RegisterType<MessagesService>().AsImplementedInterfaces();
-            builder.RegisterType<AccountsService>().AsImplementedInterfaces();
-            builder.RegisterType<NotifiationsService>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<MetaContactservice>().AsImplementedInterfaces();
+            builder.RegisterType<ContactService>().AsImplementedInterfaces();
+            builder.RegisterType<MessageService>().AsImplementedInterfaces();
+            builder.RegisterType<AccountService>().AsImplementedInterfaces();
+            //builder.RegisterType<NotifiationService>().AsImplementedInterfaces().SingleInstance();
 
             builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
 
@@ -52,6 +53,8 @@ namespace Dialog.Business.Service.Util
                 var mapper = new Mapper(provider);
                 return mapper;
             }).As<IMapper>().InstancePerLifetimeScope();
+
+            builder.RegisterModule(new NotificationHandlerModule());
         }
     }
 }

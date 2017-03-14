@@ -1,9 +1,14 @@
-﻿using Autofac;
-using Microsoft.AspNet.Identity;
+﻿using System;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Infrastructure.DependencyResolution;
+using Autofac;
+using Autofac.Integration.WebApi;
+using Dialog.WebApi.Auth;
 using Microsoft.Owin;
-using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.OAuth;
 using Olga.Identity.EntityFramework;
 using Olga.Identity.Managers;
+using Olga.Identity.Stores;
 using Owin;
 
 namespace Dialog.WebApi
@@ -19,11 +24,24 @@ namespace Dialog.WebApi
 
             app.CreatePerOwinContext(() => AppDbContext.Create("Dialog"));
             app.CreatePerOwinContext<AppUserManager>(AppUserManager.Create);
-            //app.UseCookieAuthentication(new CookieAuthenticationOptions
-            //{
-            //    AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,//"ApplicationCookie",
-            //    LoginPath = new PathString("/Account/Login")
-            //});
+
+            ConfigureOAuth(app);
+        }
+
+        public void ConfigureOAuth(IAppBuilder app)
+        {
+            OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions
+            {
+                AllowInsecureHttp = true,
+                TokenEndpointPath = new PathString("/token"),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
+                Provider = new AuthorizationServerProvider(new AppUserManager(new AppUserStore(AppDbContext.Create("Dialog"))))
+            };
+            
+            // Token Generation
+            app.UseOAuthAuthorizationServer(OAuthServerOptions);
+            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
+
         }
     }
 }

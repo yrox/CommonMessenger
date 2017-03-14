@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialog.Data", "..\Dialog.Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialog.WebApi", "Dialog.WebApi\Dialog.WebApi.csproj", "{AA410F7D-2944-45FA-9661-5AABD5910E09}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialog.Busness.Notifications", "..\Dialog.Business\Dialog.Busness.Notifications\Dialog.Busness.Notifications.csproj", "{933D3382-0A0D-41A2-9949-4DF46478255B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{AA410F7D-2944-45FA-9661-5AABD5910E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA410F7D-2944-45FA-9661-5AABD5910E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA410F7D-2944-45FA-9661-5AABD5910E09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{933D3382-0A0D-41A2-9949-4DF46478255B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{933D3382-0A0D-41A2-9949-4DF46478255B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{933D3382-0A0D-41A2-9949-4DF46478255B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{933D3382-0A0D-41A2-9949-4DF46478255B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

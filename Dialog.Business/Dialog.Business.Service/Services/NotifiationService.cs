@@ -8,13 +8,13 @@ using Dialog.Busness.Notifications.Util;
 
 namespace Dialog.Business.Service.Services
 {
-    public class NotifiationsService : INotificationsService
+    public class NotifiationService : INotificationsService
     {
         private readonly IMapper _mapper;
         private readonly IAccountsService _accountsService;
         private readonly ConnectionMapping<string> _connections;
 
-        public NotifiationsService(IMapper mapper, IAccountsService accountsService, ConnectionMapping<string> connections)
+        public NotifiationService(IMapper mapper, IAccountsService accountsService, ConnectionMapping<string> connections)
         {
             _mapper = mapper;
             _accountsService = accountsService;

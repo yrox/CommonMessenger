@@ -3,6 +3,7 @@ using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
 using AutoMapper;
+using Dialog.Business.Service.Services;
 using Dialog.Business.Service.Util;
 using Microsoft.AspNet.Identity;
 using Olga.Identity;
@@ -34,6 +35,8 @@ namespace Dialog.WebApi.Util
 
             builder.Register(c => c.Resolve<MapperConfiguration>().CreateMapper(c.Resolve))
                 .As<IMapper>().InstancePerLifetimeScope();
+
+            builder.RegisterType<NotifiationService>().AsImplementedInterfaces();
 
             builder.RegisterType<AppDbContext>().AsSelf().WithParameter("connectionString", "Dialog").SingleInstance();
             builder.RegisterType<AppUserManager>().AsSelf().InstancePerRequest();

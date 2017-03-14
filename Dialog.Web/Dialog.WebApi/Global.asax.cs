@@ -9,7 +9,7 @@ namespace Dialog.WebApi
     {
         protected void Application_Start()
         {
-            GlobalConfiguration.Configure(RoutesConfig.Register);
+            GlobalConfiguration.Configure(WebApiConfig.Register);
 
             GlobalConfiguration.Configuration.DependencyResolver =
                 new AutofacWebApiDependencyResolver(AutofacConfig.GetContainerBuilder());

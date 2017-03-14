@@ -11,21 +11,22 @@ using Olga.Identity.Managers;
 
 namespace Dialog.WebApi.Controllers
 {
-    [RoutePrefix("api/users")]
-    public class UsersController : ApiController
+    [RoutePrefix("api/user")]
+    public class UserController : ApiController
     {
         private readonly IMapper _mapper;
         private readonly AppUserManager _userManager;
         private readonly IAuthenticationManager _authenticationManager;
         private readonly INotificationsService _notificationsService;
 
-        public UsersController(IMapper mapper, AppUserManager manager, IAuthenticationManager authenticationManager, INotificationsService service)
+        public UserController(IMapper mapper, AppUserManager manager, IAuthenticationManager authenticationManager, INotificationsService service)
         {
             _mapper = mapper;
             _userManager = manager;
             _authenticationManager = authenticationManager;
             _notificationsService = service;
         }
+
         [AllowAnonymous]
         [Route("")]
         [HttpGet]
@@ -63,14 +64,13 @@ namespace Dialog.WebApi.Controllers
         [HttpPost]
         public void Register(UserDto userData)
         {
-            var data = userData ?? new UserDto { Email = "12333323", UserName = "thirdOne", Password = "p3333assword" };
             var user = new AppUser()
             {
-                Email = data.Email,
-                UserName = data.UserName
+                Email = userData.Email,
+                UserName = userData.UserName
             };
 
-            _userManager.Create(user, data.Password);
+            _userManager.Create(user, userData.Password);
         }
 
         [Authorize]

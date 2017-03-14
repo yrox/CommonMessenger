@@ -7,13 +7,13 @@ using Dialog.Data.Interfaces;
 
 namespace Dialog.Business.Service.Services
 {
-    public class MessagesService : IMessagesService
+    public class MessageService : IMessagesService
     {
         private readonly IDialogUnitOfWork _dialogUnitOfWork;
         private readonly IMapper _mapper;
         private readonly INotificationsService _notifications;
 
-        public MessagesService(IDialogUnitOfWork unitOfWork, IMapper mapper, INotificationsService service)
+        public MessageService(IDialogUnitOfWork unitOfWork, IMapper mapper, INotificationsService service)
         {
             _dialogUnitOfWork = unitOfWork;
             _mapper = mapper;
