@@ -18,6 +18,7 @@ namespace Dialog.Data.EntityFramewrk
             modelBuilder.Entity<Contact>().ToTable("Contacts");
             modelBuilder.Entity<Message>().ToTable("Messages");
             modelBuilder.Entity<MetaContact>().ToTable("MetaContacts");
+            //modelBuilder.Entity<UserReference>().ToTable("UserReferences");
             modelBuilder.Entity<UserReference>().ToTable("Users");
         }
 

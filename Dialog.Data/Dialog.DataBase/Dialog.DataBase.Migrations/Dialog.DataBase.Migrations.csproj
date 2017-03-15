@@ -91,6 +91,42 @@
     <Compile Include="DialogMigrations\201703151130400_RenameUserIdColumn.Designer.cs">
       <DependentUpon>201703151130400_RenameUserIdColumn.cs</DependentUpon>
     </Compile>
+    <Compile Include="DialogMigrations\201703151200261_UserRef.cs" />
+    <Compile Include="DialogMigrations\201703151200261_UserRef.Designer.cs">
+      <DependentUpon>201703151200261_UserRef.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogMigrations\201703151209389_UserRefDel.cs" />
+    <Compile Include="DialogMigrations\201703151209389_UserRefDel.Designer.cs">
+      <DependentUpon>201703151209389_UserRefDel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogMigrations\201703151210344_UserRefAdded.cs" />
+    <Compile Include="DialogMigrations\201703151210344_UserRefAdded.Designer.cs">
+      <DependentUpon>201703151210344_UserRefAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogMigrations\201703151221088_UserRefReAdded.cs" />
+    <Compile Include="DialogMigrations\201703151221088_UserRefReAdded.Designer.cs">
+      <DependentUpon>201703151221088_UserRefReAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogMigrations\201703151225197_RefAdded.cs" />
+    <Compile Include="DialogMigrations\201703151225197_RefAdded.Designer.cs">
+      <DependentUpon>201703151225197_RefAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogMigrations\201703151234426_NewHope.cs" />
+    <Compile Include="DialogMigrations\201703151234426_NewHope.Designer.cs">
+      <DependentUpon>201703151234426_NewHope.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogMigrations\201703151238303_NewRef.cs" />
+    <Compile Include="DialogMigrations\201703151238303_NewRef.Designer.cs">
+      <DependentUpon>201703151238303_NewRef.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogMigrations\201703151240382_EmailFixed.cs" />
+    <Compile Include="DialogMigrations\201703151240382_EmailFixed.Designer.cs">
+      <DependentUpon>201703151240382_EmailFixed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogMigrations\201703151242476_DropRef.cs" />
+    <Compile Include="DialogMigrations\201703151242476_DropRef.Designer.cs">
+      <DependentUpon>201703151242476_DropRef.cs</DependentUpon>
+    </Compile>
     <Compile Include="DialogMigrations\Configuration.cs" />
     <Compile Include="IdentityMigrations\201702151238110_Initial.cs" />
     <Compile Include="IdentityMigrations\201702151238110_Initial.Designer.cs">
@@ -131,6 +167,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DialogMigrations\201703151130400_RenameUserIdColumn.resx">
       <DependentUpon>201703151130400_RenameUserIdColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogMigrations\201703151200261_UserRef.resx">
+      <DependentUpon>201703151200261_UserRef.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogMigrations\201703151209389_UserRefDel.resx">
+      <DependentUpon>201703151209389_UserRefDel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogMigrations\201703151210344_UserRefAdded.resx">
+      <DependentUpon>201703151210344_UserRefAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogMigrations\201703151221088_UserRefReAdded.resx">
+      <DependentUpon>201703151221088_UserRefReAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogMigrations\201703151225197_RefAdded.resx">
+      <DependentUpon>201703151225197_RefAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogMigrations\201703151234426_NewHope.resx">
+      <DependentUpon>201703151234426_NewHope.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogMigrations\201703151238303_NewRef.resx">
+      <DependentUpon>201703151238303_NewRef.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogMigrations\201703151240382_EmailFixed.resx">
+      <DependentUpon>201703151240382_EmailFixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogMigrations\201703151242476_DropRef.resx">
+      <DependentUpon>201703151242476_DropRef.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdentityMigrations\201702151238110_Initial.resx">
       <DependentUpon>201702151238110_Initial.cs</DependentUpon>
