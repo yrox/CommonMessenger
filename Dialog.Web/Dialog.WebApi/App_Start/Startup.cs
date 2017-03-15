@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Data.Entity.Infrastructure;
-using System.Data.Entity.Infrastructure.DependencyResolution;
 using Autofac;
-using Autofac.Integration.WebApi;
 using Dialog.WebApi.Auth;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
