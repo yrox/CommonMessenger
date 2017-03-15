@@ -7,12 +7,12 @@ namespace Dialog.DataBase.Migrations.DialogMigrations
     {
         public override void Up()
         {
-            AddColumn("dbo.MetaContacts", "Name", c => c.String());
+            //AddColumn("dbo.MetaContacts", "Name", c => c.String());
         }
         
         public override void Down()
         {
-            DropColumn("dbo.MetaContacts", "Name");
+            //DropColumn("dbo.MetaContacts", "Name");
         }
     }
 }

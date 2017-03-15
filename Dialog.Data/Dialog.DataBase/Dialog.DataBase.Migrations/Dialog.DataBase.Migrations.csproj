@@ -87,6 +87,10 @@
     <Compile Include="DialogMigrations\201703142330433_NamePropAdded.Designer.cs">
       <DependentUpon>201703142330433_NamePropAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="DialogMigrations\201703151130400_RenameUserIdColumn.cs" />
+    <Compile Include="DialogMigrations\201703151130400_RenameUserIdColumn.Designer.cs">
+      <DependentUpon>201703151130400_RenameUserIdColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="DialogMigrations\Configuration.cs" />
     <Compile Include="IdentityMigrations\201702151238110_Initial.cs" />
     <Compile Include="IdentityMigrations\201702151238110_Initial.Designer.cs">
@@ -124,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DialogMigrations\201703142330433_NamePropAdded.resx">
       <DependentUpon>201703142330433_NamePropAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogMigrations\201703151130400_RenameUserIdColumn.resx">
+      <DependentUpon>201703151130400_RenameUserIdColumn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdentityMigrations\201702151238110_Initial.resx">
       <DependentUpon>201702151238110_Initial.cs</DependentUpon>
