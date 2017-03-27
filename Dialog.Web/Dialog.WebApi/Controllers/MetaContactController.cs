@@ -5,7 +5,7 @@ using Dialog.Business.Service.Interfaces;
 
 namespace Dialog.WebApi.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [RoutePrefix("api/metacontact")]
     public class MetaContactController : ApiController
     {

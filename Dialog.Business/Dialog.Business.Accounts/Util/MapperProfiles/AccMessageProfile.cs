@@ -1,14 +1,11 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using Dialog.Business.DTO;
 
 namespace Dialog.Business.Accounts.Util.MapperProfiles
 {
-    public class MessageProfile : Profile
+    public class AccMessageProfile : Profile
     {
-        [Obsolete(
-           "Create a constructor and configure inside of your profile\'s constructor instead. Will be removed in 6.0")]
-        protected override void Configure()
+        public AccMessageProfile()
         {
             CreateMap<VkNet.Model.Message, MessageDto>()
                 .ForMember("AccountId", x => x.MapFrom(c => c.UserId))

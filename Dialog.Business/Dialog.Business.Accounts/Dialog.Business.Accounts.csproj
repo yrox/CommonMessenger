@@ -30,12 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac, Version=4.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.4.3.0\lib\net45\Autofac.dll</HintPath>
+    <Reference Include="AngleSharp, Version=0.9.9.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>..\..\Dialog.Web\packages\AngleSharp.0.9.9\lib\net45\AngleSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="Autofac, Version=4.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\Dialog.Web\packages\Autofac.4.4.0\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\Dialog.Web\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="BigMath, Version=0.5.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -75,7 +79,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="VkNet, Version=1.21.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\VkNet.1.26.0\lib\net40\VkNet.dll</HintPath>
+      <HintPath>..\..\Dialog.Web\packages\VkNet.1.27.0\lib\net40\VkNet.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -87,8 +91,8 @@
     <Compile Include="Interfaces\IAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\AcountsHandlingModule.cs" />
-    <Compile Include="Util\MapperProfiles\ContactProfile.cs" />
-    <Compile Include="Util\MapperProfiles\MessageProfile.cs" />
+    <Compile Include="Util\MapperProfiles\AccContactProfile.cs" />
+    <Compile Include="Util\MapperProfiles\AccMessageProfile.cs" />
     <Compile Include="Util\VkUpdatesParser.cs" />
   </ItemGroup>
   <ItemGroup />

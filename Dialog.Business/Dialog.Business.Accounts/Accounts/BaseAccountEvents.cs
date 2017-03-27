@@ -16,7 +16,7 @@ namespace Dialog.Business.Accounts.Accounts
 
         public delegate void MessageRecived(MessageDto message);
 
-        public void MessageRecivedHandler(IEnumerable<MessageDto> messages)
+        public void MessagesRecivedHandler(IEnumerable<MessageDto> messages)
         {
             if (OnMessageRecived == null) return;
             foreach (var message in messages)

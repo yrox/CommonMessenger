@@ -24,14 +24,6 @@ namespace Dialog.WebApi.Util
             //builder.RegisterAssemblyModules(assemblies.ToArray());
 
             builder.RegisterWebApiFilterProvider(GlobalConfiguration.Configuration);
-            builder.RegisterModule(new ServiceModule());
-
-            builder.RegisterAssemblyTypes().AssignableTo(typeof(Profile)).As<Profile>();
-
-            builder.Register(c => new MapperConfiguration(cfg =>
-            {
-                cfg.AddProfile<WebMapProfile>();
-            })).AsSelf().SingleInstance();
 
             builder.Register(c => c.Resolve<MapperConfiguration>().CreateMapper(c.Resolve))
                 .As<IMapper>().InstancePerLifetimeScope();
@@ -41,6 +33,8 @@ namespace Dialog.WebApi.Util
             builder.RegisterType<AppDbContext>().AsSelf().WithParameter("connectionString", "Dialog").SingleInstance();
             builder.RegisterType<AppUserManager>().AsSelf().InstancePerRequest();
             builder.RegisterType<AppUserStore>().As<IUserStore<AppUser, int>>();
+
+            builder.RegisterModule(new ServiceModule());
 
             return builder.Build();
         }

@@ -20,11 +20,12 @@ namespace Dialog.Business.Service.Services
 
         public IEnumerable<MetaContactDto> GetAll()
         {
-            return _dialogUnitOfWork.MetaContactsRepository.GetAll<MetaContactDto>();
+            return _mapper.Map<IEnumerable<MetaContactDto>>(_dialogUnitOfWork.MetaContactsRepository.GetAll());
         }
 
         public MetaContactDto Find(int id)
         {
+            var c = _dialogUnitOfWork.MetaContactsRepository.Find(id);
             return _mapper.Map<MetaContactDto>(_dialogUnitOfWork.MetaContactsRepository.Find(id));
         }
 

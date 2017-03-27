@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Runtime.ExceptionServices;
+using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using Dialog.Business.Accounts.Interfaces;
@@ -18,19 +19,55 @@ namespace Dialog.Business.Accounts.Accounts
 {
     public class VkAccount : BaseAccountEvents, IAccount
     {
-        private const int AppId = 5678626;
 
         private readonly IMapper _mapper;
-
-        private static string code;
-
         private readonly AccountDto _accountInfo;
+
+        private const int AppId = 5678626;
+        private static string code;
+       
         private readonly VkApi _api;
+
+        private void ApiOnOnTokenExpires(VkApi api)
+        {
+            //TODO refresh token
+        }
 
         private readonly Func<string> _code = () =>
         {
             return code;
         };
+
+        //private readonly Func<string> _code = () =>
+        //{
+        //    Console.Write("Please enter code: ");
+        //    string value = Console.ReadLine();
+
+        //    return value;
+        //};
+
+        private async Task GetUpdatesFromServer()
+        {
+            var longPollServer = _api.Messages.GetLongPollServer(true);
+            var ts = longPollServer.Ts;
+            await Task.Run(async () =>
+            {
+                string url = $"https://{longPollServer.Server}?act=a_check&key={longPollServer.Key}&ts={ts}&wait=100&version=1";
+                using (var http = new HttpClient())
+                {
+                    var response = await http.GetStringAsync(url).ConfigureAwait(false);
+                    var updates = VkUpdatesParser.DeserializeUpdates(response);
+                    ts = updates.Ts;
+                    var newMessages = VkUpdatesParser.GetMessagesFromUpdate(updates).ToList();
+                    var res = _mapper.Map<IEnumerable<MessageDto>>(newMessages);
+                    if (newMessages.Any())
+                    {
+                        MessagesRecivedHandler(res); //_mapper.Map<IEnumerable<MessageDto>>(newMessages));
+                    }
+                }
+                await GetUpdatesFromServer();
+            });
+        }
 
         public VkAccount(AccountDto acc, IMapper mapper)
         {
@@ -39,6 +76,20 @@ namespace Dialog.Business.Accounts.Accounts
             _api.OnTokenExpires += ApiOnOnTokenExpires;
             _mapper = mapper;
             //_pts = Convert.ToUInt64(acc.LastUpdate);
+        }
+
+        public void Authorize()
+        {
+            _api.Authorize(new ApiAuthParams
+            {
+                ApplicationId = AppId,
+                Login = _accountInfo.Login,
+                Password = _accountInfo.Password,
+                Settings = Settings.All,
+                //TwoFactorAuthorization = _code
+            });
+            _accountInfo.AccessToken = _api.Token;
+            StartAskingServer();
         }
 
         public void AuthorizeFromToken()
@@ -51,7 +102,7 @@ namespace Dialog.Business.Accounts.Accounts
             {
                 Authorize(CodeNeededHandler());
             }
-            GetUpdatesFromServer().Wait();
+            StartAskingServer();
         }
 
         public void Authorize(string codeValue)
@@ -73,7 +124,7 @@ namespace Dialog.Business.Accounts.Accounts
                 CaptchaNeededHandler(cEx.Img, cEx.Sid);
             }
             _accountInfo.AccessToken = _api.Token;
-            GetUpdatesFromServer().Wait();
+            StartAskingServer();
         }
 
         public void Authorize(string captcha, long sid)
@@ -88,7 +139,13 @@ namespace Dialog.Business.Accounts.Accounts
                 CaptchaSid = sid
             });
             _accountInfo.AccessToken = _api.Token;
-            GetUpdatesFromServer().Wait();
+            StartAskingServer();
+        }
+
+        public void StartAskingServer()
+        {
+            Task.Factory.StartNew(async () => await GetUpdatesFromServer(), CancellationToken.None,
+                TaskCreationOptions.LongRunning, TaskScheduler.Default);
         }
 
         public IEnumerable<ContactDto> GetAllContacts()
@@ -108,7 +165,7 @@ namespace Dialog.Business.Accounts.Accounts
                 _api.Messages.Send(new MessagesSendParams
                 {
                     UserId = _api.UserId,
-                    //Message = message.Text
+                    Message = message.Text
                 });
             }
             catch (CaptchaNeededException cEx)
@@ -122,59 +179,11 @@ namespace Dialog.Business.Accounts.Accounts
             _api.Messages.Send(new MessagesSendParams
             {
                 UserId = _api.UserId,
-                //Message = message.Text,
+                Message = message.Text,
                 CaptchaKey = captcha,
                 CaptchaSid = sid
             });
         }
-
-        //private readonly Func<string> _code = () =>
-        //{
-        //    Console.Write("Please enter code: ");
-        //    string value = Console.ReadLine();
-
-        //    return value;
-        //};
-
-        private void ApiOnOnTokenExpires(VkApi api)
-        {
-            //TODO refresh token
-        }
-
-        private async Task GetUpdatesFromServer()
-        {
-            var longPollServer = _api.Messages.GetLongPollServer(true);
-            var ts = longPollServer.Ts;
-            await Task.Run(async () =>
-            {
-                string url = $"https://{longPollServer.Server}?act=a_check&key={longPollServer.Key}&ts={ts}&wait=100&version=1";
-                using (var http = new HttpClient())
-                {
-                    var response = await http.GetStringAsync(url).ConfigureAwait(false);
-                    var updates = VkUpdatesParser.DeserializeUpdates(response);
-                    ts = updates.Ts;
-                    var newMessages = VkUpdatesParser.GetMessagesFromUpdate(updates).ToList();
-                    if (newMessages.Any())
-                    {
-                        MessageRecivedHandler(_mapper.Map<IEnumerable<MessageDto>>(newMessages));
-                    }
-                }
-                await GetUpdatesFromServer();
-            });
-        }
-
-        public void Authorize()
-        {
-            _api.Authorize(new ApiAuthParams
-            {
-                ApplicationId = AppId,
-                Login = _accountInfo.Login,
-                Password = _accountInfo.Password,
-                Settings = Settings.All,
-                TwoFactorAuthorization = _code
-            });
-            _accountInfo.AccessToken = _api.Token;
-            GetUpdatesFromServer().Wait();
-        }
+        
     }
 }

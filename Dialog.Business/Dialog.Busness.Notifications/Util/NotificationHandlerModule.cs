@@ -12,7 +12,7 @@ namespace Dialog.Busness.Notifications.Util
 
             builder.RegisterType<ConnectionMapping<string>>().AsSelf().SingleInstance();
             builder.RegisterType<NotificationsНub>().AsSelf();
-            
+
         }
     }
 }

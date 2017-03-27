@@ -30,12 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac, Version=4.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.4.3.0\lib\net45\Autofac.dll</HintPath>
+    <Reference Include="Autofac, Version=4.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\Dialog.Web\packages\Autofac.4.4.0\lib\net45\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\Dialog.Web\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -142,6 +142,10 @@
     <ProjectReference Include="..\..\Dialog.Data\Dialog.Data\Dialog.Data\Dialog.Data.csproj">
       <Project>{239b771e-e1ee-4a99-b207-fcaae44f49fa}</Project>
       <Name>Dialog.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dialog.Business.Accounts\Dialog.Business.Accounts.csproj">
+      <Project>{310A716C-6984-44FE-804A-B4779BE66C4C}</Project>
+      <Name>Dialog.Business.Accounts</Name>
     </ProjectReference>
     <ProjectReference Include="..\Dialog.Business.DTO\Dialog.Business.DTO.csproj">
       <Project>{dac8598a-d136-46bb-9981-c0b74bec21e6}</Project>

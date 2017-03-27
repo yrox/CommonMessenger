@@ -6,6 +6,7 @@ using Dialog.Business.Service.Util.MapProfiles;
 using Dialog.Busness.Notifications.Util;
 using Dialog.Data;
 using Dialog.Data.Interfaces;
+using Dialog.Business.Accounts.Util.MapperProfiles;
 
 namespace Dialog.Business.Service.Util
 {
@@ -20,13 +21,15 @@ namespace Dialog.Business.Service.Util
             builder.RegisterType<ContactService>().AsImplementedInterfaces();
             builder.RegisterType<MessageService>().AsImplementedInterfaces();
             builder.RegisterType<AccountService>().AsImplementedInterfaces();
-            //builder.RegisterType<NotifiationService>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<NotifiationService>().AsImplementedInterfaces().SingleInstance();
 
             builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
 
             builder.Register(x => new MapperConfiguration(
                 cfg =>
                 {
+                    cfg.AddProfile(typeof(AccContactProfile));
+                    cfg.AddProfile(typeof(AccMessageProfile));
                     cfg.AddProfile(typeof(AccountProfile));
                     cfg.AddProfile(typeof(ContactProfile));
                     cfg.AddProfile(typeof(MessageProfile));
@@ -34,27 +37,8 @@ namespace Dialog.Business.Service.Util
                     cfg.AddProfile(typeof(UserProfile));
                 }));
 
-            Mapper.Initialize(cfg => {
-                cfg.AddProfile<AccountProfile>();
-                cfg.AddProfile<ContactProfile>();
-                cfg.AddProfile<MessageProfile>();
-                cfg.AddProfile<MetaContactProfile>();
-                cfg.AddProfile<UserProfile>();
-            });
-
-
-            builder.RegisterInstance(Mapper.Configuration)
-                .As<IConfigurationProvider>()
-                .SingleInstance();
-
-            builder.Register(context =>
-            {
-                var provider = context.Resolve<IConfigurationProvider>();
-                var mapper = new Mapper(provider);
-                return mapper;
-            }).As<IMapper>().InstancePerLifetimeScope();
-
             builder.RegisterModule(new NotificationHandlerModule());
+
         }
     }
 }

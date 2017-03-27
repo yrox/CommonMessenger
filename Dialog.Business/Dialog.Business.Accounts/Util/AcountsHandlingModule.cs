@@ -9,11 +9,12 @@ namespace Dialog.Business.Accounts.Util
         protected override void Load(ContainerBuilder builder)
         {
             //builder.RegisterType<VkAccount>().As<IAccount>();
-            builder.Register(x => new MapperConfiguration(
-                cfg =>
-                {
-                    cfg.AddProfile(typeof(ContactProfile));
-                    cfg.AddProfile(typeof(MessageProfile));})).AsSelf().SingleInstance();
+            //builder.Register(x => new MapperConfiguration(
+            //    cfg =>
+            //    {
+            //        cfg.AddProfile(typeof(AccContactProfile));
+            //        cfg.AddProfile(typeof(AccMessageProfile));
+            //    }));
         }
     }
 }

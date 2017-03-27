@@ -8,7 +8,7 @@ namespace Dialog.Business.Accounts
 {
     public class AccountsManager : BaseAccountEvents
     {
-        private IAccount _account;
+        private VkAccount _account;
 
         private void InitializeEvents()
         {
@@ -23,8 +23,8 @@ namespace Dialog.Business.Accounts
         {
             _account = new VkAccount(acc, mapper);
             InitializeEvents();
-            _account.Authorize("123304");
-           
+            _account.Authorize();
+           // _account.StartAskingServer();
         }
 
         public AccountsManager(AccountDto acc, IMapper mapper)

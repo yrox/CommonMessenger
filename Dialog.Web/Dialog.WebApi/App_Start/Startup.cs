@@ -31,7 +31,7 @@ namespace Dialog.WebApi
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
                 Provider = new AuthorizationServerProvider(new AppUserManager(new AppUserStore(AppDbContext.Create("Dialog"))))
             };
             

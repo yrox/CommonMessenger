@@ -4,6 +4,7 @@ using Dialog.Business.Service.Interfaces;
 
 namespace Dialog.WebApi.Controllers
 {
+    //[Authorize]
     [RoutePrefix("api/notification")]
     public class NotificationController : ApiController
     {
@@ -19,6 +20,13 @@ namespace Dialog.WebApi.Controllers
         public void SendMessageRecived(string userName, MessageDto item)
         {
             _service.SendMessage(item, userName);
+        }
+
+        [Route("{name:minlength(4)}/start")]
+        [HttpGet]
+        public void StartListening(string name)
+        {
+            _service.CreateUserNotificator(name);
         }
     }
 }
