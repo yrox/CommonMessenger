@@ -6,7 +6,7 @@ using Dialog.Business.Service.Interfaces;
 namespace Dialog.WebApi.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/message")]
+    [RoutePrefix("api/messages")]
     public class MessageController : ApiController
     {
         private readonly IMessagesService _messagesService;
@@ -37,21 +37,21 @@ namespace Dialog.WebApi.Controllers
             _messagesService.Insert(item);
         }
 
-        [Route("send")]
+        [Route("{username:minlength(4)}/new")]
         [HttpPost]
         public void Send(MessageDto item, string username)
         {
            _messagesService.Send(item, username);
         }
 
-        [Route("{id:int}")]
+        [Route("{item.Id:int}")]
         [HttpPut]
         public void Update(MessageDto item)
         {
             _messagesService.Update(item);
         }
 
-        [Route("del")]
+        [Route("{item.Id:int}")]
         [HttpDelete]
         public void Delete(MessageDto item)
         {

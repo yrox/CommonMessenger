@@ -6,7 +6,7 @@ using Dialog.Business.Service.Interfaces;
 namespace Dialog.WebApi.Controllers
 {
     //[Authorize]
-    [RoutePrefix("api/metacontact")]
+    [RoutePrefix("api/metacontacts")]
     public class MetaContactController : ApiController
     {
         private readonly IMetaContactsService _metaContactsService;
@@ -37,14 +37,14 @@ namespace Dialog.WebApi.Controllers
             _metaContactsService.Insert(item);
         }
 
-        [Route("{id:int}")]
+        [Route("{item.Id:int}")]
         [HttpPut]
         public void Update(MetaContactDto item)
         {
             _metaContactsService.Update(item);
         }
 
-        [Route("del")]
+        [Route("{item.Id:int}")]
         [HttpDelete]
         public void Delete(MetaContactDto item)
         {

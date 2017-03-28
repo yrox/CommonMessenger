@@ -6,7 +6,7 @@ using Dialog.Business.Service.Interfaces;
 namespace Dialog.WebApi.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/contact")]
+    [RoutePrefix("api/contacts")]
     public class ContactController : ApiController
     {
         private readonly IContactsService _contactsService;
@@ -44,14 +44,14 @@ namespace Dialog.WebApi.Controllers
             _contactsService.Insert(item);
         }
 
-        [Route("{id:int}")]
+        [Route("{item.Id:int}")]
         [HttpPut]
         public void Update(ContactDto item)
         {
             _contactsService.Update(item);
         }
 
-        [Route("del")]
+        [Route("{item.Id:int}")]
         [HttpDelete]
         public void Delete(ContactDto item)
         {

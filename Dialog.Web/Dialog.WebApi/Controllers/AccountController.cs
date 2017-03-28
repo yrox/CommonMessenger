@@ -7,7 +7,7 @@ using Microsoft.AspNet.Identity;
 namespace Dialog.WebApi.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/account")]
+    [RoutePrefix("api/accounts")]
     public class AccountController : ApiController
     {
         private readonly IAccountsService _accountsAccService;
@@ -32,6 +32,7 @@ namespace Dialog.WebApi.Controllers
             return _accountsAccService.Find(id);
         }
 
+        //TODO remove user identity
         [Route("")]
         [HttpPost]
         public void Insert(AccountDto item)
@@ -41,7 +42,7 @@ namespace Dialog.WebApi.Controllers
             _accountsAccService.Insert(item);
         }
 
-        [Route("{id:int}")]
+        [Route("{item.Id:int}")]
         [HttpPut]
         public void Update(AccountDto item)
         {
@@ -50,7 +51,7 @@ namespace Dialog.WebApi.Controllers
             _accountsAccService.Update(item);
         }
 
-        [Route("del")]
+        [Route("{item.Id:int}")]
         [HttpDelete]
         public void Delete(AccountDto item)
         {
