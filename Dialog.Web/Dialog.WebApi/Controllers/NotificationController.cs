@@ -4,6 +4,7 @@ using Dialog.Business.Service.Interfaces;
 
 namespace Dialog.WebApi.Controllers
 {
+    //TODO handle signalr connection
     //[Authorize]
     [RoutePrefix("api/notifications")]
     public class NotificationController : ApiController

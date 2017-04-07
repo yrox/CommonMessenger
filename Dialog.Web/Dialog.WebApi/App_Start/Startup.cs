@@ -10,6 +10,7 @@ using Owin;
 
 namespace Dialog.WebApi
 {
+    //TODO fix auth
     public class Startup
     {
         public void Configuration(IAppBuilder app)
