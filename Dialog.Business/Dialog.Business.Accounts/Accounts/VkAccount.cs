@@ -17,6 +17,7 @@ using VkNet.Model.RequestParams;
 
 namespace Dialog.Business.Accounts.Accounts
 {
+    //TODO cancelation token
     public class VkAccount : BaseAccountEvents, IAccount
     {
 
