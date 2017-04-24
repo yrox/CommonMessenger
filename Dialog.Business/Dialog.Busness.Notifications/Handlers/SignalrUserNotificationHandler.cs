@@ -10,7 +10,6 @@ using Microsoft.AspNet.SignalR;
 
 namespace Dialog.Busness.Notifications.Handlers
 {
-    //TODO onUserDisconnects
     public class SignalrUserNotificationHandler : IUserNotificationHandler
     {
         private readonly AccountsManager _accountsManager;
