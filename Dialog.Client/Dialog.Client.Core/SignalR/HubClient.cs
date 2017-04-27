@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using Dialog.Business.DTO;
+using Dialog.Client.DTO;
 using Microsoft.AspNet.SignalR.Client;
 
 namespace Dialog.Client.Core.SignalR
@@ -80,8 +80,8 @@ namespace Dialog.Client.Core.SignalR
         {
             _hubProxy.On<MessageDto>("MessageRecived", message => OnMessageRecived(message));
             _hubProxy.On<ContactDto>("ContactAdded", contact => OnContactAdded(contact));
-            _hubProxy.On<MessageDto>("MessageCaptchaNeeded", message => OnMessageRecived(message));
-            _hubProxy.On("CodeNeeded", message => OnMessageRecived(message));
+            _hubProxy.On<Uri, long>("CaptchaNeeded", (captchaUrl, sid) => OnCaptchaNeeded(captchaUrl, sid));
+            _hubProxy.On("CodeNeeded", message => OnCodeNeeded());
         }
 
 
