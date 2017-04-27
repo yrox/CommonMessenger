@@ -12,15 +12,15 @@ namespace Dialog.Busness.Notifications.Handlers
 {
     public class SignalrUserNotificationHandler : IUserNotificationHandler
     {
-        private readonly AccountsManager _accountsManager;
+        private readonly AccountsGroup _accountsGroup;
         private readonly ConnectionMapping<string> _connections;
         private readonly IHubContext _hubContext;
         private readonly HttpClient _httpClient;
 
-        public SignalrUserNotificationHandler(AccountsManager manager, ConnectionMapping<string> connections, string userName)
+        public SignalrUserNotificationHandler(AccountsGroup @group, ConnectionMapping<string> connections, string userName)
         {
             UserName = userName;
-            _accountsManager = manager;
+            _accountsGroup = @group;
             _connections = connections;
             _hubContext = GlobalHost.ConnectionManager.GetHubContext<NotificationsНub>();
             InitializeAccountsManagerEvents();
@@ -75,11 +75,11 @@ namespace Dialog.Busness.Notifications.Handlers
 
         private void InitializeAccountsManagerEvents()
         {
-            _accountsManager.OnMessageRecived += SendMessage;
-            _accountsManager.OnAccountUpdated += UpdateAccount;
-            _accountsManager.OnCaptchaNeeded += ThrowCaptcha;
-            _accountsManager.OnCodeNeeded += ThrowCode;
-            _accountsManager.OnContactAdded += AddContact;
+            _accountsGroup.OnMessageRecived += SendMessage;
+            _accountsGroup.OnAccountUpdated += UpdateAccount;
+            _accountsGroup.OnCaptchaNeeded += ThrowCaptcha;
+            _accountsGroup.OnCodeNeeded += ThrowCode;
+            _accountsGroup.OnContactAdded += AddContact;
         }
     }
 }

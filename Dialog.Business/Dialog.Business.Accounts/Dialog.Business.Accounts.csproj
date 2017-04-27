@@ -85,7 +85,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountsManager.cs" />
+    <Compile Include="AccountsGroup.cs" />
     <Compile Include="Accounts\BaseAccountEvents.cs" />
     <Compile Include="Accounts\VkAccount.cs" />
     <Compile Include="Entities\VkLongPollingUpdates.cs" />

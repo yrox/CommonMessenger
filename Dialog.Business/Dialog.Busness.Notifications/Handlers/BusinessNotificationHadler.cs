@@ -6,12 +6,12 @@ namespace Dialog.Busness.Notifications.Handlers
 {
     public class BusinessNotificationHadler : IBusinessNotificationHandler
     {
-        private readonly AccountsManager _accountsManager;
+        private readonly AccountsGroup _accountsGroup;
 
         
-        public BusinessNotificationHadler(AccountsManager manager, string userName)
+        public BusinessNotificationHadler(AccountsGroup @group, string userName)
         {
-            _accountsManager = manager;
+            _accountsGroup = @group;
             UserName = userName;
         }
 
@@ -19,12 +19,12 @@ namespace Dialog.Busness.Notifications.Handlers
 
         public void SendMessage(MessageDto message)
         {
-            _accountsManager.SendMessage(message);
+            _accountsGroup.SendMessage(message);
         }
 
         public void SendMessage(MessageDto message, string captcha, long sid)
         {
-            _accountsManager.SendMessage(message, captcha, sid);
+            _accountsGroup.SendMessage(message, captcha, sid);
         }
     }
 }

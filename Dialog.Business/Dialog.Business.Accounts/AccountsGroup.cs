@@ -6,7 +6,7 @@ using Dialog.Business.DTO;
 
 namespace Dialog.Business.Accounts
 {
-    public class AccountsManager : BaseAccountEvents
+    public class AccountsGroup : BaseAccountEvents
     {
         private VkAccount _account;
 
@@ -27,7 +27,7 @@ namespace Dialog.Business.Accounts
            // _account.StartAskingServer();
         }
 
-        public AccountsManager(AccountDto acc, IMapper mapper)
+        public AccountsGroup(AccountDto acc, IMapper mapper)
         {
             Authorize(acc, mapper);
         }
