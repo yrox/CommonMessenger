@@ -5,7 +5,6 @@ using Dialog.Business.Service.Interfaces;
 
 namespace Dialog.WebApi.Controllers
 {
-    //TODO delete by id
     [Authorize]
     [RoutePrefix("api/messages")]
     public class MessageController : ApiController
@@ -52,11 +51,11 @@ namespace Dialog.WebApi.Controllers
             _messagesService.Update(item);
         }
 
-        [Route("{item.Id:int}")]
+        [Route("{id:int}")]
         [HttpDelete]
-        public void Delete(MessageDto item)
+        public void Delete(int id)
         {
-            _messagesService.Delete(item);
+            _messagesService.Delete(id);
         }
     }
 }

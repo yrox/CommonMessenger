@@ -44,11 +44,11 @@ namespace Dialog.WebApi.Controllers
             _metaContactsService.Update(item);
         }
 
-        [Route("{item.Id:int}")]
+        [Route("{id:int}")]
         [HttpDelete]
-        public void Delete(MetaContactDto item)
+        public void Delete(int id)
         {
-            _metaContactsService.Delete(item);
+            _metaContactsService.Delete(id);
         }
     }
 }

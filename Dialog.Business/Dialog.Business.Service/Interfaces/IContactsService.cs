@@ -13,6 +13,6 @@ namespace Dialog.Business.Service.Interfaces
 
         void Update(ContactDto entity);
 
-        void Delete(ContactDto entity);
+        void Delete(int id);
     }
 }

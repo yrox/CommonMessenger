@@ -41,8 +41,9 @@ namespace Dialog.Business.Service.Services
             _dialogUnitOfWork.SaveChanges();
         }
 
-        public void Delete(MetaContactDto entity)
+        public void Delete(int id)
         {
+            var entity = Find(id);
             _dialogUnitOfWork.MetaContactsRepository.Delete(_mapper.Map<MetaContact>(entity));
             _dialogUnitOfWork.SaveChanges();
         }

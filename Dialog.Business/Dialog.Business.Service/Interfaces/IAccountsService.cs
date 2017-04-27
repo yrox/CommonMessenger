@@ -17,6 +17,6 @@ namespace Dialog.Business.Service.Interfaces
 
         void Update(AccountDto entity);
 
-        void Delete(AccountDto entity);
+        void Delete(int id);
     }
 }

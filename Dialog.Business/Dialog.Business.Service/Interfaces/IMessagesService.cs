@@ -13,7 +13,7 @@ namespace Dialog.Business.Service.Interfaces
 
         void Update(MessageDto entity);
 
-        void Delete(MessageDto entity);
+        void Delete(int id);
 
         void Send(MessageDto entity, string userName);
     }

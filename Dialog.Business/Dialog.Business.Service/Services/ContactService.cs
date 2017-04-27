@@ -40,8 +40,9 @@ namespace Dialog.Business.Service.Services
             _dialogUnitOfWork.SaveChanges();
         }
 
-        public void Delete(ContactDto entity)
+        public void Delete(int id)
         {
+            var entity = Find(id);
             _dialogUnitOfWork.ContactsRepository.Delete(_mapper.Map<Contact>(entity));
             _dialogUnitOfWork.SaveChanges();
         }

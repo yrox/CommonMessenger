@@ -50,8 +50,9 @@ namespace Dialog.Business.Service.Services
             _dialogUnitOfWork.SaveChanges();
         }
 
-        public void Delete(AccountDto entity)
+        public void Delete(int id)
         {
+            var entity = Find(id);
             _dialogUnitOfWork.AccountsRepository.Delete(_mapper.Map<Account>(entity));
             _dialogUnitOfWork.SaveChanges();
         }

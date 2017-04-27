@@ -51,11 +51,11 @@ namespace Dialog.WebApi.Controllers
             _contactsService.Update(item);
         }
 
-        [Route("{item.Id:int}")]
+        [Route("{id:int}")]
         [HttpDelete]
-        public void Delete(ContactDto item)
+        public void Delete(int id)
         {
-            _contactsService.Delete(item);
+            _contactsService.Delete(id);
         }
     }
 }
