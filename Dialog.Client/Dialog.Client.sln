@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialog.Client.Core", "Dialog.Client.Core\Dialog.Client.Core.csproj", "{E4BBC981-A4C6-46D5-B67F-98AC8B972905}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialog.Business.DTO", "..\Dialog.Business\Dialog.Business.DTO\Dialog.Business.DTO.csproj", "{DAC8598A-D136-46BB-9981-C0B74BEC21E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialog.Client.DTO", "Dialog.Client.DTO\Dialog.Client.DTO.csproj", "{FE99B76F-3BF5-4C34-9A13-A66340732045}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{E4BBC981-A4C6-46D5-B67F-98AC8B972905}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4BBC981-A4C6-46D5-B67F-98AC8B972905}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4BBC981-A4C6-46D5-B67F-98AC8B972905}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DAC8598A-D136-46BB-9981-C0B74BEC21E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DAC8598A-D136-46BB-9981-C0B74BEC21E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DAC8598A-D136-46BB-9981-C0B74BEC21E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DAC8598A-D136-46BB-9981-C0B74BEC21E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE99B76F-3BF5-4C34-9A13-A66340732045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE99B76F-3BF5-4C34-9A13-A66340732045}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE99B76F-3BF5-4C34-9A13-A66340732045}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE99B76F-3BF5-4C34-9A13-A66340732045}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

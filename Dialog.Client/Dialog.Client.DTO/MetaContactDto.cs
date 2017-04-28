@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Dialog.Business.DTO;
 using Dialog.Client.DTO.Interfaces;
 
 namespace Dialog.Client.DTO
