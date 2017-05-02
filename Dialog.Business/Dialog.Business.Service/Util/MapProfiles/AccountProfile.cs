@@ -1,5 +1,4 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using Dialog.Business.DTO;
 using Dialog.Data.Entities;
 
