@@ -2,7 +2,6 @@
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
-using AutoMapper;
 using Dialog.Business.Service.Services;
 using Dialog.Business.Service.Util;
 using Microsoft.AspNet.Identity;
@@ -23,10 +22,8 @@ namespace Dialog.WebApi.Util
             //var assemblies = BuildManager.GetReferencedAssemblies().Cast<Assembly>();
             //builder.RegisterAssemblyModules(assemblies.ToArray());
 
-            builder.RegisterWebApiFilterProvider(GlobalConfiguration.Configuration);
 
-            builder.Register(c => c.Resolve<MapperConfiguration>().CreateMapper(c.Resolve))
-                .As<IMapper>().InstancePerLifetimeScope();
+            builder.RegisterWebApiFilterProvider(GlobalConfiguration.Configuration);
 
             builder.RegisterType<NotifiationService>().AsImplementedInterfaces();
 

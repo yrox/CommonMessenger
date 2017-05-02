@@ -20,7 +20,7 @@ namespace Dialog.Business.Service.Services
 
         public IEnumerable<ContactDto> GetAll()
         {
-            return _dialogUnitOfWork.ContactsRepository.GetAll<ContactDto>();
+            return _mapper.Map<IEnumerable<ContactDto>>(_dialogUnitOfWork.ContactsRepository.GetAll());
         }
 
         public ContactDto Find(int id)

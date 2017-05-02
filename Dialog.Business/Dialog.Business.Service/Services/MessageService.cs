@@ -22,7 +22,7 @@ namespace Dialog.Business.Service.Services
 
         public IEnumerable<MessageDto> GetAll()
         {
-            return _dialogUnitOfWork.MessagesRepository.GetAll<MessageDto>();
+            return _mapper.Map<IEnumerable<MessageDto>>(_dialogUnitOfWork.MessagesRepository.GetAll());
         }
 
         public MessageDto Find(int id)

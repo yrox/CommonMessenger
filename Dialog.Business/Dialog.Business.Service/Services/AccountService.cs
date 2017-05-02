@@ -20,12 +20,12 @@ namespace Dialog.Business.Service.Services
 
         public IEnumerable<AccountDto> GetAll()
         {
-            return _dialogUnitOfWork.AccountsRepository.GetAll<AccountDto>();
+            return _mapper.Map<IEnumerable<AccountDto>>(_dialogUnitOfWork.AccountsRepository.GetAll());
         }
 
         public IEnumerable<AccountDto> GetAllByUserId(int id)
         {
-            return _dialogUnitOfWork.AccountsRepository.GetAll<AccountDto>(x => x.UserReference.Id == id);
+            return _mapper.Map<IEnumerable<AccountDto>>(_dialogUnitOfWork.AccountsRepository.GetAll(x => x.UserReference.Id == id));
         }
 
         public IEnumerable<AccountDto> GetAllByUserName(string name)

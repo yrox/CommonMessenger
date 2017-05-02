@@ -1,12 +1,11 @@
-﻿using System.Web;
+﻿using System.Collections.Generic;
+using System.Web;
 using Autofac;
 using AutoMapper;
 using Dialog.Business.Service.Services;
-using Dialog.Business.Service.Util.MapProfiles;
 using Dialog.Busness.Notifications.Util;
 using Dialog.Data;
 using Dialog.Data.Interfaces;
-using Dialog.Business.Accounts.Util.MapperProfiles;
 
 namespace Dialog.Business.Service.Util
 {
@@ -25,17 +24,30 @@ namespace Dialog.Business.Service.Util
 
             builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
 
-            builder.Register(x => new MapperConfiguration(
-                cfg =>
+            builder.Register(context => new MapperConfiguration(cfg =>
+            {
+                foreach (var profile in context.Resolve<IEnumerable<Profile>>())
                 {
-                    cfg.AddProfile(typeof(AccContactProfile));
-                    cfg.AddProfile(typeof(AccMessageProfile));
-                    cfg.AddProfile(typeof(AccountProfile));
-                    cfg.AddProfile(typeof(ContactProfile));
-                    cfg.AddProfile(typeof(MessageProfile));
-                    cfg.AddProfile(typeof(MetaContactProfile));
-                    cfg.AddProfile(typeof(UserProfile));
-                }));
+                    cfg.AddProfile(profile);
+                }
+            })).AsSelf().SingleInstance();
+
+            builder.Register(c => c.Resolve<MapperConfiguration>().CreateMapper(c.Resolve))
+                .As<IMapper>()
+                .AutoActivate()
+                .SingleInstance();
+
+            //builder.Register(x => new MapperConfiguration(
+            //    cfg =>
+            //    {
+            //        cfg.AddProfile(typeof(AccContactProfile));
+            //        cfg.AddProfile(typeof(AccMessageProfile));
+            //        cfg.AddProfile(typeof(AccountProfile));
+            //        cfg.AddProfile(typeof(ContactProfile));
+            //        cfg.AddProfile(typeof(MessageProfile));
+            //        cfg.AddProfile(typeof(MetaContactProfile));
+            //        cfg.AddProfile(typeof(UserProfile));
+            //    }));
 
             builder.RegisterModule(new NotificationHandlerModule());
 
