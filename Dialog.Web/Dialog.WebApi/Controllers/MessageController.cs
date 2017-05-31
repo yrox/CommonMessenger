@@ -3,6 +3,8 @@ using System.Web.Http;
 using Dialog.Business.DTO;
 using Dialog.Business.Service.Interfaces;
 
+//TODO getAll of type, for specfic user 
+
 namespace Dialog.WebApi.Controllers
 {
     [Authorize]

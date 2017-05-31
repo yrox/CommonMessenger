@@ -10,7 +10,6 @@ using Owin;
 
 namespace Dialog.WebApi
 {
-    //TODO fix auth
     public class Startup
     {
         public void Configuration(IAppBuilder app)
@@ -23,6 +22,7 @@ namespace Dialog.WebApi
             app.CreatePerOwinContext(() => AppDbContext.Create("Dialog"));
             app.CreatePerOwinContext<AppUserManager>(AppUserManager.Create);
 
+
             ConfigureOAuth(app);
         }
 
@@ -32,7 +32,7 @@ namespace Dialog.WebApi
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
                 Provider = new AuthorizationServerProvider(new AppUserManager(new AppUserStore(AppDbContext.Create("Dialog"))))
             };
             

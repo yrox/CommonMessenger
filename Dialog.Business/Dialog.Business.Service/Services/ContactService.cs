@@ -5,6 +5,8 @@ using Dialog.Business.Service.Interfaces;
 using Dialog.Data.Entities;
 using Dialog.Data.Interfaces;
 
+//TODO getAll of type, for specfic user 
+
 namespace Dialog.Business.Service.Services
 {
     public class ContactService : IContactsService
