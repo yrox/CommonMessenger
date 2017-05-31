@@ -5,6 +5,10 @@ function getAll() {
     return CRUD.getAll(resource);
 }
 
+function getAllOfType(type) {
+    //TODO 
+}
+
 function get(id) {
     return CRUD.get(resource, id);
 }
