@@ -14,9 +14,9 @@ namespace Dialog.Business.Accounts.Util.MapperProfiles
                 .ReverseMap();
 
             CreateMap<TeleSharp.TL.TLAbsUser, ContactDto>()
-                .ForMember("AccountId", x => x.MapFrom(c => (c as TeleSharp.TL.TLUser).id))
+                .ForMember("AccountId", x => x.MapFrom(c => (c as TeleSharp.TL.TLUser).Id))
                 .ForMember("Name", x => x
-                .MapFrom(c => (c as TeleSharp.TL.TLUser).first_name + " " + ((c as TeleSharp.TL.TLUser).last_name) ?? ""))
+                .MapFrom(c => (c as TeleSharp.TL.TLUser).FirstName + " " + ((c as TeleSharp.TL.TLUser).LastName) ?? ""))
                 .ReverseMap();
         }
     }

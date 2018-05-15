@@ -12,7 +12,7 @@ namespace Dialog.Business.Accounts.Util.MapperProfiles
                 .ReverseMap();
 
             CreateMap<TeleSharp.TL.TLAbsMessage, MessageDto>()
-                .ForMember("AccountId", x => x.MapFrom(c => (c as TeleSharp.TL.TLMessage).from_id))
+                .ForMember("AccountId", x => x.MapFrom(c => (c as TeleSharp.TL.TLMessage).FromId))
                 .ReverseMap();
         }
     }

@@ -97,7 +97,7 @@ namespace Dialog.Business.Accounts.Accounts
         {
             try
             {
-                _api.Authorize(_accountInfo.AccessToken);
+                _api.Authorize(new ApiAuthParams { AccessToken = _accountInfo.AccessToken });
             }
             catch (AccessTokenInvalidException)
             {
