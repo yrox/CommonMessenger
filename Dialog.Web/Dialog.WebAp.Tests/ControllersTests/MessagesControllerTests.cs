@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using AutoMapper;
 using Dialog.Data.Entities;
-using Dialog.DTOs;
 using Moq;
 using NUnit.Framework;
 using Olga.Data;
-using WebApi.Controllers;
-using WebApi.Util;
+using Dialog.Business.DTO;
+using Dialog.WebApi.Controllers;
 
 namespace WebApi.Test.ControllersTests
 {
     public class MessagesControllerTests
     {
-        private MessagesController _messagesController;
+        private MessageController _messagesController;
         private Mock<UnitOfWork> _unitOfWorkMock;
 
         [SetUp]
@@ -38,7 +37,7 @@ namespace WebApi.Test.ControllersTests
             var result = _messagesController.GetAll();
             _unitOfWorkMock.Verify(x => x.Repository<Message>().GetAll(), Times.Once);
             Assert.NotNull(result);
-            Assert.IsInstanceOf<IEnumerable<MessageDTO>>(result);
+            Assert.IsInstanceOf<IEnumerable<MessageDto>>(result);
         }
 
         [Test]
@@ -47,13 +46,13 @@ namespace WebApi.Test.ControllersTests
             var result = _messagesController.Get(1);
             _unitOfWorkMock.Verify(x => x.Repository<Message>().Find(It.IsAny<int>()), Times.Once);
             Assert.NotNull(result);
-            Assert.IsInstanceOf<MessageDTO>(result);
+            Assert.IsInstanceOf<MessageDto>(result);
         }
 
         [Test]
         public void Insert_ShouldInsertEntity_Succeed()
         {
-            _messagesController.Insert(new MessageDTO());
+            _messagesController.Insert(new MessageDto());
             _unitOfWorkMock.Verify(x => x.Repository<Message>(), Times.Once);
         }
 
@@ -62,14 +61,14 @@ namespace WebApi.Test.ControllersTests
         public void Update_ShouldUpdatetEntity_Succeed()
         {
             var id = new Random().Next();
-            _messagesController.Update(new MessageDTO { Id = id });
+            _messagesController.Update(new MessageDto { Id = id });
             _unitOfWorkMock.Verify(x => x.Repository<Message>().Update(It.IsAny<Message>()), Times.Once);
         }
 
         [Test]
         public void Delete_ShouldDeleteEntity_Succeed()
         {
-            _messagesController.Delete(new MessageDTO());
+            _messagesController.Delete(new MessageDto());
             _unitOfWorkMock.Verify(x => x.Repository<Message>().Delete(It.IsAny<Message>()), Times.Once);
         }
     }

@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using AutoMapper;
 using Dialog.Data.Entities;
-using Dialog.DTOs;
 using Moq;
 using NUnit.Framework;
 using Olga.Data;
-using WebApi.Controllers;
-using WebApi.Util;
+using Dialog.Business.DTO;
+using Dialog.WebApi.Controllers;
 
 namespace WebApi.Test.ControllersTests
 {
@@ -31,12 +30,12 @@ namespace WebApi.Test.ControllersTests
         }
 
         private Mock<UnitOfWork> _unitOfWorkMock;
-        private ContactsController _contactsController;
+        private ContactController _contactsController;
 
         [Test]
         public void Delete_ShouldDeleteEntity_Succeed()
         {
-            _contactsController.Delete(new ContactDTO());
+            _contactsController.Delete(new ContactDto());
             _unitOfWorkMock.Verify(x => x.Repository<Contact>().Delete(It.IsAny<Contact>()), Times.Once);
         }
 
