@@ -1,9 +1,24 @@
 import React, { Component } from "react";
-import Metacontact from './metacontact';
+import Metacontact from "./metacontact";
+import classNames from 'classnames';
 
 export default class MetacontactList extends Component {
   render() {
-    const { metacotacts} = this.props;
-    return <div>{metacotacts.map(mc => <div>{mc}</div>)}</div>;
+    const { metacontacts } = this.props;
+
+    return (
+      <div className="sidebar-right">
+        {metacontacts.size > 0 ? (
+          <div>
+            <h2 className="title">Metacontacts</h2>
+            <div className="metacontacts">
+              {metacontacts.map((metacontact, key) => {
+                <Metacontact metacontact={metacontact} key={key} />;
+              })}
+            </div>
+          </div>
+        ) : null}
+      </div>
+    );
   }
 }
