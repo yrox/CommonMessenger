@@ -186,11 +186,11 @@ body {
   }
 }
 
-.chanels {
+.chats {
 
   overflow-y: auto;
   height: 100%;
-  .chanel {
+  .chat {
     cursor: pointer;
     display: flex;
     border-bottom: 1px solid $border-color;
@@ -284,7 +284,7 @@ body {
         }
       }
     }
-    .chanel-info {
+    .chat-info {
       flex-grow: 1;
       padding-left: 8px;
       padding-right: 8px;
@@ -307,7 +307,7 @@ body {
       background: rgba(0, 0, 0, 0.05);
     }
     &.notify {
-      .chanel-info {
+      .chat-info {
         p {
           color: $primary-color;
         }
