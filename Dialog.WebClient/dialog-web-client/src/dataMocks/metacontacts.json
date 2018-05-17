@@ -1,0 +1,104 @@
+[
+  {
+    "id": 1,
+    "name": "Bob",
+    "contacts": [
+      {
+        "id": 1,
+        "name": "Bob VK",
+        "type": "vk"
+      },
+      {
+        "id": 11,
+        "name": "Bob TL",
+        "type": "telegram"
+      }
+    ],
+    "messages": []
+  },
+  {
+    "id": 2,
+    "name": "Alice",
+    "contacts": [
+      {
+        "id": 2,
+        "name": "Alice TL",
+        "type": "telegram"
+      },
+      {
+        "id": 21,
+        "name": "Alice VK",
+        "type": "vk"
+      }
+    ],
+    "messages": []
+  },
+  {
+    "id": 3,
+    "name": "Kate",
+    "contacts": [
+      {
+        "id": 3,
+        "name": "Kate VK",
+        "type": "vk"
+      },
+      {
+        "id": 31,
+        "name": "Kate TL",
+        "type": "telegram"
+      }
+    ],
+    "messages": []
+  },
+  {
+    "id": 4,
+    "name": "John",
+    "contacts": [
+      {
+        "id": 4,
+        "name": "John TL",
+        "type": "telegram"
+      },
+      {
+        "id": 41,
+        "name": "John VK",
+        "type": "vk"
+      }
+    ],
+    "messages": []
+  },
+  {
+    "id": 5,
+    "name": "Kevin",
+    "contacts": [
+      {
+        "id": 5,
+        "name": "Kevin VK",
+        "type": "vk"
+      },
+      {
+        "id": 51,
+        "name": "Kevin TL",
+        "type": "telegram"
+      }
+    ],
+    "messages": []
+  },
+  {
+    "id": 6,
+    "name": "Rob",
+    "contacts": [
+      {
+        "id": 6,
+        "name": "Rob TL",
+        "type": "telegram"
+      },
+      {
+        "id": 61,
+        "name": "Rob VK",
+        "type": "vk"
+      }
+    ],
+    "messages": []
+  }
+]

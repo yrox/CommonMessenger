@@ -1,0 +1,186 @@
+[
+  {
+    "id": 1,
+    "text": "hi",
+    "date": "2018-05-17T15:48:51+03:00",
+    "meta": {
+      "id": 1,
+      "name": "Bob",
+      "contacts": [
+        {
+          "id": 1,
+          "name": "Bob VK",
+          "type": "vk"
+        },
+        {
+          "id": 11,
+          "name": "Bob TL",
+          "type": "telegram"
+        }
+      ]
+    },
+    "me": true,
+    "type": "vk"
+  },
+  {
+    "id": 2,
+    "text": "hi",
+    "date": "2018-05-17T15:48:51+03:00",
+    "meta": {
+      "id": 1,
+      "name": "Bob",
+      "contacts": [
+        {
+          "id": 1,
+          "name": "Bob VK",
+          "type": "vk"
+        },
+        {
+          "id": 11,
+          "name": "Bob TL",
+          "type": "telegram"
+        }
+      ]
+    },
+    "me": false,
+    "type": "telegram"
+  },
+  {
+    "id": 3,
+    "text": "hi again",
+    "date": "2018-05-17T15:48:51+03:00",
+    "meta": {
+      "id": 1,
+      "name": "Bob",
+      "contacts": [
+        {
+          "id": 1,
+          "name": "Bob VK",
+          "type": "vk"
+        },
+        {
+          "id": 11,
+          "name": "Bob TL",
+          "type": "telegram"
+        }
+      ]
+    },
+    "me": true,
+    "type": "vk"
+  },
+  {
+    "id": 4,
+    "text": "some message",
+    "date": "2018-05-17T15:48:51+03:00",
+    "meta": {
+      "id": 1,
+      "name": "Bob",
+      "contacts": [
+        {
+          "id": 1,
+          "name": "Bob VK",
+          "type": "vk"
+        },
+        {
+          "id": 11,
+          "name": "Bob TL",
+          "type": "telegram"
+        }
+      ]
+    },
+    "me": false,
+    "type": "telegram"
+  },
+  {
+    "id": 11,
+    "text": "hi",
+    "date": "2018-05-17T15:48:51+03:00",
+    "meta": {
+      "id": 2,
+      "name": "Alice",
+      "contacts": [
+        {
+          "id": 2,
+          "name": "Alice TL",
+          "type": "telegram"
+        },
+        {
+          "id": 21,
+          "name": "Alice VK",
+          "type": "vk"
+        }
+      ]
+    },
+    "me": true,
+    "type": "vk"
+  },
+  {
+    "id": 21,
+    "text": "hi",
+    "date": "2018-05-17T15:48:51+03:00",
+    "meta": {
+      "id": 2,
+      "name": "Alice",
+      "contacts": [
+        {
+          "id": 2,
+          "name": "Alice TL",
+          "type": "telegram"
+        },
+        {
+          "id": 21,
+          "name": "Alice VK",
+          "type": "vk"
+        }
+      ]
+    },
+    "me": false,
+    "type": "telegram"
+  },
+  {
+    "id": 31,
+    "text": "hi again",
+    "date": "2018-05-17T15:48:51+03:00",
+    "meta": {
+      "id": 2,
+      "name": "Alice",
+      "contacts": [
+        {
+          "id": 2,
+          "name": "Alice TL",
+          "type": "telegram"
+        },
+        {
+          "id": 21,
+          "name": "Alice VK",
+          "type": "vk"
+        }
+      ]
+    },
+    "me": true,
+    "type": "vk"
+  },
+  {
+    "id": 41,
+    "text": "some message",
+    "date": "2018-05-17T15:48:51+03:00",
+    "meta": {
+      "id": 2,
+      "name": "Alice",
+      "contacts": [
+        {
+          "id": 2,
+          "name": "Alice TL",
+          "type": "telegram"
+        },
+        {
+          "id": 21,
+          "name": "Alice VK",
+          "type": "vk"
+        }
+      ]
+    },
+    "me": false,
+    "type": "telegram"
+  }
+]

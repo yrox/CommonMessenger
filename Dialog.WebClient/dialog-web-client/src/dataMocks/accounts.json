@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "login": "alice@email.com",
+    "password": 123456,
+    "accId": "dfg45f5d",
+    "phone": "8888888888",
+    "type": "vk"
+  },
+  {
+    "id": 2,
+    "login": "alice@email.com",
+    "password": 123456,
+    "accId": "df3333d",
+    "phone": "8888888888",
+    "type": "telegram"
+  }
+]
