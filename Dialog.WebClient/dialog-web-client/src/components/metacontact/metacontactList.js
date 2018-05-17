@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Metacontact from "./metacontact";
-import classNames from 'classnames';
+import classNames from "classnames";
 
 export default class MetacontactList extends Component {
   render() {
     const { metacontacts } = this.props;
 
     return (
-      <div className="sidebar-right">
+      <div>
         {metacontacts.size > 0 ? (
           <div>
             <h2 className="title">Metacontacts</h2>
