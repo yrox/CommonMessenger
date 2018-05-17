@@ -22,7 +22,7 @@ export default class Message extends Component {
         </div>
         <div className="message-body">
           <div className="message-author">
-            {message.me ? "You " : message.author} says:
+            {message.me ? "You " : message.meta.name} says:
           </div>
           <div className="message-text">{this.renderMessage(message)}</div>
         </div>
