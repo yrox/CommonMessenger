@@ -1,19 +1,17 @@
-import { readFile, readAsText } from "fs";
-
 export function getAllAccounts() {
-  return JSON.parse(readFile("./accounts.json"));
+  return require("./accounts.json");
 }
 
 export function getAllMessages() {
-  return JSON.parse(readFile("./messages.json"));
+  return require("./messages.json");
 }
 
 export function getAllContacts() {
-  return JSON.parse(readFile("./contacts.json"));
+  return require("./contacts.json");
 }
 
 export function getAllMetacontacts() {
-  return JSON.parse(readFile("./metacontacts.json"));
+  return require("./metacontacts.json");
 }
 
 export function getContactsByType(type) {
