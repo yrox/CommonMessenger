@@ -15,12 +15,12 @@ export default class ChatInputArea extends Component {
             onChange={event => {
               const newMessage = _.get(event, "target.value");
 
-              thi.setState({ newMessage: newMessage });
+              this.setState({ newMessage: newMessage });
               this.props.onInputChange({
                 newMessage: newMessage
               });
             }}
-            value={this.state.newMessage}
+            value=''
             placeholder="Write your messsage..."
           />
         </div>

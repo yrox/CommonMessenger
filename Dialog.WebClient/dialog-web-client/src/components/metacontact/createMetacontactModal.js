@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Modal from "react-modal";
+import { Button, Modal } from "react-bootstrap";
 import Select from "react-select";
-import { Button, ButtonToolbar } from "react-bootstrap";
 import { getContactsByType } from "../../dataMocks/mockAdapter";
+import 'react-select/dist/react-select.css';
 
 export class CreateMetacontactModal extends Component {
   render() {
@@ -10,38 +10,45 @@ export class CreateMetacontactModal extends Component {
     const telegramContacts = getContactsByType("telegram");
 
     return (
-      <Modal
-        isOpen={this.props.modalIsOpen}
-        onRequestClose={this.props.changeModalState}
-        style={customStyles}
-        contentLabel="Create metacontact"
+      <Modal.Dialog
+        show={this.props.isModalOpen}
+        onHide={this.props.changeModalState}
       >
-        <h2 ref={subtitle => (this.subtitle = subtitle)}>Hello</h2>
-        <div>
-          <p>Telegram contacts</p>
-          <Select
-            options={telegramContacts.map(it => {
-              return { value: it.id, label: it.name };
-            })}
-            value={null}
-          />
-        </div>
-        <div>
-          <p>Vk contacts</p>
-          <Select
-            options={vkContacts.map(it => {
-              return { value: it.id, label: it.name };
-            })}
-            value={null}
-          />
-        </div>
-        <ButtonToolbar>
-          <Button bsStyle="primary" onClick={this.props.changeModalState}>
+        <Modal.Header className="centered-container">
+          <Modal.Title classname="centered-child">
+            Create New Metacontact
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="centered-container">
+          <div className="centered-child">
+            <div>
+              <p className="contact-list-title">Telegram contacts</p>
+              <Select
+                options={telegramContacts.map(it => {
+                  return { value: it.id, label: it.name };
+                })}
+              />
+            </div>
+            <div>
+              <p className="contact-list-title">Vk contacts</p>
+              <Select
+                options={vkContacts.map(it => {
+                  return { value: it.id, label: it.name };
+                })}
+              />
+            </div>
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            className="btn btn-primary"
+            onClick={this.props.changeModalState}
+          >
             Ok
           </Button>
           <Button onClick={this.props.changeModalState}>Cancel</Button>
-        </ButtonToolbar>
-      </Modal>
+        </Modal.Footer>
+      </Modal.Dialog>
     );
   }
 }

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Metacontact from "./metacontact";
-import classNames from "classnames";
 
 export default class MetacontactList extends Component {
   render() {
@@ -13,7 +12,7 @@ export default class MetacontactList extends Component {
             <h2 className="title">Metacontacts</h2>
             <div className="metacontacts">
               {metacontacts.map((metacontact, key) => {
-                <Metacontact metacontact={metacontact} key={key} />;
+                return <Metacontact metacontact={metacontact} key={key} />;
               })}
             </div>
           </div>

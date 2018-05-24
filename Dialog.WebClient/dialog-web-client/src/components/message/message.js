@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 export default class Message extends Component {
   renderMessage(message) {
-    const text = message.text || '';
+    const text = message.text || "";
 
     const messageElement = _.split(text, "\n").map((m, key) => {
       return <p key={key} dangerouslySetInnerHTML={{ __html: m }} />;
@@ -18,11 +18,17 @@ export default class Message extends Component {
     return (
       <div key={index} className={classNames("message", { me: message.me })}>
         <div className="message-user-image">
-          <img alt="pic" />
+          <img
+            src={
+              message.me
+                ? require("../../images/angry-doggo.jpg")
+                : require("../../images/lenivec.jpg")
+            }
+          />
         </div>
         <div className="message-body">
           <div className="message-author">
-            {message.me ? "You " : message.meta.name} says:
+            {message.me ? "You " : message.meta.name}:
           </div>
           <div className="message-text">{this.renderMessage(message)}</div>
         </div>

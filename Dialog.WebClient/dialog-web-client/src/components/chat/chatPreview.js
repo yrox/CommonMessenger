@@ -1,28 +1,23 @@
 import React, { Component } from "react";
-import classNames from 'classnames';
-import _ from 'lodash';
+import classNames from "classnames";
+import _ from "lodash";
 
 export default class ChatPreview extends Component {
   render() {
-    const { name } = this.props;
+    const { activeChat, chat } = this.props;
     return (
       <div
         onClick={key => {
-          this.props.setActiveChannelId(channel._id);
+          this.props.setActiveChatId(chat.id);
         }}
-        key={channel._id}
-        className={classNames(
-          "chanel",
-          { notify: _.get(channel, "notify") === true },
-          {
-            active: _.get(activeChannel, "_id") === _.get(channel, "_id", null)
-          }
-        )}
+        key={chat.id}
+        className={classNames("chat", true, {
+          active: _.get(activeChat, "id") === _.get(chat, "id", null)
+        })}
       >
-        <div className="user-image">{this.renderChannelAvatars(channel)}</div>
-        <div className="chanel-info">
-          {this.renderChannelTitle(channel)}
-          <p>{channel.lastMessage}</p>
+        {/* <div className="user-image">{this.renderchatAvatars(chat)}</div> */} 
+        <div className="chat-info">
+          <h2>{chat.name}</h2>
         </div>
       </div>
     );
